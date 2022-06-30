@@ -1,9 +1,10 @@
 "use strict";
 import $ = require("jquery");
+
+import * as pageController from "./controller/page-controller";
+
 //import { sayHello } from "./greet";
 function showHello() {
-  $(`.greeting`).load("page.html", function() {
-    $(".greeting1").text("hello");
-  });
+  pageController.getPage();
 }
 showHello();
