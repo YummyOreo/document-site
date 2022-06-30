@@ -1,20 +1,20 @@
+"use strict";
 import $ = require("jquery");
+import { Page } from "../constants/page";
 
-import * as home from "../pages/home";
-import * as test from "../pages/test";
+import * as documentsPage from "../pages/documents";
+import * as homePage from "../pages/home";
+
+const pages: Page[] = [];
+
+pages.push(new documentsPage.page());
+pages.push(new homePage.page());
 
 export function getPage() {
-  const pages = [];
-
-  pages.push(new home.Page());
-  pages.push(new test.Page());
 
   pages.forEach((item, index) => {
-    console.log(window.location.search);
-    if (item.path.includes(window.location.search)) {
-      $(".greeting").load(item.html, function () {
-        item.start();
-      });
+    if (item.path.includes(window.location.pathname)) {
+      item.start();
     }
   });
 }

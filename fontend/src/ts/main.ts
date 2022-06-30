@@ -4,7 +4,8 @@ import $ = require("jquery");
 import * as pageController from "./controller/page-controller";
 
 //import { sayHello } from "./greet";
-function showHello() {
+function start() {
   pageController.getPage();
+  
 }
-showHello();
+start();

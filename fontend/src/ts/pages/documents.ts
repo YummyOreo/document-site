@@ -2,7 +2,7 @@ import { Page } from "../constants/page";
 
 export class page extends Page {
   constructor() {
-    super("Home", ["/"]);
+    super("Documents", ["/documents.html", "/documents"]);
   }
 
   start() {
