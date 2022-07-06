@@ -1,8 +1,0 @@
-{
-  "include": ["src/ts/**/*"],
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "target": "es5",
-    "lib": ["es2016", "dom"]
-  }
-}
