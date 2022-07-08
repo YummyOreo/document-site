@@ -1,11 +1,14 @@
 import express from "express";
+import { Paths } from "./src/ts/constants/paths";
 const app = express();
 const port = 3000;
 
-import EndpointController from "@controllers/endpoint-controller";
+import EndpointController from "./src/ts/controller/endpoint-controller";
 
-const root = { root: __dirname.replace("backend", "") };
-const htmlPath = "frontend/static/html/pages";
+const root = { root: Paths["root"] };
+console.log(Paths["root"]);
+
+const htmlPath = Paths["pages"];
 const htmlFiles = { index: htmlPath + "/index.html" };
 
 const endpoint: EndpointController = new EndpointController(app);
