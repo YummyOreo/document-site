@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@controllers/*": ["src/ts/controller/*"],
+      "@endpoints/*": ["src/ts/endpoints/*"],
+      "@constants/*": ["src/ts/constants/*"]
+    }
+  }
+}
