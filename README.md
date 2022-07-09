@@ -1,4 +1,5 @@
 # Document Site
+
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 
 How to get working:
@@ -7,6 +8,7 @@ How to get working:
 - run `npm i` in the dir
 - install firebase cli
 - make a new firebase project
-- get the projects name (you can get this by running  `firebase projects:list`
+- get the projects name (you can get this by running `firebase projects:list`
 - clone `.firebaserc example` (in the frontend folder) and replace `Your project name here` with your projects name
-- go back to the main dir and run `npm run dev` or `npm run dev-fe` for runing the site
+- go back to the main dir and run `npm run dev` to run both the backend and frontend
+- If you want to only the backend run `npm run dev-be` and to only run the frontend run `npm run dev-fe`
