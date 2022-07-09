@@ -2,12 +2,12 @@
   "dependencies": {
     "concurrently": "^7.2.2",
     "express": "^4.18.1",
-    "glob-parent": "^6.0.0",
     "live-server": "^1.2.2",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "ts-node": "^10.8.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "glob-parent": "6.0.0"
   },
   "name": "document-site",
   "description": "This is a site for documents for a soon to be discord server. > more info soon!",
