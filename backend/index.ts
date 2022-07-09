@@ -6,7 +6,7 @@ import EndpointController from "./src/ts/controller/endpoint-controller";
 
 const endpoint: EndpointController = new EndpointController(app);
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello");
 });
 
