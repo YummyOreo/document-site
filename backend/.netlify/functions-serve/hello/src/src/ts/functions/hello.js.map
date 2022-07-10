@@ -1,0 +1,8 @@
+{
+  "version": 3,
+  "sources": ["src/ts/functions/hello.ts"],
+  "sourceRoot": "C:/Users/OreoD/AppData/Local/Temp/tmp-2992-64vEPyTMWSmT",
+  "sourcesContent": ["exports.handler = async (event, context) => {\r\n    console.log(event);\r\n    \r\n  return {\r\n    statusCode: 200,\r\n    body: JSON.stringify({ message: \"Hello World\" }),\r\n  };\r\n};\r\n"],
+  "mappings": ";AAAA,QAAQ,UAAU,OAAO,OAAO,YAAY;AACxC,UAAQ,IAAI,KAAK;AAEnB,SAAO;AAAA,IACL,YAAY;AAAA,IACZ,MAAM,KAAK,UAAU,EAAE,SAAS,cAAc,CAAC;AAAA,EACjD;AACF;",
+  "names": []
+}

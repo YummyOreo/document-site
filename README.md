@@ -6,7 +6,7 @@ How to get working:
 
 - clone this repo
 - run `npm i` in the dir
-- install firebase cli
+- install firebase cli and netlify cli
 - make a new firebase project
 - get the projects name (you can get this by running `firebase projects:list`
 - clone `.firebaserc example` (in the frontend folder) and replace `Your project name here` with your projects name
