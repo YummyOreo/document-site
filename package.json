@@ -4,6 +4,7 @@
     "concurrently": "^7.2.2",
     "express": "^4.18.1",
     "glob-parent": "6.0.0",
+    "lambda-rate-limiter": "^3.0.1",
     "live-server": "^1.2.2",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
