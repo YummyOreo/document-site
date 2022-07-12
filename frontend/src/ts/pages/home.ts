@@ -11,7 +11,6 @@ export default class HomePage extends Page {
     this.name = "Home";
     this.url = ["/", "/home", ""];
     this.html = "home.html";
-    this.css = ["home.css"];
   }
 
   async run() {
