@@ -1,5 +1,3 @@
-import PageRouter from "./router/page-router.js";
+import getPage from "./router/page-router.js";
 
-const pageRouter = new PageRouter();
-
-pageRouter.getPage();
+getPage();
