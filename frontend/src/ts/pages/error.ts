@@ -5,12 +5,12 @@ export default class ErrorPage extends Page {
   url: string[];
   html: string;
   css: string;
+  discordAuth: boolean;
   constructor() {
     super();
     this.name = "Error";
     this.url = [""];
     this.html = "error.html";
-    this.css = "";
   }
 
   async run() {

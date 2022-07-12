@@ -5,12 +5,12 @@ export default class DocumentsPage extends Page {
   url: string[];
   html: string;
   css: string;
+  discordAuth: boolean;
   constructor() {
     super();
     this.name = "Documents";
     this.url = ["/documents"];
     this.html = "documents.html";
-    this.css = "";
   }
 
   async run() {

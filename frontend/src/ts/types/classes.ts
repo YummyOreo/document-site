@@ -3,6 +3,7 @@ export default class Page {
   url: string[];
   html: string;
   css: string;
+  discordAuth: boolean;
   constructor() {}
 
   async run() {}
