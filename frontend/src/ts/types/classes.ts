@@ -4,7 +4,9 @@ export default class Page {
   html: string;
   css: string;
   discordAuth: boolean;
-  constructor() {}
+  constructor(name: string = "") {}
 
-  async run() {}
+  async run() {
+    console.log(`Loaded page: ${this.name}`);
+  }
 }

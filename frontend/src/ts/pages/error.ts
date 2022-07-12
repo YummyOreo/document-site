@@ -1,4 +1,4 @@
-import Page from "../types/classes";
+import Page from "../types/classes.js";
 
 export default class ErrorPage extends Page {
   name: string;
@@ -13,7 +13,5 @@ export default class ErrorPage extends Page {
     this.html = "error.html";
   }
 
-  async run() {
-    console.log("ERROR");
-  }
+  async run() {}
 }

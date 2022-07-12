@@ -1,4 +1,4 @@
-import Page from "../types/classes";
+import Page from "../types/classes.js";
 
 export default class DocumentsPage extends Page {
   name: string;
@@ -14,6 +14,6 @@ export default class DocumentsPage extends Page {
   }
 
   async run() {
-    console.log("hello");
+    super.run();
   }
 }
