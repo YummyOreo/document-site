@@ -1,5 +1,5 @@
-import PageController from "./controller/page-controller.js";
+import PageRouter from "./router/page-router.js";
 
-const pageController = new PageController();
+const pageRouter = new PageRouter();
 
-pageController.displayPage();
+pageRouter.getPage();
