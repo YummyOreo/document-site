@@ -1,9 +1,12 @@
-export default class HomePage {
+import Page from "../types/classes";
+
+export default class HomePage extends Page {
   name: string;
   url: string[];
   html: string;
   css: string;
   constructor() {
+    super();
     this.name = "Home";
     this.url = ["/", "/home", ""];
     this.html = "home.html";

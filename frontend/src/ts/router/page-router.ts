@@ -1,9 +1,10 @@
 import DocumentsPage from "../pages/documents.js";
 import ErrorPage from "../pages/error.js";
 import HomePage from "../pages/home.js";
+import Page from "../types/classes.js";
 
 export default class PageRouter {
-  pages: any[];
+  pages: Page[];
   error: ErrorPage;
   constructor() {
     this.pages = [new DocumentsPage(), new HomePage()];
