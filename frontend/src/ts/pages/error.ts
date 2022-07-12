@@ -4,7 +4,7 @@ export default class ErrorPage extends Page {
   name: string;
   url: string[];
   html: string;
-  css: string;
+  css: string[];
   discordAuth: boolean;
   constructor() {
     super();

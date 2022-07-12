@@ -2,7 +2,7 @@ export default class Page {
   name: string;
   url: string[];
   html: string;
-  css: string;
+  css: string[];
   discordAuth: boolean;
   constructor(name: string = "") {}
 

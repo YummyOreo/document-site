@@ -20,12 +20,14 @@ export default async function getPage(): Promise<void> {
 async function displayPage(page: Page) {
   $(".main").load(`/static/pages/${page.html}`, async () => {
     $(document).prop("title", page.name);
-    $("head").append(
-      $('<link rel="stylesheet" type="text/css" />').attr(
-        "href",
-        `/src/css/${page.css}`
-      )
-    );
+    page.css.forEach((css) => {
+      $("head").append(
+        $('<link rel="stylesheet" type="text/css" />').attr(
+          "href",
+          `/src/css/${css}`
+        )
+      );
+    });
     await runPage(page);
   });
 }
