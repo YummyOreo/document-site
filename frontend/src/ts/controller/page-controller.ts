@@ -11,23 +11,23 @@ export default class PageController {
   }
 
   displayPage() {
-    let pageLoaded = false;
-    this.pages.forEach((element) => {
+    var arrayLength = this.pages.length;
+    for (var i = 0; i < arrayLength; i++) {
+      const element = this.pages[i];
       if (element.url.includes(window.location.pathname)) {
-        pageLoaded = true;
         $(".main").load(`/static/pages/${element.html}`, async () => {
           $(document).prop("title", element.name);
           await this.runPage(element);
         });
+        console.log("page");
+        return;
       }
-    });
-
-    if (!pageLoaded) {
-      $(".main").load(`/static/pages/${this.error.html}`, async () => {
-        $(document).prop("title", this.error.name);
-        await this.runPage(this.error);
-      });
     }
+
+    $(".main").load(`/static/pages/${this.error.html}`, async () => {
+      $(document).prop("title", this.error.name);
+      await this.runPage(this.error);
+    });
   }
 
   async runPage(element: any) {
