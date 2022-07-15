@@ -1,10 +1,12 @@
 import express from "express";
 import serverless from "serverless-http";
-import router from "../ts/routes/main";
+import addRouts from "../ts/api/router";
+import hello from "../ts/api/routes/hello";
+import main from "../ts/api/routes/main";
 
 const app = express();
 
-app.use("/.netlify/functions/api", router);
+addRouts(app);
 
 exports.handler = serverless(app);
 export default app;
