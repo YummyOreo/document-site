@@ -25,6 +25,5 @@ export async function GetRequest(
       Accept: "application/json",
     },
   });
-  console.log(response);
   return await response.json();
 }

@@ -18,8 +18,8 @@ export default class HomePage extends Page {
     super.run();
     console.log("teste");
 
-    const stringifiedData = await getHello();
+    const data = await getHello();
 
-    console.log(stringifiedData);
+    console.log(data);
   }
 }
