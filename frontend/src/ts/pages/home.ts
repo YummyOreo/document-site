@@ -1,3 +1,4 @@
+import getHello from "../api/endpoints/hello.js";
 import Page from "../types/classes.js";
 
 export default class HomePage extends Page {
@@ -15,5 +16,10 @@ export default class HomePage extends Page {
 
   async run() {
     super.run();
+    console.log("teste");
+
+    const stringifiedData = await getHello();
+
+    console.log(stringifiedData);
   }
 }
