@@ -1,7 +1,7 @@
 import { defaultConfig as config } from "../constants/config.js";
 
 export const api = {
-  url: config.devMode ? "http://localhost:9999/.netlify/functions/" : "",
+  url: config.devMode ? "http://localhost:9000/.netlify/functions/api" : "",
 };
 
 export async function GetRequest(

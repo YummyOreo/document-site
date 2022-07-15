@@ -1,10 +1,10 @@
 import express from "express";
 import serverless from "serverless-http";
 import addRouts from "../ts/api/router";
-import hello from "../ts/api/routes/hello";
-import main from "../ts/api/routes/main";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 
 addRouts(app);
 
