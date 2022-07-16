@@ -13,9 +13,13 @@
     "@netlify/functions": "^1.0.0",
     "@types/express": "^4.17.13",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "mongodb": "^4.8.0",
     "netlify-lambda": "^2.0.15",
     "serverless-http": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.5"
   }
 }
