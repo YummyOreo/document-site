@@ -1,9 +1,5 @@
-import * as dotenv from "dotenv";
 import { Db, MongoClient } from "mongodb";
-dotenv.config();
-
-const URL = process.env.MONGODB_URL;
-const DB_NAME = process.env.DB_NAME;
+import { URL, DB_NAME } from "../env/db";
 
 export const client = new MongoClient(URL);
 export let db: Db;
