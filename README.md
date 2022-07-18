@@ -12,3 +12,4 @@ How to get working:
 - clone `.firebaserc example` (in the frontend folder) and replace `Your project name here` with your projects name
 - go back to the main dir and run `npm run dev` to run both the backend and frontend
 - If you want to only the backend run `npm run dev-be` and to only run the frontend run `npm run dev-fe`
+#### It is suggested to run the backend and frontend seperatly for better debugging
