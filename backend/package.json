@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"tsc --w\" \"netlify-lambda serve src/functions -c ./webpack.config.js\"",
+    "clean": "tsc --build --clean",
     "build": "tsc && netlify-lambda build src/functions -c ./webpack.config.js"
   },
   "author": "",
