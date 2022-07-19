@@ -1,15 +1,18 @@
-import DocumentsPage from "../pages/documents.js";
+import * as DocumentsPage from "../pages/documents.js";
 import ErrorPage from "../pages/error.js";
-import HomePage from "../pages/home.js";
-import Page from "../types/classes.js";
+import * as HomePage from "../pages/home.js";
+import PageDefault from "../types/classes.js";
 
-const pages: Page[] = [new DocumentsPage(), new HomePage()];
+const pages: any[] = [DocumentsPage, HomePage];
 const error: ErrorPage = new ErrorPage();
+
+export let currentPage: PageDefault;
 
 export default async function getPage(): Promise<void> {
   for (const page in pages) {
-    if (pages[page].url.includes(window.location.pathname)) {
-      await displayPage(pages[page]);
+    if (pages[page].URL.includes(window.location.pathname)) {
+      currentPage = new pages[page].Page();
+      await displayPage(currentPage);
       return;
     }
   }
@@ -17,7 +20,7 @@ export default async function getPage(): Promise<void> {
   displayPage(error);
 }
 
-async function displayPage(page: Page) {
+async function displayPage(page: PageDefault) {
   $(".main").load(`/static/pages/${page.html}`, async () => {
     $(document).prop("title", page.name);
     if (page.css != undefined) {
@@ -34,6 +37,6 @@ async function displayPage(page: Page) {
   });
 }
 
-async function runPage(page: Page) {
+async function runPage(page: PageDefault) {
   await page.run();
 }

@@ -1,6 +1,8 @@
-import Page from "../types/classes.js";
+import PageDefault from "../types/classes.js";
 
-export default class DocumentsPage extends Page {
+export const URL = ["/documents"];
+
+export class Page extends PageDefault {
   name: string;
   url: string[];
   html: string;
@@ -9,7 +11,7 @@ export default class DocumentsPage extends Page {
   constructor() {
     super();
     this.name = "Documents";
-    this.url = ["/documents"];
+    this.url = URL;
     this.html = "documents.html";
   }
 

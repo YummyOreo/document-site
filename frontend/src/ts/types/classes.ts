@@ -1,4 +1,4 @@
-export default class Page {
+export default class PageDefault {
   name: string;
   url: string[];
   html: string;

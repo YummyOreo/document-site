@@ -1,7 +1,9 @@
 import getHello from "../api/endpoints/hello.js";
-import Page from "../types/classes.js";
+import PageDefault from "../types/classes.js";
 
-export default class HomePage extends Page {
+export const URL = ["/", "/home", ""];
+
+export class Page extends PageDefault {
   name: string;
   url: string[];
   html: string;
@@ -10,7 +12,7 @@ export default class HomePage extends Page {
   constructor() {
     super();
     this.name = "Home";
-    this.url = ["/", "/home", ""];
+    this.url = URL;
     this.html = "home.html";
   }
 
