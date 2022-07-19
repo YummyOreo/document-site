@@ -1,10 +1,8 @@
-import { hello } from "../controllers/main-controller";
-import main from "./routes/main";
+import example from "./routes/example";
 import { Application } from "express";
 
 function addRouts(app: Application) {
-  app.use("/.netlify/functions/api", main);
-  app.use("/.netlify/functions/api/hello", hello);
+  app.use("/.netlify/functions/api/example", example);
 }
 
 export default addRouts;

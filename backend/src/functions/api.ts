@@ -10,4 +10,5 @@ app.set("trust proxy", true);
 addRouts(app);
 
 exports.handler = serverless(app);
+
 export default app;
