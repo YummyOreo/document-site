@@ -24,6 +24,7 @@ export async function GetRequest(
 
   // make the url
   const URL = `${api.url}${BASE}${url}${parsedData}`;
+  console.log(URL);
 
   return await apiUtils.MakeRequest("GET", URL, "");
 }
