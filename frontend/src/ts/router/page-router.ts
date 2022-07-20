@@ -5,7 +5,7 @@ import * as HomePage from "../pages/home.js";
 import PageDefault from "../types/classes.js";
 
 const pages: any[] = [DocumentsPage, HomePage];
-const error: ErrorPage = new ErrorPage();
+const error = ErrorPage;
 
 export let currentPage: PageDefault;
 
@@ -18,7 +18,9 @@ export default async function getPage(): Promise<void> {
     }
   }
 
-  displayPage(error);
+  currentPage = new ErrorPage();
+
+  displayPage(currentPage);
 }
 
 async function displayPage(page: PageDefault) {

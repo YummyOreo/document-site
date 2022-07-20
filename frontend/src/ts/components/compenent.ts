@@ -1,4 +1,4 @@
-export class Compenent {
+export class Component {
   name: string;
   html: string;
   css: string[];

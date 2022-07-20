@@ -1,6 +1,6 @@
-import { Compenent } from "../compenent.js";
+import { Component } from "../compenent.js";
 
-export class ExamlpeCompenent extends Compenent {
+export class ExamlpeCompenent extends Component {
   name: string;
   html: string;
   css: string[];

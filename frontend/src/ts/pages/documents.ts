@@ -1,3 +1,4 @@
+import { Component } from "../components/compenent.js";
 import PageDefault from "../types/classes.js";
 
 export const URL = ["/documents"];
@@ -8,6 +9,7 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
+  components: Component[];
   constructor() {
     super();
     this.name = "Documents";
