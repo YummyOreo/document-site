@@ -1,3 +1,4 @@
+import { loadComponents } from "../components/compentent-controller.js";
 import * as DocumentsPage from "../pages/documents.js";
 import ErrorPage from "../pages/error.js";
 import * as HomePage from "../pages/home.js";
@@ -33,6 +34,7 @@ async function displayPage(page: PageDefault) {
         );
       });
     }
+    await loadComponents();
     await runPage(page);
   });
 }
