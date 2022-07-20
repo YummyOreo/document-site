@@ -6,7 +6,6 @@ export async function loadComponents() {
 
   const components = currentPage.components;
   for (const i in components) {
-    console.log(components[i]);
     const element = document.getElementById(components[i].name);
     if (element == undefined) continue;
     loadComponent(components[i], element);
@@ -25,8 +24,6 @@ export async function loadComponent(component: Component, element: Element) {
         );
       });
     }
-    console.log("loaded");
-
     component.run();
   });
 }
