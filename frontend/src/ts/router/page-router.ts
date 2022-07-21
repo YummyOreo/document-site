@@ -28,7 +28,7 @@ async function displayPage(page: PageDefault) {
         $("head").append(
           $('<link rel="stylesheet" type="text/css" />').attr(
             "href",
-            `/src/css/${css}`
+            `/src/css/pages/${css}`
           )
         );
       });
