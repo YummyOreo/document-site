@@ -8,11 +8,12 @@ export async function loadComponents() {
 
   const components = currentPage.components;
   for (const i in components) {
-    const element = document.getElementById(components[i].name);
+    const compenent = components[i];
+    const element = document.getElementById(compenent.name);
     if (element == undefined) continue;
     if (element.classList.contains("component")) continue;
-    componentNames.push(components[i].name);
-    loadComponent(components[i], element);
+    componentNames.push(compenent.name);
+    loadComponent(compenent, element);
   }
 }
 
