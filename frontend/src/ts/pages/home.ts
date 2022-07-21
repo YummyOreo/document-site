@@ -1,7 +1,10 @@
 import getHello from "../api/endpoints/hello.js";
 import { ExamlpeCompenent } from "../components/classes/example.js";
 import { Component } from "../components/compenent.js";
-import { getComponentByName } from "../components/compentent-controller.js";
+import {
+  deleteComponentByName,
+  getComponentByName,
+} from "../components/compentent-controller.js";
 import PageDefault from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
@@ -25,6 +28,10 @@ export class Page extends PageDefault {
     super.run();
 
     console.log(getComponentByName("example"));
+    setTimeout(() => {
+      deleteComponentByName("example");
+      console.log(this.components);
+    }, 5000);
 
     const data = await getHello();
 

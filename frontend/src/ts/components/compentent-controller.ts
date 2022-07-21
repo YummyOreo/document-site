@@ -1,7 +1,7 @@
 import { currentPage } from "../router/page-router.js";
 import { Component } from "./compenent.js";
 
-export const componentNames: string[] = [];
+export let componentNames: string[] = [];
 
 export async function loadComponents() {
   if (currentPage.components == undefined) return;
@@ -40,8 +40,8 @@ export function getComponentByName(name: string): Component {
 
 export function deleteComponentByName(name: string) {
   const index = componentNames.indexOf(name);
-  $(`#${currentPage.components[index]}`).empty();
-  $(`#${currentPage.components[index]}`).remove();
-  delete currentPage.components[index];
-  delete componentNames[index];
+  $(`#${currentPage.components[index].name}`).empty();
+  $(`#${currentPage.components[index].name}`).remove();
+  currentPage.components = currentPage.components.slice(index, index);
+  componentNames = componentNames.slice(index, index);
 }
