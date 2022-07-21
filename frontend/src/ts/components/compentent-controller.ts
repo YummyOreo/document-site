@@ -8,16 +8,16 @@ export async function loadComponents() {
 
   const components = currentPage.components;
   for (const i in components) {
-    const compenent = components[i];
-    const element = document.getElementById(compenent.name);
+    const component = components[i];
+    const element = document.getElementById(component.name);
     if (element == undefined) continue;
     if (!element.classList.contains("component")) continue;
-    componentNames.push(compenent.name);
-    loadComponent(compenent, element);
+    loadComponent(component, element);
   }
 }
 
 export async function loadComponent(component: Component, element: Element) {
+  componentNames.push(component.name);
   $(`#${element.id}`).load(`/static/html/components/${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
@@ -36,4 +36,12 @@ export async function loadComponent(component: Component, element: Element) {
 export function getComponentByName(name: string): Component {
   const index = componentNames.indexOf(name);
   return currentPage.components[index];
+}
+
+export function deleteComponentByName(name: string) {
+  const index = componentNames.indexOf(name);
+  $(`#${currentPage.components[index]}`).empty();
+  $(`#${currentPage.components[index]}`).remove();
+  delete currentPage.components[index];
+  delete componentNames[index];
 }
