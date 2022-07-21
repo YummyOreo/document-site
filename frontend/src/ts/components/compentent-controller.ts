@@ -1,6 +1,8 @@
 import { currentPage } from "../router/page-router.js";
 import { Component } from "./compenent.js";
 
+export const componentNames: string[] = [];
+
 export async function loadComponents() {
   if (currentPage.components == undefined) return;
 
@@ -9,6 +11,7 @@ export async function loadComponents() {
     const element = document.getElementById(components[i].name);
     if (element == undefined) continue;
     if (element.classList.contains("component")) continue;
+    componentNames.push(components[i].name);
     loadComponent(components[i], element);
   }
 }
@@ -27,4 +30,9 @@ export async function loadComponent(component: Component, element: Element) {
     }
     component.run();
   });
+}
+
+export function getComponentByName(name: string): Component {
+  const index = componentNames.indexOf(name);
+  return currentPage.components[index];
 }
