@@ -1,3 +1,4 @@
+import { NavbarCompenent } from "../components/classes/navbar.js";
 import { Component } from "../components/compenent.js";
 import PageDefault from "../types/classes.js";
 
@@ -15,9 +16,11 @@ export class Page extends PageDefault {
     this.name = "Documents";
     this.url = URL;
     this.html = "documents.html";
+    this.components = [new NavbarCompenent()];
   }
 
   async run() {
     super.run();
+    console.log("ran");
   }
 }

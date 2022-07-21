@@ -1,5 +1,5 @@
 import getHello from "../api/endpoints/hello.js";
-import { ExamlpeCompenent } from "../components/classes/example.js";
+import { NavbarCompenent } from "../components/classes/navbar.js";
 import { Component } from "../components/compenent.js";
 import {
   deleteComponentByName,
@@ -21,20 +21,10 @@ export class Page extends PageDefault {
     this.name = "Home";
     this.url = URL;
     this.html = "home.html";
-    this.components = [new ExamlpeCompenent()];
+    this.components = [new NavbarCompenent()];
   }
 
   async run() {
     super.run();
-
-    console.log(getComponentByName("example"));
-    setTimeout(() => {
-      deleteComponentByName("example");
-      console.log(this.components);
-    }, 5000);
-
-    const data = await getHello();
-
-    console.log(data);
   }
 }
