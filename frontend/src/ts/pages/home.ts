@@ -1,6 +1,7 @@
 import getHello from "../api/endpoints/hello.js";
 import { ExamlpeCompenent } from "../components/classes/example.js";
 import { Component } from "../components/compenent.js";
+import { getComponentByName } from "../components/compentent-controller.js";
 import PageDefault from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
@@ -23,7 +24,7 @@ export class Page extends PageDefault {
   async run() {
     super.run();
 
-    console.log("teste");
+    console.log(getComponentByName("example"));
 
     const data = await getHello();
 

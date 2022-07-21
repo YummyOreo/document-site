@@ -11,7 +11,7 @@ export async function loadComponents() {
     const compenent = components[i];
     const element = document.getElementById(compenent.name);
     if (element == undefined) continue;
-    if (element.classList.contains("component")) continue;
+    if (!element.classList.contains("component")) continue;
     componentNames.push(compenent.name);
     loadComponent(compenent, element);
   }
