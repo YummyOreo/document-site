@@ -1,3 +1,4 @@
+import { Component } from "../components/compenent.js";
 import Page from "../types/classes.js";
 
 export default class ErrorPage extends Page {
@@ -5,6 +6,7 @@ export default class ErrorPage extends Page {
   html: string;
   css: string[];
   discordAuth: boolean;
+  components: Component[];
   constructor() {
     super();
     this.name = "Error";
