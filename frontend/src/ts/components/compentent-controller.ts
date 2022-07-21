@@ -24,7 +24,7 @@ export async function loadComponent(component: Component, element: Element) {
         $("head").append(
           $('<link rel="stylesheet" type="text/css" />').attr(
             "href",
-            `/src/css/${css}`
+            `/src/css/components/${css}`
           )
         );
       });
