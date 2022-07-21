@@ -18,6 +18,8 @@ export async function loadComponents() {
 
 export async function loadComponent(component: Component, element: Element) {
   componentNames.push(component.name);
+  if (!currentPage.components.includes(component))
+    currentPage.components.push(component);
   $(`#${element.id}`).load(`/static/html/components/${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
