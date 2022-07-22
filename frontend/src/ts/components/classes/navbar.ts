@@ -13,8 +13,11 @@ export class NavbarCompenent extends Component {
   }
 
   async run() {
-    const disabledElement = document.getElementById(currentPage.name);
-    disabledElement.style.color = "var(--text-white-dark)";
-    disabledElement.style.pointerEvents = "none";
+    const disabledElements = document.getElementsByClassName(currentPage.name);
+    for (const i in disabledElements) {
+      if (i == "length") break;
+      const disabledElement = disabledElements[i];
+      disabledElement.classList.add("nav-disabled");
+    }
   }
 }

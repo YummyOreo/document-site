@@ -24,8 +24,6 @@ export default async function getPage(): Promise<void> {
 }
 
 async function displayPage(page: PageDefault) {
-  console.log(page.html);
-
   $(".main").load(`/static/pages/${page.html}`, async () => {
     $(document).prop("title", page.name);
     if (page.css != undefined) {
