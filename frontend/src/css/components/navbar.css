@@ -49,6 +49,6 @@
 }
 
 .nav-disabled {
-  color: var(--text-white-dark) !important;
+  color: var(--text-gray) !important;
   pointer-events: none;
 }
