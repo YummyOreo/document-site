@@ -26,9 +26,16 @@ p {
   grid-template-rows: 1fr;
 }
 
-.info img {
+img {
   border: 2px solid var(--background-color-2);
   border-radius: 5px;
+  transition: all 0.3s ease 0s;
+}
+
+img:hover {
+  border: 2px solid var(--text-accent);
+  border-radius: 5px;
+  transform: scale(1.01);
 }
 
 .caption {
