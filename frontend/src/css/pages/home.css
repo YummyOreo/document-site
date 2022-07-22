@@ -2,16 +2,17 @@ h1,
 .info div {
   padding-top: 20px;
   font-size: 30px;
-  font-weight: 500;
 }
 
 p {
+  font-weight: 500;
   color: var(--text-light-gray);
   padding-top: 1rem;
   font-size: 15px;
 }
 
-.info {
+.info,
+.making-documents {
   padding-left: 10%;
   padding-right: 10%;
   display: grid;
@@ -22,13 +23,17 @@ p {
   grid-template-rows: 1fr;
 }
 
-.info img {
+.making-documents {
+  padding-top: 6rem;
+}
+
+.proview-img {
   border: 2px solid var(--background-color-2);
   border-radius: 5px;
   transition: all 0.3s ease 0s;
 }
 
-.info img:hover {
+.proview-img:hover {
   border: 2px solid var(--text-accent);
   border-radius: 5px;
   transform: scale(1.01);
