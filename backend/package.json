@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"tsc --w\" \"netlify-lambda serve src/functions -c ./webpack.config.js\"",
-    "clean": "tsc --build --clean",
-    "build": "tsc && netlify-lambda build src/functions -c ./webpack.config.js"
+    "start": "netlify functions:serve",
+    "build": "netlify functions:build"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +17,6 @@
     "express": "^4.17.1",
     "mongodb": "^4.8.0",
     "mongodb-client-encryption": "^2.1.0",
-    "netlify-lambda": "^2.0.15",
     "serverless-http": "^3.0.1",
     "webpack-node-externals": "^3.0.0"
   },
