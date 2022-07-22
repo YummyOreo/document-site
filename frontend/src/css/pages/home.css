@@ -61,10 +61,6 @@ p {
   transform: scale(1.05);
 }
 
-.button-container-github {
-  padding-top: 1rem;
-}
-
 .link {
   color: var(--text-accent);
 }
