@@ -15,13 +15,13 @@
 }
 
 .nav-item a,
-.nav-button {
+.nav-button-github {
   font-weight: 500;
   font-size: 16px;
   color: var(--text-white);
 }
 
-.nav-button {
+.nav-button-github {
   padding: 9px 25px;
   background-color: var(--text-accent-rgba);
   border: none;
@@ -29,7 +29,7 @@
   transition: all 0.3s ease 0s;
 }
 
-.nav-button:hover {
+.nav-button-github:hover {
   opacity: 80%;
 }
 
