@@ -30,6 +30,7 @@
 }
 
 .nav-button-github:hover {
+  transform: scale(1.05);
   opacity: 80%;
 }
 
