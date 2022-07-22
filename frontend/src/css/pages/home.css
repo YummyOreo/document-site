@@ -2,3 +2,31 @@ body {
   background-color: var(--background-color-1);
   color: var(--text-white);
 }
+
+h1,
+.info div {
+  padding-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+p {
+  padding-top: 1rem;
+  font-size: 15px;
+}
+
+.info {
+  padding-left: 10%;
+  padding-right: 10%;
+  display: grid;
+  gap: 2rem;
+  row-gap: 1rem;
+
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  grid-template-rows: 1fr;
+}
+
+.info img {
+  border: 2px solid var(--background-color-2);
+  border-radius: 5px;
+}
