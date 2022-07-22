@@ -10,13 +10,13 @@
 }
 
 .logo {
-  position: absolute;
-  top: -4px;
+  transform: scale(2.5);
 }
 
 .logo:hover {
   filter: invert(35%) sepia(91%) saturate(3564%) hue-rotate(170deg)
     brightness(92%) contrast(102%);
+  transform: scale(2.65);
 }
 
 .nav-item a {
