@@ -21,6 +21,5 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
-    console.log("ran");
   }
 }
