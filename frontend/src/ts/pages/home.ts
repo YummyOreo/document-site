@@ -22,6 +22,7 @@ export class Page extends PageDefault {
     this.url = URL;
     this.html = "home.html";
     this.components = [new NavbarCompenent()];
+    this.css = ["home.css"];
   }
 
   async run() {
