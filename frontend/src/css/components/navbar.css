@@ -11,27 +11,13 @@
 
 .logo {
   position: absolute;
-  top: -3px;
+  top: -4px;
 }
 
-.nav-item a,
-.nav-button-github {
+.nav-item a {
   font-weight: 500;
   font-size: 16px;
   color: var(--text-white);
-}
-
-.nav-button-github {
-  padding: 9px 25px;
-  background-color: var(--text-accent-rgba);
-  border: none;
-  border-radius: 50px;
-  transition: all 0.3s ease 0s;
-}
-
-.nav-button-github:hover {
-  transform: scale(1.05);
-  opacity: 80%;
 }
 
 .nav-item a {
