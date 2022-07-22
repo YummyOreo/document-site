@@ -1,0 +1,54 @@
+.navbar {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 10%;
+}
+
+.logo {
+  position: absolute;
+  top: -3px;
+}
+
+.nav-item a,
+.nav-button-github {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-white);
+}
+
+.nav-button-github {
+  padding: 9px 25px;
+  background-color: var(--text-accent-rgba);
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-button-github:hover {
+  opacity: 80%;
+}
+
+.nav-item a {
+  font-size: 20px;
+  list-style: none;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-item a:hover {
+  color: var(--text-accent);
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav-disabled {
+  color: var(--text-gray) !important;
+  pointer-events: none;
+}
