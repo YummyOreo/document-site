@@ -11,8 +11,7 @@ p {
   font-size: 15px;
 }
 
-.info,
-.making-documents {
+.info {
   padding-left: 10%;
   padding-right: 10%;
   display: grid;
@@ -27,13 +26,15 @@ p {
   padding-top: 6rem;
 }
 
-.proview-img {
+.preview-img,
+.card-features-container {
   border: 2px solid var(--background-color-2);
   border-radius: 5px;
   transition: all 0.3s ease 0s;
 }
 
-.proview-img:hover {
+.preview-img:hover,
+.card-features-container:hover {
   border: 2px solid var(--text-accent);
   border-radius: 5px;
   transform: scale(1.01);
@@ -63,4 +64,27 @@ p {
 
 .link {
   color: var(--text-accent);
+}
+
+.features {
+  padding-top: 2rem;
+
+  padding-left: 10%;
+  padding-right: 10%;
+  display: grid;
+  gap: 1rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.card-features-container {
+  border: 2px solid var(--background-color-1);
+  background-color: var(--background-color-3);
+  padding: 26px 16px;
+}
+
+.card-features-container object {
+  transform: scale(0.9);
+  filter: invert(93%) sepia(7%) saturate(278%) hue-rotate(188deg)
+    brightness(105%) contrast(89%);
 }
