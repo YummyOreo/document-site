@@ -24,7 +24,7 @@ export class NavbarCompenent extends Component {
       });
     }
 
-    $(window).scroll(function () {
+    $(window).scroll(() => {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
   }
