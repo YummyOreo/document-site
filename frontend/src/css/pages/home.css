@@ -91,10 +91,9 @@ p {
 
 .separator {
   background-color: var(--background-color-2);
-  border-color: var(--background-color-2);
-  color: var(--background-color-2);
+  border: none;
   height: 10px;
-  width: 16rem;
+  width: 20rem;
 
   transition: all 0.3s ease 0s;
   border-radius: 5px;
@@ -103,8 +102,6 @@ p {
 .separator:hover {
   transform: scale(1.01);
   background-color: var(--text-accent);
-  border-color: var(--text-accent);
-  color: var(--text-accent);
 }
 
 .title {
