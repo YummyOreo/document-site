@@ -88,3 +88,26 @@ p {
   filter: invert(93%) sepia(7%) saturate(278%) hue-rotate(188deg)
     brightness(105%) contrast(89%);
 }
+
+.separator {
+  background-color: var(--background-color-2);
+  border-color: var(--background-color-2);
+  color: var(--background-color-2);
+  height: 10px;
+  width: 16rem;
+
+  transition: all 0.3s ease 0s;
+  border-radius: 5px;
+}
+
+.separator:hover {
+  transform: scale(1.01);
+  background-color: var(--text-accent);
+  border-color: var(--text-accent);
+  color: var(--text-accent);
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+}
