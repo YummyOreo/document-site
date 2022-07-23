@@ -22,8 +22,7 @@
 }
 
 .logo:hover {
-  filter: invert(35%) sepia(91%) saturate(3564%) hue-rotate(170deg)
-    brightness(92%) contrast(102%);
+  filter: var(--text-accent-filter);
 }
 
 .nav-logo-enlage {

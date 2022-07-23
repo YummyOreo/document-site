@@ -85,8 +85,7 @@ p {
 
 .card-features-container object {
   transform: scale(0.9);
-  filter: invert(93%) sepia(7%) saturate(278%) hue-rotate(188deg)
-    brightness(105%) contrast(89%);
+  filter: var(--text-white-filter);
 }
 
 .separator {
