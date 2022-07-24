@@ -1,0 +1,8 @@
+body {
+  color: var(--text-white);
+  background-color: var(--background-color-1);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}

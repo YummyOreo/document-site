@@ -18,6 +18,14 @@ export class NavbarCompenent extends Component {
       if (i == "length") break;
       const disabledElement = disabledElements[i];
       disabledElement.classList.add("nav-disabled");
+      disabledElement.removeAttribute("href");
+      disabledElement.addEventListener("click", (e) => {
+        e.preventDefault();
+      });
     }
+
+    $(window).on("scroll", function () {
+      $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
+    });
   }
 }
