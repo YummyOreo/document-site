@@ -14,7 +14,7 @@
     "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\"",
     "dev-fe": "concurrently \"cd frontend && tsc --w\" \"cd frontend && firebase emulators:start\"",
     "dev-be": "\"cd backend && npm run start\"",
-    "tsc": "concurrently \"cd backend && tsc\" \"cd frontend && tsc\"",
+    "tsc": "cd backend && tsc",
     "prepare": "husky install"
   },
   "repository": {
