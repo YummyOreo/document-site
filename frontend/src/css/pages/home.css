@@ -81,11 +81,25 @@ p {
   border: 2px solid var(--background-color-1);
   background-color: var(--background-color-3);
   padding: 26px 16px;
+  display: grid;
+
+  grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .card-features-container object {
   transform: scale(0.9);
   filter: var(--text-white-filter);
+}
+
+.card-features-container p {
+  padding-bottom: 1rem;
+  height: 9rem;
+}
+
+.card-features-container h1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .separator {
