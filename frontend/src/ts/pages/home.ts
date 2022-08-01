@@ -1,6 +1,5 @@
 import { NavbarCompenent } from "../components/classes/navbar.js";
-import { makePopup } from "../popup/popup-controller.js";
-import { Component, PageDefault, PopupDefault } from "../types/classes.js";
+import { Component, PageDefault } from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
 

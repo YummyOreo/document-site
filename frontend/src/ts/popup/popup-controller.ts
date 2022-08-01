@@ -1,8 +1,8 @@
 import { PopupDefault } from "../types/classes";
 
-const popups: { [name: string]: PopupDefault } = {};
+export const popups: { [name: string]: PopupDefault } = {};
 
-export async function makePopup(popup: PopupDefault): Promise<string> {
+export function makePopup(popup: PopupDefault): string {
   const lastKey = parseInt(Object.keys(popups)[Object.keys(popups).length - 1]);
 
   const currentNum = lastKey == NaN ? (lastKey + 1).toString() : "0";
@@ -16,4 +16,18 @@ export async function makePopup(popup: PopupDefault): Promise<string> {
   popup.assignNumber(currentNum);
   popup.makePopup();
   return currentNum;
+}
+
+export function showPopup(index: string) {
+  popups[index].showPopup();
+}
+
+export function hidePopup(index: string) {
+  popups[index].hidePopup();
+}
+
+export function deletePopup(index: string) {
+  delete popups[index];
+  $(`#popup-${index}.popup-outer`).empty();
+  $(`#popup-${index}.popup-outer`).remove();
 }
