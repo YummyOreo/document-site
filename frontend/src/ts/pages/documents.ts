@@ -1,6 +1,5 @@
 import { NavbarCompenent } from "../components/classes/navbar.js";
-import { Component } from "../components/compenent.js";
-import PageDefault from "../types/classes.js";
+import { Component, PageDefault } from "../types/classes.js";
 
 export const URL = ["/documents"];
 

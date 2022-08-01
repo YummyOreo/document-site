@@ -1,7 +1,6 @@
-import getHello from "../api/endpoints/hello.js";
 import { NavbarCompenent } from "../components/classes/navbar.js";
-import { Component } from "../components/compenent.js";
-import PageDefault from "../types/classes.js";
+import { makePopup } from "../popup/popup-controller.js";
+import { Component, PageDefault, PopupDefault } from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
 

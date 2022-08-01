@@ -1,7 +1,6 @@
-import { Component } from "../components/compenent.js";
-import Page from "../types/classes.js";
+import { Component, PageDefault } from "../types/classes.js";
 
-export default class ErrorPage extends Page {
+export default class ErrorPage extends PageDefault {
   name: string;
   html: string;
   css: string[];

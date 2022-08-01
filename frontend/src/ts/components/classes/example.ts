@@ -1,4 +1,4 @@
-import { Component } from "../compenent.js";
+import { Component } from "../../types/classes.js";
 
 export class ExamlpeCompenent extends Component {
   name: string;
