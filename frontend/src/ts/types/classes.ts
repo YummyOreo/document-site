@@ -13,8 +13,8 @@ export class PageDefault {
 }
 
 export class PopupDefault {
-  sizeX: number;
-  sizeY: number;
+  sizeWidth: string;
+  sizeHeight: string;
   color: string;
   html: string;
   css: string;
@@ -22,14 +22,14 @@ export class PopupDefault {
   show: Function;
   hide: Function;
   constructor(
-    sizeX: number,
-    sizeY: number,
+    sizeWidth: string,
+    sizeHeight: string,
     color: string,
     html: string,
     css: string
   ) {
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
+    this.sizeWidth = sizeWidth;
+    this.sizeHeight = sizeHeight;
     this.color = color;
     this.html = html;
     this.css = css;
@@ -68,7 +68,9 @@ export class PopupDefault {
       opacity: "100",
       "pointer-events": "all",
     });
-    this.show();
+    if (this.show) {
+      this.show();
+    }
   }
 
   hidePopup() {
@@ -76,7 +78,9 @@ export class PopupDefault {
       opacity: "0",
       "pointer-events": "none",
     });
-    this.hide();
+    if (this.hide) {
+      this.hide();
+    }
   }
 }
 

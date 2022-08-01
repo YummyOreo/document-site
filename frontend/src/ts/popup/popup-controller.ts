@@ -15,14 +15,21 @@ export function makePopup(popup: PopupDefault): string {
 
   popup.assignNumber(currentNum);
   popup.makePopup();
+  $(`#popup-${popup.num}.popup-inner`).css({
+    "background-color": popup.color,
+    width: popup.sizeWidth,
+    height: popup.sizeHeight,
+  });
   return currentNum;
 }
 
 export function showPopup(index: string) {
+  $("body").addClass("stop-scroll");
   popups[index].showPopup();
 }
 
 export function hidePopup(index: string) {
+  $("body").removeClass("stop-scroll");
   popups[index].hidePopup();
 }
 
