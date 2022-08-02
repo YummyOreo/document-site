@@ -2,10 +2,15 @@ import { PopupDefault } from "../types/classes";
 
 export const popups: { [name: string]: PopupDefault } = {};
 
+export const loadedCss: string[] = [];
+
 export function makePopup(popup: PopupDefault): string {
   const lastKey = parseInt(Object.keys(popups)[Object.keys(popups).length - 1]);
 
-  const currentNum = lastKey == NaN ? (lastKey + 1).toString() : "0";
+  let currentNum = (lastKey + 1).toString();
+  if (currentNum == "NaN") {
+    currentNum = "0";
+  }
 
   popups[currentNum] = popup;
 

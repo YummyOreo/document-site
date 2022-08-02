@@ -1,4 +1,4 @@
-import { loadComponents } from "../components/compentent-controller.js";
+import { loadComponents } from "../components/component-controller.js";
 import * as DocumentsPage from "../pages/documents.js";
 import ErrorPage from "../pages/error.js";
 import * as HomePage from "../pages/home.js";

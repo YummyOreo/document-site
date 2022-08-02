@@ -1,3 +1,5 @@
+import { loadedCss } from "../popup/popup-controller.js";
+
 export class PageDefault {
   name: string;
   url: string[];
@@ -51,13 +53,14 @@ export class PopupDefault {
     $(`#popup-${this.num}.popup-inner`).load(
       `/static/html/popups/${this.html}`,
       () => {
-        if (this.css != undefined) {
+        if (this.css != undefined && !loadedCss.includes(this.css)) {
           $("head").append(
             $('<link rel="stylesheet" type="text/css" />').attr(
               "href",
               `/src/css/popups/${this.css}`
             )
           );
+          loadedCss.push(this.css);
         }
       }
     );

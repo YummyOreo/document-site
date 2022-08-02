@@ -2,6 +2,7 @@ import { currentPage } from "../router/page-router.js";
 import { Component } from "../types/classes.js";
 
 export let componentNames: string[] = [];
+export const loadedCss: string[] = [];
 
 export async function loadComponents() {
   if (currentPage.components == undefined) return;
@@ -23,12 +24,15 @@ export async function loadComponent(component: Component, element: Element) {
   $(`#${element.id}`).load(`/static/html/components/${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
-        $("head").append(
-          $('<link rel="stylesheet" type="text/css" />').attr(
-            "href",
-            `/src/css/components/${css}`
-          )
-        );
+        if (!loadedCss.includes(css)) {
+          $("head").append(
+            $('<link rel="stylesheet" type="text/css" />').attr(
+              "href",
+              `/src/css/components/${css}`
+            )
+          );
+          loadedCss.push(css);
+        }
       });
     }
     component.run();
