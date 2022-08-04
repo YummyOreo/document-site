@@ -20,7 +20,7 @@ export class PopupDefault {
   color: string;
   html: string;
   css: string;
-  num: string;
+  id: string;
   show: Function;
   hide: Function;
   constructor(
@@ -37,8 +37,8 @@ export class PopupDefault {
     this.css = css;
   }
 
-  assignNumber(num: string) {
-    this.num = num;
+  assignId(id: string) {
+    this.id = id;
   }
 
   assignShow(func: Function) {
@@ -50,7 +50,7 @@ export class PopupDefault {
   }
 
   makePopup() {
-    $(`#popup-${this.num}.popup-inner`).load(
+    $(`#popup-${this.id}.popup-inner`).load(
       `/static/html/popups/${this.html}`,
       () => {
         if (this.css != undefined && !loadedCss.includes(this.css)) {
@@ -67,7 +67,7 @@ export class PopupDefault {
   }
 
   showPopup() {
-    $(`#popup-${this.num}.popup-outer`).css({
+    $(`#popup-${this.id}.popup-outer`).css({
       opacity: "100",
       "pointer-events": "all",
     });
@@ -77,7 +77,7 @@ export class PopupDefault {
   }
 
   hidePopup() {
-    $(`#popup-${this.num}.popup-outer`).css({
+    $(`#popup-${this.id}.popup-outer`).css({
       opacity: "0",
       "pointer-events": "none",
     });

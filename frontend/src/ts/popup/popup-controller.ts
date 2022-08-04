@@ -2,44 +2,69 @@ import { PopupDefault } from "../types/classes";
 
 export const popups: { [name: string]: PopupDefault } = {};
 
+export let currentOpen: string[] = [];
+
 export const loadedCss: string[] = [];
 
 export function makePopup(popup: PopupDefault): string {
-  const lastKey = parseInt(Object.keys(popups)[Object.keys(popups).length - 1]);
+  const lastId = parseInt(Object.keys(popups)[Object.keys(popups).length - 1]);
 
-  let currentNum = (lastKey + 1).toString();
-  if (currentNum == "NaN") {
-    currentNum = "0";
+  let currentId = (lastId + 1).toString();
+  if (currentId == "NaN") {
+    currentId = "0";
   }
 
-  popups[currentNum] = popup;
+  popups[currentId] = popup;
 
-  const defaultPopup = `<div class="popup-outer" id="popup-${currentNum}"><div class="popup-inner" id="popup-${currentNum}"></div></div>`;
+  const defaultPopup = `<div class="popup-outer" id="popup-${currentId}"><div class="popup-inner" id="popup-${currentId}"></div></div>`;
 
   $(".main").append(defaultPopup);
 
-  popup.assignNumber(currentNum);
+  popup.assignId(currentId);
   popup.makePopup();
-  $(`#popup-${popup.num}.popup-inner`).css({
+  $(`#popup-${popup.id}.popup-inner`).css({
     "background-color": popup.color,
     width: popup.sizeWidth,
     height: popup.sizeHeight,
   });
-  return currentNum;
+  return currentId;
 }
 
-export function showPopup(index: string) {
+export function showPopup(id: string) {
+  if (currentOpen.includes(id)) return;
   $("body").addClass("stop-scroll");
-  popups[index].showPopup();
+  popups[id].showPopup();
+  currentOpen.push(id);
 }
 
-export function hidePopup(index: string) {
+export function hidePopup(id: string) {
+  if (!currentOpen.includes(id)) return;
+
   $("body").removeClass("stop-scroll");
-  popups[index].hidePopup();
+  popups[id].hidePopup();
+  const index = currentOpen.indexOf(id);
+  currentOpen = currentOpen.slice(index, index);
 }
 
-export function deletePopup(index: string) {
-  delete popups[index];
-  $(`#popup-${index}.popup-outer`).empty();
-  $(`#popup-${index}.popup-outer`).remove();
+export function deletePopup(id: string) {
+  delete popups[id];
+  $(`#popup-${id}.popup-outer`).empty();
+  $(`#popup-${id}.popup-outer`).remove();
+
+  if (!currentOpen.includes(id)) return;
+
+  const index = currentOpen.indexOf(id);
+  currentOpen = currentOpen.slice(index, index);
+}
+
+// closes the last opened popup
+export function closeLastOpened() {
+  const id = currentOpen[currentOpen.length - 1];
+  hidePopup(id);
+}
+
+export function deleteLastOpened() {
+  const id = currentOpen[currentOpen.length - 1];
+  hidePopup(id);
+  deletePopup(id);
 }

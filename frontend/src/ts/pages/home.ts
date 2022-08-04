@@ -1,4 +1,5 @@
 import { NavbarCompenent } from "../components/classes/navbar.js";
+import { clickClose } from "../popup/common-popups.js";
 import {
   deletePopup,
   hidePopup,
@@ -27,5 +28,17 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+    const popup = new PopupDefault(
+      "10rem",
+      "10rem",
+      "white",
+      "example.html",
+      "example.css"
+    );
+    popup.assignShow(() => {
+      clickClose(id);
+    });
+    const id = makePopup(popup);
+    showPopup(id);
   }
 }
