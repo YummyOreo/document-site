@@ -68,3 +68,7 @@ export function deleteLastOpened() {
   hidePopup(id);
   deletePopup(id);
 }
+
+export function checkIsOpen(id: string) {
+  return currentOpen.includes(id);
+}

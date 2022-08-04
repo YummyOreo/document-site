@@ -35,8 +35,8 @@ export class Page extends PageDefault {
       "example.html",
       "example.css"
     );
-    popup.assignShow(() => {
-      clickClose(id);
+    popup.assignShow((popup: PopupDefault) => {
+      clickClose(popup.id);
     });
     const id = makePopup(popup);
     showPopup(id);

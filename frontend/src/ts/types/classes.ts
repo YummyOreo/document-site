@@ -72,7 +72,7 @@ export class PopupDefault {
       "pointer-events": "all",
     });
     if (this.show) {
-      this.show();
+      this.show(this);
     }
   }
 
@@ -82,7 +82,7 @@ export class PopupDefault {
       "pointer-events": "none",
     });
     if (this.hide) {
-      this.hide();
+      this.hide(this);
     }
   }
 }
