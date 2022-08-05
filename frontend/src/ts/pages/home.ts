@@ -28,7 +28,9 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
-    const id = makeImagePopup();
-    showPopup(id);
+    $(".preview-img").on("click", () => {
+      const id = makeImagePopup("../static/assets/Preview.png");
+      showPopup(id);
+    });
   }
 }

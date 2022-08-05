@@ -73,20 +73,26 @@ export class PopupDefault {
   }
 
   showPopup() {
+    $(`#popup-${this.id}.popup-outer`).removeClass("scailOpacityDown");
+    $(`#popup-${this.id}.popup-outer`).addClass("scailOpacityUp");
     $(`#popup-${this.id}.popup-outer`).css({
-      opacity: "100",
+      opacity: 1,
       "pointer-events": "all",
     });
+
     if (this.show) {
       this.show(this);
     }
   }
 
   hidePopup() {
+    $(`#popup-${this.id}.popup-outer`).removeClass("scailOpacityUp");
+    $(`#popup-${this.id}.popup-outer`).addClass("scailOpacityDown");
     $(`#popup-${this.id}.popup-outer`).css({
-      opacity: "0",
+      opacity: 0,
       "pointer-events": "none",
     });
+
     if (this.hide) {
       this.hide(this);
     }

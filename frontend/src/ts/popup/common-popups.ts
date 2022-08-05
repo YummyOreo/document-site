@@ -11,7 +11,9 @@ export function clickClose(id: string, delPopup: boolean = true) {
     if (!isOpen(id)) return;
     if (event.target.classList.contains("popup-outer")) {
       hidePopup(id);
-      if (delPopup) deletePopup(id);
+      setTimeout(() => {
+        if (delPopup) deletePopup(id);
+      }, 300);
     }
   });
 }
@@ -22,9 +24,21 @@ export function makeImagePopup(image: string = null): string {
     "90%",
     "var(--background-color-3)",
     "image.html",
-    null
+    "image.css"
   );
-  popup.assignMake((popup) => clickClose(popup.id));
+  popup.assignMake((popup) => {
+    clickClose(popup.id);
+    $(`#popup-${id} > img`)
+      .on("load", () => {
+        $(`#popup-${id} > span`).remove();
+      })
+      .on("error", () => {
+        $(`#popup-${id} > span`)[0].innerText = "Image failed to load";
+        $(`#popup-${id} > img`).remove();
+      })
+      .attr("src", image);
+  });
   const id = makePopup(popup);
+
   return id;
 }
