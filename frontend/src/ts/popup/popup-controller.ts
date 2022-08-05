@@ -31,7 +31,7 @@ export function makePopup(popup: PopupDefault): string {
 }
 
 export function showPopup(id: string) {
-  if (currentOpen.includes(id)) return;
+  if (isOpen(id)) return;
   $("body").addClass("stop-scroll");
   popups[id].showPopup();
   currentOpen.push(id);
@@ -50,7 +50,7 @@ export function deletePopup(id: string) {
   $(`#popup-${id}.popup-outer`).empty();
   $(`#popup-${id}.popup-outer`).remove();
 
-  if (!currentOpen.includes(id)) return;
+  if (!isOpen(id)) return;
 
   currentOpen = currentOpen.filter((data) => data != id);
 }
