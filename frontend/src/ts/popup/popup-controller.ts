@@ -42,8 +42,7 @@ export function hidePopup(id: string) {
 
   $("body").removeClass("stop-scroll");
   popups[id].hidePopup();
-  const index = currentOpen.indexOf(id);
-  currentOpen = currentOpen.slice(index, index);
+  currentOpen = currentOpen.filter((data) => data != id);
 }
 
 export function deletePopup(id: string) {
@@ -53,8 +52,7 @@ export function deletePopup(id: string) {
 
   if (!currentOpen.includes(id)) return;
 
-  const index = currentOpen.indexOf(id);
-  currentOpen = currentOpen.slice(index, index);
+  currentOpen = currentOpen.filter((data) => data != id);
 }
 
 // closes the last opened popup

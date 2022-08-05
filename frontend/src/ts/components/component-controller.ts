@@ -48,6 +48,8 @@ export function deleteComponentByName(name: string) {
   const index = componentNames.indexOf(name);
   $(`#${currentPage.components[index].name}`).empty();
   $(`#${currentPage.components[index].name}`).remove();
-  currentPage.components = currentPage.components.slice(index, index);
-  componentNames = componentNames.slice(index, index);
+  currentPage.components = currentPage.components.filter(
+    (data) => data.name != name
+  );
+  componentNames = componentNames.filter((data) => data != name);
 }

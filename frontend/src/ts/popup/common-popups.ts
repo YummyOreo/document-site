@@ -1,4 +1,9 @@
-import { isOpen, deletePopup, hidePopup } from "./popup-controller.js";
+import {
+  isOpen,
+  deletePopup,
+  hidePopup,
+  currentOpen,
+} from "./popup-controller.js";
 
 export function clickClose(id: string, delPopup: boolean = true) {
   $(`#popup-${id}`).on("click", (event) => {

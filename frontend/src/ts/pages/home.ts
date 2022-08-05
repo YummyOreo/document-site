@@ -1,11 +1,11 @@
 import { NavbarCompenent } from "../components/classes/navbar.js";
-import { clickClose } from "../popup/common-popups.js";
 import {
-  deletePopup,
-  hidePopup,
-  makePopup,
-  showPopup,
-} from "../popup/popup-controller.js";
+  componentNames,
+  deleteComponentByName,
+} from "../components/component-controller.js";
+import { clickClose } from "../popup/common-popups.js";
+import { makePopup, showPopup } from "../popup/popup-controller.js";
+import { currentPage } from "../router/page-router.js";
 import { Component, PageDefault, PopupDefault } from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
@@ -28,17 +28,5 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
-    const popup = new PopupDefault(
-      "10rem",
-      "10rem",
-      "white",
-      "example.html",
-      "example.css"
-    );
-    popup.assignShow((popup: PopupDefault) => {
-      clickClose(popup.id);
-    });
-    const id = makePopup(popup);
-    showPopup(id);
   }
 }
