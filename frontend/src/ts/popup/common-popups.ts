@@ -24,9 +24,7 @@ export function makeImagePopup(image: string = null): string {
     "image.html",
     null
   );
-  popup.assignMake((popup) => {
-    clickClose(popup.id);
-  });
+  popup.assignMake((popup) => clickClose(popup.id));
   const id = makePopup(popup);
   return id;
 }
