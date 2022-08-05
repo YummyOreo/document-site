@@ -23,6 +23,7 @@ export class PopupDefault {
   id: string;
   show: Function;
   hide: Function;
+  make: Function;
   constructor(
     sizeWidth: string,
     sizeHeight: string,
@@ -49,6 +50,10 @@ export class PopupDefault {
     this.hide = func;
   }
 
+  assignMake(func: Function) {
+    this.make = func;
+  }
+
   makePopup() {
     $(`#popup-${this.id}.popup-inner`).load(
       `/static/html/popups/${this.html}`,
@@ -62,6 +67,7 @@ export class PopupDefault {
           );
           loadedCss.push(this.css);
         }
+        this.make(this);
       }
     );
   }

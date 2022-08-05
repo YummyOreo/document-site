@@ -3,7 +3,7 @@ import {
   componentNames,
   deleteComponentByName,
 } from "../components/component-controller.js";
-import { clickClose } from "../popup/common-popups.js";
+import { clickClose, makeImagePopup } from "../popup/common-popups.js";
 import { makePopup, showPopup } from "../popup/popup-controller.js";
 import { currentPage } from "../router/page-router.js";
 import { Component, PageDefault, PopupDefault } from "../types/classes.js";
@@ -28,5 +28,7 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+    const id = makeImagePopup();
+    showPopup(id);
   }
 }

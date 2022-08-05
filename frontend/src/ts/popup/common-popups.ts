@@ -1,8 +1,9 @@
+import { PopupDefault } from "../types/classes.js";
 import {
   isOpen,
   deletePopup,
   hidePopup,
-  currentOpen,
+  makePopup,
 } from "./popup-controller.js";
 
 export function clickClose(id: string, delPopup: boolean = true) {
@@ -15,6 +16,17 @@ export function clickClose(id: string, delPopup: boolean = true) {
   });
 }
 
-export function makeImagePopup(image: string): string {
-  return "";
+export function makeImagePopup(image: string = null): string {
+  const popup = new PopupDefault(
+    "90%",
+    "90%",
+    "var(--background-color-3)",
+    "image.html",
+    null
+  );
+  popup.assignMake((popup) => {
+    clickClose(popup.id);
+  });
+  const id = makePopup(popup);
+  return id;
 }
