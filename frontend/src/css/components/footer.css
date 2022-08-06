@@ -52,5 +52,6 @@
   filter: var(--text-accent-filter);
 }
 .footer-element a:hover {
+  transform: scale(1.1);
   color: var(--text-accent);
 }
