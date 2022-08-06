@@ -24,19 +24,28 @@
 .footer-element-icon {
   display: inline;
   filter: var(--text-white-filter);
+  place-content: center;
 
   transition: var(--transition);
 }
 
-.footer-element a {
-  padding-right: 10px;
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  gap: 1rem;
+}
 
+.footer-element a {
   font-weight: 500;
   color: var(--text-light-gray);
   font-size: 15px;
 
   transition: var(--transition);
   cursor: pointer;
+
+  display: flex;
+  gap: 0.25rem;
 }
 
 .footer-element a:hover .footer-element-icon {
