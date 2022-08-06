@@ -48,6 +48,9 @@
   gap: 0.25rem;
 }
 
+/*
+This is so it is smoother, you see less "green" or other colors as it is using filter 
+*/
 .footer-element a:hover .footer-element-icon {
   filter: var(--text-accent-filter);
 }
