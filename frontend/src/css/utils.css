@@ -1,4 +1,8 @@
 .center {
-  display: flex;
   justify-content: center;
+  display: flex;
+}
+
+.stop-scroll {
+  overflow: hidden;
 }
