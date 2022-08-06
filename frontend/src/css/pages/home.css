@@ -4,10 +4,7 @@
 }
 
 p {
-  font-weight: 500;
-  color: var(--text-light-gray);
   padding-top: 1rem;
-  font-size: 15px;
 }
 
 .info {
