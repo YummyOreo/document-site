@@ -11,6 +11,7 @@ export function clickClose(id: string, delPopup: boolean = true) {
     if (!isOpen(id)) return;
     if (event.target.classList.contains("popup-outer")) {
       hidePopup(id);
+      // let the animation play
       setTimeout(() => {
         if (delPopup) deletePopup(id);
       }, 300);
