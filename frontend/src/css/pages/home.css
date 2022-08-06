@@ -47,7 +47,7 @@ p {
   color: var(--text-gray);
 }
 
-.button-github {
+.button {
   padding: 9px 25px;
   background-color: var(--text-accent);
   border: none;
@@ -58,7 +58,7 @@ p {
   color: var(--text-white);
 }
 
-.button-github:hover {
+.button:hover {
   transform: scale(1.05);
 }
 
