@@ -6,8 +6,7 @@ import {
 } from "../components/component-controller.js";
 import { clickClose, makeImagePopup } from "../popup/common-popups.js";
 import { makePopup, showPopup } from "../popup/popup-controller.js";
-import { currentPage } from "../router/page-router.js";
-import { Component, PageDefault, PopupDefault } from "../types/classes.js";
+import { Component, PageDefault } from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];
 

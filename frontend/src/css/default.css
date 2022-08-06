@@ -69,3 +69,60 @@ body {
     opacity: 0;
   }
 }
+
+h1 {
+  padding-top: 20px;
+  font-size: 30px;
+}
+
+p {
+  font-weight: 500;
+  color: var(--text-light-gray);
+  font-size: 15px;
+}
+
+.button {
+  padding: 9px 25px;
+  background-color: var(--text-accent);
+  border: none;
+  border-radius: 5px;
+  transition: var(--transition);
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-white);
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.link {
+  color: var(--text-accent);
+}
+
+.separator {
+  background-color: var(--background-color-2);
+  border: none;
+  height: 10px;
+  width: 20rem;
+
+  transition: var(--transition);
+  border-radius: 5px;
+}
+
+.separator:hover {
+  transform: scale(1.01);
+  background-color: var(--text-accent);
+}
+
+.title {
+  text-align: center;
+  font-size: 50px;
+}
+
+.caption {
+  padding-top: 0;
+  padding-left: 5px;
+  font-size: 12px;
+  color: var(--text-gray);
+}
