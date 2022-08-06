@@ -2,8 +2,9 @@
   font-size: 5rem;
 }
 .popup-image {
-  width: 98%;
-  height: 97%;
-  border: 2px solid var(--background-color-2);
   border-radius: 5px;
+  border: 2px solid var(--background-color-2);
+
+  height: 97%;
+  width: 98%;
 }
