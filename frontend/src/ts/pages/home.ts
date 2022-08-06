@@ -1,3 +1,4 @@
+import { FooterCompenent } from "../components/classes/footer.js";
 import { NavbarCompenent } from "../components/classes/navbar.js";
 import {
   componentNames,
@@ -22,7 +23,7 @@ export class Page extends PageDefault {
     this.name = "Home";
     this.url = URL;
     this.html = "home.html";
-    this.components = [new NavbarCompenent()];
+    this.components = [new NavbarCompenent(), new FooterCompenent()];
     this.css = ["home.css"];
   }
 

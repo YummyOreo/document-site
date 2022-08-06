@@ -1,0 +1,33 @@
+.footer {
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 2rem;
+  padding-top: 2.5rem;
+  background-color: var(--background-color-3);
+}
+
+.footer ul {
+  padding: 0;
+  list-style: none;
+  padding-left: 10%;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer li {
+  padding: 0 10px;
+}
+
+.list-inline li {
+  display: inline;
+}
+
+.list-inline li {
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.list-inline li:hover {
+  color: var(--text-accent);
+}
