@@ -10,9 +10,9 @@
 }
 
 .footer-elements {
-  display: flex;
   justify-content: space-between;
   align-items: center;
+  display: flex;
 
   padding: 0 10%;
 }
@@ -32,8 +32,8 @@
 }
 
 .footer-links {
-  display: flex;
   flex-direction: row;
+  display: flex;
   width: fit-content;
 
   gap: 1rem;
