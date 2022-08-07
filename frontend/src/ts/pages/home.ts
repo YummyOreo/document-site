@@ -29,7 +29,7 @@ export class Page extends PageDefault {
   async run() {
     super.run();
     $(".preview-img").on("click", () => {
-      const id = makeImagePopup("../static/assets/Preview.png");
+      const id = makeImagePopup("../static/assets/home/png/Preview.png");
       showPopup(id);
     });
   }
