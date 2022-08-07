@@ -6,3 +6,9 @@
 .stop-scroll {
   overflow: hidden;
 }
+
+.elipse-overflow {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

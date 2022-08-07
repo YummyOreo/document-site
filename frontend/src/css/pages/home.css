@@ -1,46 +1,39 @@
-.info div {
-  padding-top: 20px;
-  font-size: 30px;
-}
-
 p {
   padding-top: 1rem;
 }
 
 .info {
-  padding-left: 10%;
-  padding-right: 10%;
+  padding: 0 10%;
+  padding-top: 20px;
+
   display: grid;
-  gap: 2rem;
   row-gap: 1rem;
+  gap: 2rem;
 
   grid-template-columns: repeat(2, minmax(240px, 1fr));
   grid-template-rows: 1fr;
 }
 
-.making-documents {
-  padding-top: 6rem;
-}
-
-.preview-img,
-.card-features-container {
-  border: 2px solid var(--background-color-2);
+.hover-effect {
   border-radius: 5px;
+  border: 2px solid var(--background-color-2);
+
   transition: var(--transition);
 }
 
-.preview-img:hover,
-.card-features-container:hover {
+.hover-effect:hover {
   border: 2px solid var(--text-accent);
   border-radius: 5px;
+
   transform: scale(1.01);
 }
 
 .features {
+  padding: 0 10%;
+
+  padding-bottom: 1rem;
   padding-top: 2rem;
 
-  padding-left: 10%;
-  padding-right: 10%;
   display: grid;
   gap: 1rem;
 
@@ -48,26 +41,16 @@ p {
 }
 
 .card-features-container {
-  border: 2px solid var(--background-color-1);
   background-color: var(--background-color-3);
-  padding: 26px 16px;
-  display: grid;
+  border-color: transparent;
 
-  grid-template-rows: repeat(auto-fit, minmax(240px, 1fr));
+  padding: 26px 16px;
 }
 
 .card-features-container object {
-  transform: scale(0.9);
   filter: var(--text-white-filter);
 }
 
 .card-features-container p {
-  padding-bottom: 1rem;
   height: 9rem;
-}
-
-.card-features-container h1 {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
