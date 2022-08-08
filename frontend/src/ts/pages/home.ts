@@ -1,11 +1,7 @@
 import { FooterCompenent } from "../components/classes/footer.js";
 import { NavbarCompenent } from "../components/classes/navbar.js";
-import {
-  componentNames,
-  deleteComponentByName,
-} from "../components/component-controller.js";
-import { clickClose, makeImagePopup } from "../popup/common-popups.js";
-import { makePopup, showPopup } from "../popup/popup-controller.js";
+import { makeImagePopup } from "../popup/common-popups.js";
+import { showPopup } from "../popup/popup-controller.js";
 import { Component, PageDefault } from "../types/classes.js";
 
 export const URL = ["/", "/home", ""];

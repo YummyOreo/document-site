@@ -5,7 +5,6 @@ import * as HomePage from "../pages/home.js";
 import { PageDefault } from "../types/classes.js";
 
 const pages: any[] = [DocumentsPage, HomePage];
-const error = ErrorPage;
 
 export let currentPage: PageDefault;
 
