@@ -18,18 +18,15 @@
 
 .logo {
   transform: scale(2.5);
+  filter: var(--text-white-filter);
+
+  transition: var(--transition);
 }
 
 .logo:hover {
   filter: var(--text-accent-filter);
-}
 
-.nav-logo-enlage {
-  transition: var(--transition);
-}
-
-.nav-logo-enlage:hover {
-  transform: scale(1.1);
+  transform: scale(2.8);
 }
 
 .nav-item * {
