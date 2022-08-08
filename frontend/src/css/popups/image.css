@@ -1,7 +1,7 @@
-.popup-image-span {
+.popup-image span {
   font-size: 5rem;
 }
-.popup-image {
+.popup-image img {
   border-radius: 5px;
   border: 2px solid var(--background-color-2);
 

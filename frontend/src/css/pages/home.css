@@ -22,8 +22,8 @@ p {
 }
 
 .hover-effect:hover {
-  border: 2px solid var(--text-accent);
   border-radius: 5px;
+  border: 2px solid var(--text-accent);
 
   transform: scale(1.01);
 }

@@ -19,11 +19,9 @@ export class NavbarCompenent extends Component {
       const disabledElement = disabledElements[i];
       disabledElement.classList.add("nav-disabled");
       disabledElement.removeAttribute("href");
-      disabledElement.addEventListener("click", (e) => {
-        e.preventDefault();
-      });
     }
 
+    // makes it so if you scroll down far enought the navbar hides its self
     $(window).on("scroll", function () {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
