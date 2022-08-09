@@ -58,25 +58,33 @@ export class PopupDefault {
   }
 
   showPopup() {
-    $(`#popup-${this.id}.popup-outer`).removeClass("scailOpacityDown");
-    $(`#popup-${this.id}.popup-outer`).addClass("scailOpacityUp");
-    $(`#popup-${this.id}.popup-outer`).css({
-      opacity: 1,
-      "pointer-events": "all",
-    });
+    this.toggleCss();
 
     if (this.showFunc) this.showFunc(this);
   }
 
   hidePopup() {
+    this.toggleCss();
+
+    if (this.hideFunc) this.hideFunc(this);
+  }
+
+  toggleCss() {
+    if ($(`#popup-${this.id}.popup-outer`).css("opacity") == "0") {
+      $(`#popup-${this.id}.popup-outer`).removeClass("scailOpacityDown");
+      $(`#popup-${this.id}.popup-outer`).addClass("scailOpacityUp");
+      $(`#popup-${this.id}.popup-outer`).css({
+        opacity: 1,
+        "pointer-events": "all",
+      });
+      return;
+    }
     $(`#popup-${this.id}.popup-outer`).removeClass("scailOpacityUp");
     $(`#popup-${this.id}.popup-outer`).addClass("scailOpacityDown");
     $(`#popup-${this.id}.popup-outer`).css({
       opacity: 0,
       "pointer-events": "none",
     });
-
-    if (this.hideFunc) this.hideFunc(this);
   }
 }
 
