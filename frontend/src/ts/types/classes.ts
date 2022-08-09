@@ -16,43 +16,27 @@ export class PageDefault {
 }
 
 export class PopupDefault {
-  sizeWidth: string;
-  sizeHeight: string;
+  width: string;
+  height: string;
   color: string;
   html: string;
   css: string;
   id: string;
-  show: Function;
-  hide: Function;
-  make: Function;
+  showFunc: Function;
+  hideFunc: Function;
+  makeFunc: Function;
   constructor(
-    sizeWidth: string,
-    sizeHeight: string,
+    width: string,
+    height: string,
     color: string,
     html: string,
     css: string
   ) {
-    this.sizeWidth = sizeWidth;
-    this.sizeHeight = sizeHeight;
+    this.width = width;
+    this.height = height;
     this.color = color;
     this.html = html;
     this.css = css;
-  }
-
-  assignId(id: string) {
-    this.id = id;
-  }
-
-  assignShow(func: Function) {
-    this.show = func;
-  }
-
-  assignHide(func: Function) {
-    this.hide = func;
-  }
-
-  assignMake(func: Function) {
-    this.make = func;
   }
 
   makePopup() {
@@ -68,7 +52,7 @@ export class PopupDefault {
           );
           loadedCss.push(this.css);
         }
-        this.make(this);
+        if (this.makeFunc) this.makeFunc(this);
       }
     );
   }
@@ -81,9 +65,7 @@ export class PopupDefault {
       "pointer-events": "all",
     });
 
-    if (this.show) {
-      this.show(this);
-    }
+    if (this.showFunc) this.showFunc(this);
   }
 
   hidePopup() {
@@ -94,9 +76,7 @@ export class PopupDefault {
       "pointer-events": "none",
     });
 
-    if (this.hide) {
-      this.hide(this);
-    }
+    if (this.hideFunc) this.hideFunc(this);
   }
 }
 

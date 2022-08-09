@@ -16,17 +16,19 @@ export function makePopup(popup: PopupDefault): string {
 
   popups[currentId] = popup;
 
-  const defaultPopup = `<div class="popup-outer" id="popup-${currentId}"><div class="popup-inner" id="popup-${currentId}"></div></div>`;
+  const baseHtml = `<div class="popup-outer" id="popup-${currentId}"><div class="popup-inner" id="popup-${currentId}"></div></div>`;
 
-  $(".main").append(defaultPopup);
+  $(".main").append(baseHtml);
 
-  popup.assignId(currentId);
+  popup.id = currentId;
   popup.makePopup();
+
   $(`#popup-${popup.id}.popup-inner`).css({
     "background-color": popup.color,
-    width: popup.sizeWidth,
-    height: popup.sizeHeight,
+    width: popup.width,
+    height: popup.height,
   });
+
   return currentId;
 }
 
@@ -63,7 +65,6 @@ export function closeLastOpened() {
 
 export function deleteLastOpened() {
   const id = currentOpen[currentOpen.length - 1];
-  hidePopup(id);
   deletePopup(id);
 }
 

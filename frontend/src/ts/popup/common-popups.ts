@@ -1,19 +1,14 @@
 import { PopupDefault } from "../types/classes.js";
-import {
-  isOpen,
-  deletePopup,
-  hidePopup,
-  makePopup,
-} from "./popup-controller.js";
+import * as popupController from "./popup-controller.js";
 
-export function clickClose(id: string, delPopup: boolean = true) {
+export function closeOnClick(id: string, delPopup: boolean = true) {
   $(`#popup-${id}`).on("click", (event) => {
-    if (!isOpen(id)) return;
+    if (!popupController.isOpen(id)) return;
     if (event.target.classList.contains("popup-outer")) {
-      hidePopup(id);
+      popupController.hidePopup(id);
       // let the animation play
       setTimeout(() => {
-        if (delPopup) deletePopup(id);
+        if (delPopup) popupController.deletePopup(id);
       }, 300);
     }
   });
@@ -27,8 +22,8 @@ export function makeImagePopup(image: string = null): string {
     "image.html",
     "image.css"
   );
-  popup.assignMake((popup) => {
-    clickClose(popup.id);
+  popup.makeFunc = (popup) => {
+    closeOnClick(popup.id);
 
     $(`#popup-${id} img`)
       .on("load", () => {
@@ -39,8 +34,8 @@ export function makeImagePopup(image: string = null): string {
         $(`#popup-${id} img`).remove();
       })
       .attr("src", image);
-  });
-  const id = makePopup(popup);
+  };
+  const id = popupController.makePopup(popup);
 
   return id;
 }

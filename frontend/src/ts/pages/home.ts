@@ -27,7 +27,6 @@ export class Page extends PageDefault {
     super.run();
     $(".preview-img").on("click", () => {
       const image = `${folder.assets}home/png/Preview.png`;
-      console.log(image);
 
       const id = makeImagePopup(image);
       showPopup(id);
