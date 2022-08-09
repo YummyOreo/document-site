@@ -3,6 +3,7 @@ import * as DocumentsPage from "../pages/documents.js";
 import ErrorPage from "../pages/error.js";
 import * as HomePage from "../pages/home.js";
 import { PageDefault } from "../types/classes.js";
+import * as folder from "../constants/folder.js";
 
 const pages: any[] = [DocumentsPage, HomePage];
 
@@ -23,14 +24,14 @@ export default async function getPage(): Promise<void> {
 }
 
 async function displayPage(page: PageDefault) {
-  $(".main").load(`/static/pages/${page.html}`, async () => {
+  $(".main").load(`${folder.htmlPage}${page.html}`, async () => {
     $(document).prop("title", page.name);
     if (page.css != undefined) {
       page.css.forEach((css) => {
         $("head").append(
           $('<link rel="stylesheet" type="text/css" />').attr(
             "href",
-            `/src/css/pages/${css}`
+            `${folder.cssPage}${css}`
           )
         );
       });

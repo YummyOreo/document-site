@@ -29,13 +29,14 @@ export function makeImagePopup(image: string = null): string {
   );
   popup.assignMake((popup) => {
     clickClose(popup.id);
-    $(`#popup-${id} > img`)
+
+    $(`#popup-${id} img`)
       .on("load", () => {
-        $(`#popup-${id} > span`).remove();
+        $(`#popup-${id} span`).remove();
       })
-      .on("error", () => {
-        $(`#popup-${id} > span`)[0].innerText = "Image failed to load";
-        $(`#popup-${id} > img`).remove();
+      .on("error", (e) => {
+        $(`#popup-${id} span`)[0].innerText = "Image failed to load";
+        $(`#popup-${id} img`).remove();
       })
       .attr("src", image);
   });

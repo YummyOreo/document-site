@@ -8,3 +8,9 @@
   height: 97%;
   width: 98%;
 }
+
+.popup-image {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}

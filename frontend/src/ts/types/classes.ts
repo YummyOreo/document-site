@@ -1,4 +1,5 @@
 import { loadedCss } from "../popup/popup-controller.js";
+import * as folder from "../constants/folder.js";
 
 export class PageDefault {
   name: string;
@@ -56,13 +57,13 @@ export class PopupDefault {
 
   makePopup() {
     $(`#popup-${this.id}.popup-inner`).load(
-      `/static/html/popups/${this.html}`,
+      `${folder.htmlPopup}${this.html}`,
       () => {
         if (this.css != undefined && !loadedCss.includes(this.css)) {
           $("head").append(
             $('<link rel="stylesheet" type="text/css" />').attr(
               "href",
-              `/src/css/popups/${this.css}`
+              `${folder.cssPopup}${this.css}`
             )
           );
           loadedCss.push(this.css);

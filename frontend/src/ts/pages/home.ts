@@ -3,6 +3,7 @@ import { NavbarCompenent } from "../components/classes/navbar.js";
 import { makeImagePopup } from "../popup/common-popups.js";
 import { showPopup } from "../popup/popup-controller.js";
 import { Component, PageDefault } from "../types/classes.js";
+import * as folder from "../constants/folder.js";
 
 export const URL = ["/", "/home", ""];
 
@@ -25,7 +26,10 @@ export class Page extends PageDefault {
   async run() {
     super.run();
     $(".preview-img").on("click", () => {
-      const id = makeImagePopup("../static/assets/home/png/Preview.png");
+      const image = `${folder.assets}home/png/Preview.png`;
+      console.log(image);
+
+      const id = makeImagePopup(image);
       showPopup(id);
     });
   }

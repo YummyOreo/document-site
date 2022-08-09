@@ -1,3 +1,4 @@
+import * as folder from "../constants/folder.js";
 import { currentPage } from "../router/page-router.js";
 import { Component } from "../types/classes.js";
 
@@ -21,14 +22,14 @@ export async function loadComponent(component: Component, element: Element) {
   componentNames.push(component.name);
   if (!currentPage.components.includes(component))
     currentPage.components.push(component);
-  $(`#${element.id}`).load(`/static/html/components/${component.html}`, () => {
+  $(`#${element.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
         if (!loadedCss.includes(css)) {
           $("head").append(
             $('<link rel="stylesheet" type="text/css" />').attr(
               "href",
-              `/src/css/components/${css}`
+              `${folder.cssComponents}${css}`
             )
           );
           loadedCss.push(css);
