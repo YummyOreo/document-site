@@ -1,0 +1,60 @@
+.footer {
+  bottom: 0;
+  width: 100%;
+
+  z-index: 10;
+
+  padding: 1rem 0;
+
+  background-color: var(--background-color-3);
+  box-shadow: 0px 1px 15px var(--background-color-3);
+}
+
+.footer-elements {
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+
+  padding-left: calc(10% + 3px);
+  padding: 0 10%;
+}
+
+.footer-element {
+  cursor: pointer;
+  color: var(--text-light-gray);
+}
+
+.footer-element-icon {
+  display: inline;
+  filter: var(--text-white-filter);
+
+  transition: var(--transition);
+}
+
+.footer-links {
+  flex-direction: row;
+  display: flex;
+  width: fit-content;
+
+  gap: 1rem;
+}
+
+.footer-element a {
+  font-weight: 500;
+
+  transition: var(--transition);
+
+  display: flex;
+  gap: 0.25rem;
+}
+
+/*
+This is so it is smoother, you see less "green" or other colors as it is using filter 
+*/
+.footer-links a:hover .footer-element-icon {
+  filter: var(--text-accent-filter);
+}
+.footer-links a:hover {
+  transform: scale(1.05);
+  color: var(--text-accent);
+}

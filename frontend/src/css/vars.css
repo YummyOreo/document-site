@@ -1,8 +1,19 @@
 :root {
   --text-white: #ecf0f1;
-  --text-gray: #a5a8a9;
-  --text-accent: #0088a9;
-  --text-accent-rgba: rgba(0, 136, 169, 1);
+  --text-white-filter: invert(93%) sepia(10%) saturate(53%) hue-rotate(145deg)
+    brightness(103%) contrast(91%);
 
+  --text-gray: #a5a8a9;
+  --text-light-gray: #d2d4d4;
+  --text-gray-other: #5c5c5e;
+
+  --text-accent: #0088a9;
+  --text-accent-filter: invert(36%) sepia(96%) saturate(2732%)
+    hue-rotate(167deg) brightness(89%) contrast(101%);
+
+  --background-color-1: #1d1e22;
   --background-color-2: #24252a;
+  --background-color-3: #161619;
+
+  --transition: all 0.5s ease 0s;
 }

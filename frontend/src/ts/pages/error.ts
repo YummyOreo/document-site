@@ -1,7 +1,8 @@
-import { Component } from "../components/compenent.js";
-import Page from "../types/classes.js";
+import { FooterCompenent } from "../components/classes/footer.js";
+import { NavbarCompenent } from "../components/classes/navbar.js";
+import { Component, PageDefault } from "../types/classes.js";
 
-export default class ErrorPage extends Page {
+export default class ErrorPage extends PageDefault {
   name: string;
   html: string;
   css: string[];
@@ -11,6 +12,7 @@ export default class ErrorPage extends Page {
     super();
     this.name = "Error";
     this.html = "error.html";
+    this.components = [new NavbarCompenent(), new FooterCompenent()];
   }
 
   async run() {}

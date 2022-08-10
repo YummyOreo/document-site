@@ -1,7 +1,9 @@
+import * as folder from "../constants/folder.js";
 import { currentPage } from "../router/page-router.js";
-import { Component } from "./compenent.js";
+import { Component } from "../types/classes.js";
 
 export let componentNames: string[] = [];
+export const loadedCss: string[] = [];
 
 export async function loadComponents() {
   if (currentPage.components == undefined) return;
@@ -20,15 +22,18 @@ export async function loadComponent(component: Component, element: Element) {
   componentNames.push(component.name);
   if (!currentPage.components.includes(component))
     currentPage.components.push(component);
-  $(`#${element.id}`).load(`/static/html/components/${component.html}`, () => {
+  $(`#${element.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
-        $("head").append(
-          $('<link rel="stylesheet" type="text/css" />').attr(
-            "href",
-            `/src/css/components/${css}`
-          )
-        );
+        if (!loadedCss.includes(css)) {
+          $("head").append(
+            $('<link rel="stylesheet" type="text/css" />').attr(
+              "href",
+              `${folder.cssComponents}${css}`
+            )
+          );
+          loadedCss.push(css);
+        }
       });
     }
     component.run();
@@ -43,6 +48,9 @@ export function getComponentByName(name: string): Component {
 export function deleteComponentByName(name: string) {
   const index = componentNames.indexOf(name);
   $(`#${currentPage.components[index].name}`).empty();
-  currentPage.components = currentPage.components.slice(index, index);
-  componentNames = componentNames.slice(index, index);
+  $(`#${currentPage.components[index].name}`).remove();
+  currentPage.components = currentPage.components.filter(
+    (data) => data.name != name
+  );
+  componentNames = componentNames.filter((data) => data != name);
 }

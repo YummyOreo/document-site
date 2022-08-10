@@ -1,5 +1,5 @@
 import { currentPage } from "../../router/page-router.js";
-import { Component } from "../compenent.js";
+import { Component } from "../../types/classes.js";
 
 export class NavbarCompenent extends Component {
   name: string;
@@ -18,6 +18,12 @@ export class NavbarCompenent extends Component {
       if (i == "length") break;
       const disabledElement = disabledElements[i];
       disabledElement.classList.add("nav-disabled");
+      disabledElement.removeAttribute("href");
     }
+
+    // makes it so if you scroll down far enought the navbar hides its self
+    $(window).on("scroll", function () {
+      $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
+    });
   }
 }
