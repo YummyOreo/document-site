@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/YummyOreo/document-site#readme",
   "devDependencies": {
-    "@types/jquery": "^3.5.14",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   },
