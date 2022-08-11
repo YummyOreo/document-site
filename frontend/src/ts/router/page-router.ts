@@ -13,14 +13,13 @@ export default async function getPage(): Promise<void> {
   for (const page in pages) {
     if (pages[page].URL.includes(window.location.pathname)) {
       currentPage = new pages[page].Page();
-      await displayPage(currentPage);
-      return;
+      break;
     }
   }
 
-  currentPage = new ErrorPage();
+  currentPage = currentPage ? currentPage : new ErrorPage();
 
-  displayPage(currentPage);
+  await displayPage(currentPage);
 }
 
 async function displayPage(page: PageDefault) {
