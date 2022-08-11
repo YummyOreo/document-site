@@ -1,5 +1,5 @@
-import { currentPage } from "../../router/page-router.js";
-import { Component } from "../../types/classes.js";
+import { currentPage } from "../../router/page-router";
+import { Component } from "../../types/classes";
 
 export class NavbarCompenent extends Component {
   name: string;

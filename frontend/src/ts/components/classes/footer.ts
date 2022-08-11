@@ -1,4 +1,4 @@
-import { Component } from "../../types/classes.js";
+import { Component } from "../../types/classes";
 
 export class FooterCompenent extends Component {
   name: string;

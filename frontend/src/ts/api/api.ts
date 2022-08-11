@@ -1,5 +1,5 @@
-import { defaultConfig as config } from "../constants/config.js";
-import * as apiUtils from "./utils.js";
+import { defaultConfig as config } from "../constants/config";
+import * as apiUtils from "./utils";
 
 export const api = {
   url: config.devMode ? "http://localhost:9000/.netlify/functions/api" : "",

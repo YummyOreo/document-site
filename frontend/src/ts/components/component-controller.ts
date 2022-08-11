@@ -1,6 +1,6 @@
-import * as folder from "../constants/folder.js";
-import { currentPage } from "../router/page-router.js";
-import { Component } from "../types/classes.js";
+import * as folder from "../constants/folder";
+import { currentPage } from "../router/page-router";
+import { Component } from "../types/classes";
 
 export let componentNames: string[] = [];
 export const loadedCss: string[] = [];

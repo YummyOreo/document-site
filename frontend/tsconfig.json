@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2017"
+    "target": "es2017",
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "allowJs": true,
+    "moduleResolution": "node"
   },
   "include": ["**/src/**/*"],
   "exclude": ["node_modules"]

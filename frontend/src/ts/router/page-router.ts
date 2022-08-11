@@ -1,9 +1,9 @@
-import { loadComponents } from "../components/component-controller.js";
-import * as DocumentsPage from "../pages/documents.js";
-import ErrorPage from "../pages/error.js";
-import * as HomePage from "../pages/home.js";
-import { PageDefault } from "../types/classes.js";
-import * as folder from "../constants/folder.js";
+import { loadComponents } from "../components/component-controller";
+import * as DocumentsPage from "../pages/documents";
+import ErrorPage from "../pages/error";
+import * as HomePage from "../pages/home";
+import { PageDefault } from "../types/classes";
+import * as folder from "../constants/folder";
 
 const pages: any[] = [DocumentsPage, HomePage];
 

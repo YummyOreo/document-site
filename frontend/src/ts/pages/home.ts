@@ -1,9 +1,9 @@
-import { FooterCompenent } from "../components/classes/footer.js";
-import { NavbarCompenent } from "../components/classes/navbar.js";
-import { makeImagePopup } from "../popup/common-popups.js";
-import { showPopup } from "../popup/popup-controller.js";
-import { Component, PageDefault } from "../types/classes.js";
-import * as folder from "../constants/folder.js";
+import { FooterCompenent } from "../components/classes/footer";
+import { NavbarCompenent } from "../components/classes/navbar";
+import { makeImagePopup } from "../popup/common-popups";
+import { showPopup } from "../popup/popup-controller";
+import { Component, PageDefault } from "../types/classes";
+import * as folder from "../constants/folder";
 
 export const URL = ["/", "/home", ""];
 
