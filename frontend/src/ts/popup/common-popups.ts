@@ -1,5 +1,5 @@
-import { PopupDefault } from "../types/classes.js";
-import * as popupController from "./popup-controller.js";
+import { PopupDefault } from "../types/classes";
+import * as popupController from "./popup-controller";
 
 export function closeOnClick(id: string, delPopup: boolean = true) {
   $(`#popup-${id}`).on("click", (event) => {
@@ -22,7 +22,7 @@ export function makeImagePopup(image: string = null): string {
     "image.html",
     "image.css"
   );
-  popup.makeFunc = (popup) => {
+  popup.makeFunc = (popup: PopupDefault) => {
     closeOnClick(popup.id);
 
     $(`#popup-${id} img`)

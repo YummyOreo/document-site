@@ -12,7 +12,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\"",
-    "dev-fe": "concurrently \"cd frontend && tsc --w\" \"cd frontend && firebase emulators:start\"",
+    "dev-fe": "concurrently \"cd frontend && npm run build-watch\" \"cd frontend && npm run start\"",
     "dev-be": "\"cd backend && npm run start\"",
     "tsc": "cd backend && tsc",
     "prepare": "husky install"
@@ -28,7 +28,6 @@
   },
   "homepage": "https://github.com/YummyOreo/document-site#readme",
   "devDependencies": {
-    "@types/jquery": "^3.5.14",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3"
   },

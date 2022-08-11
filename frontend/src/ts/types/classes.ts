@@ -1,5 +1,5 @@
-import { loadedCss } from "../popup/popup-controller.js";
-import * as folder from "../constants/folder.js";
+import { loadedCss } from "../popup/popup-controller";
+import * as folder from "../constants/folder";
 
 export class PageDefault {
   name: string;

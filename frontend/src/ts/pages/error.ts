@@ -1,6 +1,6 @@
-import { FooterCompenent } from "../components/classes/footer.js";
-import { NavbarCompenent } from "../components/classes/navbar.js";
-import { Component, PageDefault } from "../types/classes.js";
+import { FooterCompenent } from "../components/classes/footer";
+import { NavbarCompenent } from "../components/classes/navbar";
+import { Component, PageDefault } from "../types/classes";
 
 export default class ErrorPage extends PageDefault {
   name: string;

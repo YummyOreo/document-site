@@ -1,4 +1,4 @@
-import { GetRequest } from "../api.js";
+import { GetRequest } from "../api";
 
 const BASE = "/example";
 
