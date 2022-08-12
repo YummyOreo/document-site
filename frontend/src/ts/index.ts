@@ -1,3 +1,3 @@
 import getPage from "./router/page-router";
 
-getPage();
+await getPage();

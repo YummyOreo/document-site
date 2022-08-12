@@ -2,9 +2,8 @@ import { makeImagePopup } from "../popup/common-popups";
 import { showPopup } from "../popup/popup-controller";
 import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
-import { deleteComponentByName } from "../components/component-controller";
 
-export const URL = ["/", "/home", ""];
+export const urls = ["/", "/home", ""];
 
 export class Page extends PageDefault {
   name: string;
@@ -16,7 +15,7 @@ export class Page extends PageDefault {
   constructor() {
     super();
     this.name = "Home";
-    this.url = URL;
+    this.url = urls;
     this.html = "home.html";
     this.defaultComponents = ["navbar", "footer"];
     this.css = ["home.css"];

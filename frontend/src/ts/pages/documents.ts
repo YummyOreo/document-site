@@ -1,6 +1,6 @@
 import { PageDefault } from "../types/classes";
 
-export const URL = ["/documents"];
+export const urls = ["/documents*"];
 
 export class Page extends PageDefault {
   name: string;
@@ -12,7 +12,7 @@ export class Page extends PageDefault {
   constructor() {
     super();
     this.name = "Documents";
-    this.url = URL;
+    this.url = urls;
     this.html = "documents.html";
     this.defaultComponents = ["navbar", "footer"];
   }

@@ -11,7 +11,7 @@ export let currentPage: PageDefault;
 
 export default async function getPage(): Promise<void> {
   for (const page in pages) {
-    if (pages[page].URL.includes(window.location.pathname)) {
+    if (compairUrl(pages[page].urls)) {
       currentPage = new pages[page].Page();
       break;
     }
@@ -36,10 +36,26 @@ async function displayPage(page: PageDefault) {
       });
     }
     await loadDefaultComponents();
+
     await runPage(page);
   });
 }
 
 async function runPage(page: PageDefault) {
   await page.run();
+}
+
+function compairUrl(targetUrl: string[]): Boolean {
+  const currentUrl = window.location.pathname;
+
+  for (const i in targetUrl) {
+    const url = targetUrl[i];
+    if (url == currentUrl) return true;
+
+    if (url.endsWith("*")) {
+      if (currentUrl.startsWith(url.slice(0, -1))) return true;
+    }
+  }
+
+  return false;
 }
