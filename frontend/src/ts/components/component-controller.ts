@@ -1,9 +1,10 @@
 import * as folder from "../constants/folder";
 import { currentPage } from "../router/page-router";
-import { Component } from "../types/classes";
+import { ComponentDefault } from "../types/classes";
 
 export let componentNames: string[] = [];
 export const loadedCss: string[] = [];
+let comp: ComponentDefault;
 
 export async function loadComponents() {
   if (currentPage.components == undefined) return;
@@ -18,7 +19,10 @@ export async function loadComponents() {
   }
 }
 
-export async function loadComponent(component: Component, element: Element) {
+export async function loadComponent(
+  component: ComponentDefault,
+  element: Element
+) {
   componentNames.push(component.name);
   if (!currentPage.components.includes(component))
     currentPage.components.push(component);
@@ -40,7 +44,7 @@ export async function loadComponent(component: Component, element: Element) {
   });
 }
 
-export function getComponentByName(name: string): Component {
+export function getComponentByName(name: string): ComponentDefault {
   const index = componentNames.indexOf(name);
   return currentPage.components[index];
 }

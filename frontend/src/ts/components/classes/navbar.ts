@@ -1,7 +1,7 @@
 import { currentPage } from "../../router/page-router";
-import { Component } from "../../types/classes";
+import { ComponentDefault } from "../../types/classes";
 
-export class NavbarCompenent extends Component {
+export class NavbarCompenent extends ComponentDefault {
   name: string;
   html: string;
   css: string[];

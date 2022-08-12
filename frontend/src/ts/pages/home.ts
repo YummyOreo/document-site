@@ -2,7 +2,7 @@ import { FooterCompenent } from "../components/classes/footer";
 import { NavbarCompenent } from "../components/classes/navbar";
 import { makeImagePopup } from "../popup/common-popups";
 import { showPopup } from "../popup/popup-controller";
-import { Component, PageDefault } from "../types/classes";
+import { ComponentDefault, PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
 
 export const URL = ["/", "/home", ""];
@@ -13,7 +13,7 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  components: Component[];
+  components: ComponentDefault[];
   constructor() {
     super();
     this.name = "Home";
