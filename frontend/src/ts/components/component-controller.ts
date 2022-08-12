@@ -28,18 +28,18 @@ export async function loadDefaultComponents() {
 
 export async function loadComponentns() {
   for (const componentName in loadedComponents) {
-    console.log(componentName);
-
     const component = loadedComponents[componentName];
 
     const element = document.getElementById(component.name);
 
     if (element == undefined) {
       console.error("Component does not have a div.");
+      deleteComponentByName(componentName);
       continue;
     }
     if (!element.classList.contains("component")) {
       console.error("Component's div does not have the class component");
+      deleteComponentByName(componentName);
       continue;
     }
 
