@@ -1,31 +1,60 @@
 import * as folder from "../constants/folder";
 import { currentPage } from "../router/page-router";
-import { ComponentDefault } from "../types/classes";
+import { DefaultComponent } from "../types/classes";
+import { FooterCompenent } from "./classes/footer";
+import { NavbarCompenent } from "./classes/navbar";
 
-export let componentNames: string[] = [];
 export const loadedCss: string[] = [];
-let comp: ComponentDefault;
 
-export async function loadComponents() {
-  if (currentPage.components == undefined) return;
+export const allComponents: { [name: string]: any } = {
+  footer: FooterCompenent,
+  navbar: NavbarCompenent,
+};
 
-  const components = currentPage.components;
+export const loadedComponents: { [name: string]: DefaultComponent } = {};
+
+export async function loadDefaultComponents() {
+  if (currentPage.defaultComponents == undefined) return;
+
+  const components = currentPage.defaultComponents;
   for (const i in components) {
-    const component = components[i];
+    const name = components[i];
+
+    loadedComponents[name] = new allComponents[name]();
+  }
+
+  loadComponentns();
+}
+
+export async function loadComponentns() {
+  for (const componentName in loadedComponents) {
+    console.log(componentName);
+
+    const component = loadedComponents[componentName];
+
     const element = document.getElementById(component.name);
-    if (element == undefined) continue;
-    if (!element.classList.contains("component")) continue;
+
+    if (element == undefined) {
+      console.error("Component does not have a div.");
+      continue;
+    }
+    if (!element.classList.contains("component")) {
+      console.error("Component's div does not have the class component");
+      continue;
+    }
+
     loadComponent(component, element);
   }
 }
 
 export async function loadComponent(
-  component: ComponentDefault,
+  component: DefaultComponent,
   element: Element
 ) {
-  componentNames.push(component.name);
-  if (!currentPage.components.includes(component))
-    currentPage.components.push(component);
+  if (!(component.name in loadedComponents)) {
+    loadedComponents[component.name] = component;
+  }
+
   $(`#${element.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
     if (component.css != undefined) {
       component.css.forEach((css) => {
@@ -44,17 +73,9 @@ export async function loadComponent(
   });
 }
 
-export function getComponentByName(name: string): ComponentDefault {
-  const index = componentNames.indexOf(name);
-  return currentPage.components[index];
-}
-
 export function deleteComponentByName(name: string) {
-  const index = componentNames.indexOf(name);
-  $(`#${currentPage.components[index].name}`).empty();
-  $(`#${currentPage.components[index].name}`).remove();
-  currentPage.components = currentPage.components.filter(
-    (data) => data.name != name
-  );
-  componentNames = componentNames.filter((data) => data != name);
+  $(`#${name}`).empty();
+  $(`#${name}`).remove();
+
+  delete loadedComponents[name];
 }

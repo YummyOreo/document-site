@@ -1,4 +1,4 @@
-import { loadComponents } from "../components/component-controller";
+import { loadDefaultComponents } from "../components/component-controller";
 import * as DocumentsPage from "../pages/documents";
 import ErrorPage from "../pages/error";
 import * as HomePage from "../pages/home";
@@ -35,7 +35,7 @@ async function displayPage(page: PageDefault) {
         );
       });
     }
-    await loadComponents();
+    await loadDefaultComponents();
     await runPage(page);
   });
 }

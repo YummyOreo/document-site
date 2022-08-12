@@ -7,7 +7,7 @@ export class PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  components: ComponentDefault[];
+  defaultComponents: string[];
   constructor(name: string = "") {}
 
   async run() {
@@ -88,7 +88,7 @@ export class PopupDefault {
   }
 }
 
-export class ComponentDefault {
+export class DefaultComponent {
   name: string;
   html: string;
   css: string[];

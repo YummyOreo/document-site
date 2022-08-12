@@ -1,6 +1,6 @@
-import { ComponentDefault } from "../../types/classes";
+import { DefaultComponent } from "../../types/classes";
 
-export class FooterCompenent extends ComponentDefault {
+export class FooterCompenent extends DefaultComponent {
   name: string;
   html: string;
   css: string[];
