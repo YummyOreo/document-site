@@ -15,8 +15,9 @@
   align-items: center;
   display: flex;
 
-  padding-left: calc(10% + 3px);
   padding: 0 10%;
+  /* needed beacuse of looks */
+  padding-left: calc(10% + 3px);
 }
 
 .footer-element {

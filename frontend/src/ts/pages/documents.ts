@@ -1,8 +1,6 @@
-import { FooterCompenent } from "../components/classes/footer";
-import { NavbarCompenent } from "../components/classes/navbar";
-import { Component, PageDefault } from "../types/classes";
+import { PageDefault } from "../types/classes";
 
-export const URL = ["/documents"];
+export const urls = ["/documents*"];
 
 export class Page extends PageDefault {
   name: string;
@@ -10,13 +8,13 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  components: Component[];
+  defaultComponents: string[];
   constructor() {
     super();
     this.name = "Documents";
-    this.url = URL;
+    this.url = urls;
     this.html = "documents.html";
-    this.components = [new NavbarCompenent(), new FooterCompenent()];
+    this.defaultComponents = ["navbar", "footer"];
   }
 
   async run() {

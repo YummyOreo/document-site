@@ -1,7 +1,6 @@
-import { loadComponents } from "../components/component-controller";
-import * as DocumentsPage from "../pages/documents";
+import { loadDefaultComponents } from "../components/component-controller";
+import { DocumentsPage, HomePage } from "../pages/";
 import ErrorPage from "../pages/error";
-import * as HomePage from "../pages/home";
 import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
 
@@ -11,16 +10,15 @@ export let currentPage: PageDefault;
 
 export default async function getPage(): Promise<void> {
   for (const page in pages) {
-    if (pages[page].URL.includes(window.location.pathname)) {
+    if (compairUrl(pages[page].urls)) {
       currentPage = new pages[page].Page();
-      await displayPage(currentPage);
-      return;
+      break;
     }
   }
 
-  currentPage = new ErrorPage();
+  currentPage = currentPage ? currentPage : new ErrorPage();
 
-  displayPage(currentPage);
+  await displayPage(currentPage);
 }
 
 async function displayPage(page: PageDefault) {
@@ -36,11 +34,27 @@ async function displayPage(page: PageDefault) {
         );
       });
     }
-    await loadComponents();
+    await loadDefaultComponents();
+
     await runPage(page);
   });
 }
 
 async function runPage(page: PageDefault) {
   await page.run();
+}
+
+function compairUrl(targetUrl: string[]): Boolean {
+  const currentUrl = window.location.pathname;
+
+  for (const i in targetUrl) {
+    const url = targetUrl[i];
+    if (url == currentUrl) return true;
+
+    if (url.endsWith("*")) {
+      if (currentUrl.startsWith(url.slice(0, -1))) return true;
+    }
+  }
+
+  return false;
 }

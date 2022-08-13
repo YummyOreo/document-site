@@ -1,11 +1,9 @@
-import { FooterCompenent } from "../components/classes/footer";
-import { NavbarCompenent } from "../components/classes/navbar";
 import { makeImagePopup } from "../popup/common-popups";
 import { showPopup } from "../popup/popup-controller";
-import { Component, PageDefault } from "../types/classes";
+import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
 
-export const URL = ["/", "/home", ""];
+export const urls = ["/", "/home", ""];
 
 export class Page extends PageDefault {
   name: string;
@@ -13,13 +11,13 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  components: Component[];
+  defaultComponents: string[];
   constructor() {
     super();
     this.name = "Home";
-    this.url = URL;
+    this.url = urls;
     this.html = "home.html";
-    this.components = [new NavbarCompenent(), new FooterCompenent()];
+    this.defaultComponents = ["navbar", "footer"];
     this.css = ["home.css"];
   }
 
