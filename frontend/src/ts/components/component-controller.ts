@@ -6,7 +6,7 @@ import { NavbarCompenent } from "./classes/navbar";
 
 export const loadedCss: string[] = [];
 
-export const allComponents: { [name: string]: any } = {
+export const allComponents: { [name: string]: typeof DefaultComponent } = {
   footer: FooterCompenent,
   navbar: NavbarCompenent,
 };
