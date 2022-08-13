@@ -11,9 +11,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "concurrently \"npm run dev-fe\" \"npm run dev-be\"",
+    "dev": "concurrently --kill-others \"npm run dev-fe\" \"npm run dev-be\"",
     "dev-fe": "concurrently \"cd frontend && npm run build-watch\" \"cd frontend && npm run start\"",
-    "dev-be": "\"cd backend && npm run start\"",
+    "dev-be": "concurrently \"cd backend && tsc --watch\" \"cd backend && npm run start\"",
     "tsc": "cd backend && tsc",
     "prepare": "husky install"
   },
