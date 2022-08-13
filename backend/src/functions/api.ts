@@ -9,7 +9,9 @@ app.set("trust proxy", true);
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  res.json("test");
+  res.send({
+    body: "test",
+  });
 });
 
 app.use("/.netlify/functions/api/", router);
