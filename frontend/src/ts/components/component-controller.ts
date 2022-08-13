@@ -1,8 +1,7 @@
 import * as folder from "../constants/folder";
 import { currentPage } from "../router/page-router";
 import { DefaultComponent } from "../types/classes";
-import { FooterCompenent } from "./classes/footer";
-import { NavbarCompenent } from "./classes/navbar";
+import { FooterCompenent, NavbarCompenent } from "./classes/";
 
 export const loadedCss: string[] = [];
 
@@ -23,10 +22,10 @@ export async function loadDefaultComponents() {
     loadedComponents[name] = new allComponents[name]();
   }
 
-  loadComponentns();
+  loadComponents();
 }
 
-export async function loadComponentns() {
+export async function loadComponents() {
   for (const componentName in loadedComponents) {
     const component = loadedComponents[componentName];
 

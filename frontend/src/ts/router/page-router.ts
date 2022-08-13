@@ -1,7 +1,6 @@
 import { loadDefaultComponents } from "../components/component-controller";
-import * as DocumentsPage from "../pages/documents";
+import { DocumentsPage, HomePage } from "../pages/";
 import ErrorPage from "../pages/error";
-import * as HomePage from "../pages/home";
 import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
 
