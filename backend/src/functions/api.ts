@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Application } from "express";
 import serverless from "serverless-http";
 import cors from "cors";
 
@@ -8,8 +8,12 @@ const app = express();
 app.use(cors());
 app.set("trust proxy", true);
 
-app.use("/.netlify/functions/api/doc/", document.router);
+addRouts(app);
 
 exports.handler = serverless(app);
 
 export default app;
+
+export function addRouts(app: Application) {
+  app.use("/.netlify/functions/api/doc/", document.router);
+}
