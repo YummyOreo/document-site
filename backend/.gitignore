@@ -1,2 +1,4 @@
 .netlify
 functions-build
+
+**/ts/**/*.js
