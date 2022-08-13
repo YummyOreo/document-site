@@ -1,8 +1,7 @@
-import express, { Application } from "express";
+import express from "express";
 import serverless from "serverless-http";
 import cors from "cors";
-
-import { document } from "../ts/routes/";
+import { addRouts } from "../ts/router";
 
 const app = express();
 app.use(cors());
@@ -13,7 +12,3 @@ addRouts(app);
 exports.handler = serverless(app);
 
 export default app;
-
-export function addRouts(app: Application) {
-  app.use("/.netlify/functions/api/doc/", document.router);
-}
