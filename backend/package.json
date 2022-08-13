@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "netlify functions:serve",
-    "build": "netlify functions:build"
+    "start": "netlify-lambda serve ./src/functions",
+    "build": "netlify-lambda build ./src/functions"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "express": "^4.17.1",
     "mongodb": "^4.8.0",
     "mongodb-client-encryption": "^2.1.0",
+    "netlify-lambda": "^2.0.15",
     "serverless-http": "^3.0.1",
     "webpack-node-externals": "^3.0.0"
   },
