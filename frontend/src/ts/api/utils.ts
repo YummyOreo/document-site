@@ -7,7 +7,7 @@ export async function MakeRequest(
     method: TYPE,
     credentials: "same-origin",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "text/plain",
       Accept: "application/json",
     },
     body: BODY == "" ? undefined : BODY,

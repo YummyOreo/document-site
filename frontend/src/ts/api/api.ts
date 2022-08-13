@@ -31,7 +31,7 @@ export async function GetRequest(
 export async function PostRequest(
   BASE: string,
   url: string,
-  data: { [name: string]: string } = {}
+  data: string
 ): Promise<any> {
   if (api.url == "") {
     console.log("No URL found");
@@ -39,13 +39,13 @@ export async function PostRequest(
 
   const URL = `${api.url}${BASE}${url}`;
 
-  return await apiUtils.MakeRequest("POST", URL, JSON.stringify(data));
+  return await apiUtils.MakeRequest("POST", URL, data);
 }
 
 export async function PutRequest(
   BASE: string,
   url: string,
-  data: { [name: string]: string } = {}
+  data: string
 ): Promise<any> {
   if (api.url == "") {
     console.log("No URL found");
@@ -53,13 +53,13 @@ export async function PutRequest(
 
   const URL = `${api.url}${BASE}${url}`;
 
-  return await apiUtils.MakeRequest("PUT", URL, JSON.stringify(data));
+  return await apiUtils.MakeRequest("PUT", URL, data);
 }
 
 export async function PatchRequest(
   BASE: string,
   url: string,
-  data: { [name: string]: string } = {}
+  data: string
 ): Promise<any> {
   if (api.url == "") {
     console.log("No URL found");
@@ -67,13 +67,13 @@ export async function PatchRequest(
 
   const URL = `${api.url}${BASE}${url}`;
 
-  return await apiUtils.MakeRequest("PATCH", URL, JSON.stringify(data));
+  return await apiUtils.MakeRequest("PATCH", URL, data);
 }
 
 export async function DeleteRequest(
   BASE: string,
   url: string,
-  data: { [name: string]: string } = {}
+  data: string
 ): Promise<any> {
   if (api.url == "") {
     console.log("No URL found");
@@ -81,5 +81,5 @@ export async function DeleteRequest(
 
   const URL = `${api.url}${BASE}${url}`;
 
-  return await apiUtils.MakeRequest("DELETE", URL, JSON.stringify(data));
+  return await apiUtils.MakeRequest("DELETE", URL, data);
 }

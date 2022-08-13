@@ -1,0 +1,14 @@
+"use strict";
+exports.__esModule = true;
+var express = require("express");
+var serverless = require("serverless-http");
+var cors_1 = require("cors");
+var router_1 = require("../ts/router");
+var bodyParser = require("body-parser");
+var app = express();
+app.use((0, cors_1["default"])());
+app.set("trust proxy", true);
+app.use(bodyParser.text());
+(0, router_1.addRouts)(app);
+exports.handler = serverless(app);
+exports["default"] = app;
