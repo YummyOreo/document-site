@@ -1,4 +1,5 @@
 import * as express from "express";
+import { ObjectId } from "mongodb";
 import { getCollection } from "../db/collections/records";
 
 export const router = express.Router();
@@ -27,10 +28,21 @@ router.post("/", async (req: express.Request, res: express.Response) => {
     return;
   }
 
-  await getCollection().insertOne({
-    title: req.query["title"],
-    body: req.body,
+  const title = req.query["title"];
+
+  const body = req.body;
+
+  if ((await getCollection().find({ title }).toArray()).length > 0) {
+    res.status(400).send("A document with that title already exists");
+    return;
+  }
+
+  const record = await getCollection().insertOne({
+    title,
+    body,
   });
 
-  res.status(200).send("Document made: " + req.body);
+  res.status(200).send({
+    id: record.insertedId.toString(),
+  });
 });
