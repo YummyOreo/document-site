@@ -1,5 +1,5 @@
 import * as express from "express";
-import { getCollection } from "../db/collections/records";
+import { getCollection } from "../db/collections/documents";
 
 export const router = express.Router();
 
