@@ -10,6 +10,4 @@ export const router = express.Router();
 
   - uses Markdown
 */
-router.post("/", async (req: express.Request, res: express.Response) => {
-  await make(req, res);
-});
+router.post("/", make /*, more funcs here*/);
