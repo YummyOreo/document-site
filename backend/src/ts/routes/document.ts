@@ -1,31 +1,27 @@
 import * as express from "express";
-import { ObjectId } from "mongodb";
 import { getCollection } from "../db/collections/records";
 
 export const router = express.Router();
 
 /*
   Makes a document with the string provided:
-  - max 10k char
+  - max 20k char
 
   - uses Markdown
 */
 router.post("/", async (req: express.Request, res: express.Response) => {
   if (req.headers["content-type"] != "text/plain") {
-    res
+    return res
       .status(400)
       .send('Please set the "content-type" header to "text/plain"');
-    return;
   }
 
   if (!("title" in req.query)) {
-    res.status(400).send("Plese provide a title in the query params");
-    return;
+    return res.status(400).send("Plese provide a title in the query params");
   }
 
   if (req.body == "") {
-    res.status(400).send("Please provide a body");
-    return;
+    return res.status(400).send("Please provide a body");
   }
 
   const title = req.query["title"];
@@ -33,8 +29,17 @@ router.post("/", async (req: express.Request, res: express.Response) => {
   const body = req.body;
 
   if ((await getCollection().find({ title }).toArray()).length > 0) {
-    res.status(400).send("A document with that title already exists");
-    return;
+    return res.status(400).send("A document with that title already exists");
+  }
+
+  if (body.length > 20000) {
+    return res
+      .status(400)
+      .send(
+        `Your document is too long. Please reduce your document by: ${
+          body.length - 20000
+        } characters`
+      );
   }
 
   const record = await getCollection()
