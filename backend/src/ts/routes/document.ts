@@ -37,10 +37,20 @@ router.post("/", async (req: express.Request, res: express.Response) => {
     return;
   }
 
-  const record = await getCollection().insertOne({
-    title,
-    body,
-  });
+  const record = await getCollection()
+    .insertOne({
+      title,
+      body,
+    })
+    .catch(() => {
+      res
+        .status(500)
+        .send(
+          "There was a internal error trying to make your document, please report this to the developers"
+        );
+    });
+
+  if (!record) return;
 
   res.status(200).send({
     id: record.insertedId.toString(),
