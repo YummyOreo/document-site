@@ -2,6 +2,7 @@ import { makeImagePopup } from "../popup/common-popups";
 import { showPopup } from "../popup/popup-controller";
 import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
+import makeDoc from "../api/endpoints/doc";
 
 export const urls = ["/", "/home", ""];
 
@@ -23,6 +24,7 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+
     $(".preview-img").on("click", () => {
       const image = `${folder.assets}home/png/Preview.png`;
 

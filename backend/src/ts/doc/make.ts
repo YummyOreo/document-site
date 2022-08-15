@@ -5,7 +5,7 @@ export async function make(req: express.Request, res: express.Response) {
   const error = await check(req);
 
   if (error != "") {
-    return res.status(400).send(error);
+    return res.status(400).send({ error });
   }
 
   const title = req.query["title"];
@@ -20,9 +20,10 @@ export async function make(req: express.Request, res: express.Response) {
     .catch(() => {
       res
         .status(500)
-        .send(
-          "There was a internal error trying to make your document, please report this to the developers"
-        );
+        .send({
+          error:
+            "There was a internal error trying to make your document, please report this to the developers",
+        });
     });
 
   if (!record) return;
