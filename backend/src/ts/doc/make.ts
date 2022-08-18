@@ -2,19 +2,26 @@ import * as express from "express";
 import { getCollection } from "../db/collections/documents";
 
 export async function make(req: express.Request, res: express.Response) {
-  check(req).then((error) => {
+  await check(req).then((error) => {
     if (error != "") {
       res.status(400).send({ error });
     }
   });
 
-  let title: any,
-    body = [req.query["title"], req.body];
+  if (res.headersSent) return;
 
-  const record = await getCollection()
+  const title = req.query["title"];
+  const body = req.body;
+
+  getCollection()
     .insertOne({
       title,
       body,
+    })
+    .then((document) => {
+      res.status(200).send({
+        id: document.insertedId.toString(),
+      });
     })
     .catch(() => {
       res.status(500).send({
@@ -22,14 +29,6 @@ export async function make(req: express.Request, res: express.Response) {
           "There was a internal error trying to make your document, please report this to the developers",
       });
     });
-
-  if (!record) return;
-
-  res.headersSent
-    ? undefined
-    : res.status(200).send({
-        id: record.insertedId.toString(),
-      });
 }
 
 async function check(req: express.Request): Promise<string> {
