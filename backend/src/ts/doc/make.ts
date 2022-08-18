@@ -8,9 +8,8 @@ export async function make(req: express.Request, res: express.Response) {
     }
   });
 
-  const title = req.query["title"];
-
-  const body = req.body;
+  let title: any,
+    body = [req.query["title"], req.body];
 
   const record = await getCollection()
     .insertOne({
