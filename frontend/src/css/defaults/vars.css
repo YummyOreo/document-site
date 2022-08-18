@@ -14,6 +14,10 @@
   --background-color-1: #1d1e22;
   --background-color-2: #24252a;
   --background-color-3: #161619;
+  --background-color-4: #2f3035;
+
+  --background-color-3-filter: invert(5%) sepia(5%) saturate(1257%)
+    hue-rotate(201deg) brightness(103%) contrast(93%);
 
   --transition: all 0.5s ease 0s;
 }
