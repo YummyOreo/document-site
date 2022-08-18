@@ -11,6 +11,8 @@ app.use(cors());
 app.set("trust proxy", true);
 
 app.use(bodyParser.text());
+app.use(bodyParser.json());
+// add more body parsers, it will only parse it if it matches the content type
 
 addRouts(app);
 
