@@ -86,9 +86,12 @@
   transform: scale(0.7);
 }
 
+.doc-item div {
+  display: flex;
+}
+
 .doc-make div {
   justify-content: center;
-  display: flex;
 }
 
 .doc-make:hover {
