@@ -84,3 +84,14 @@
 
   transform: scale(0.7);
 }
+
+.doc-item div {
+  justify-content: center;
+  display: flex;
+}
+
+.doc-make:hover {
+  border: 1px solid var(--text-accent);
+
+  width: 5.25rem;
+}
