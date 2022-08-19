@@ -90,23 +90,52 @@
   display: flex;
 }
 
-.doc-make div {
+.doc-item div {
   justify-content: center;
 }
 
 .doc-make:hover {
   border: 1px solid var(--text-accent);
 
-  animation-name: docGrow;
+  animation-name: docMakeGrow;
   animation-duration: 0.5s;
   width: 5.25rem;
 }
 
-@keyframes docGrow {
+@keyframes docMakeGrow {
   from {
     width: 3.5rem;
   }
   to {
     width: 5.25rem;
+  }
+}
+
+.doc-search-text-prev {
+  font-size: 20px;
+  color: var(--text-gray-prev);
+
+  padding-left: 0.55rem;
+  padding-top: 0.05rem;
+}
+
+.doc-search:hover div {
+  justify-content: left;
+}
+
+.doc-search:hover {
+  border: 1px solid var(--text-accent);
+
+  animation-duration: 0.5s;
+  animation-name: docSearchGrow;
+  width: 12.25rem;
+}
+
+@keyframes docSearchGrow {
+  from {
+    width: 3.5rem;
+  }
+  to {
+    width: 12.25rem;
   }
 }
