@@ -95,7 +95,7 @@
 }
 
 .doc-make:hover {
-  border: 1px solid var(--text-accent);
+  border-color: var(--text-accent);
 
   animation-name: docMakeGrow;
   animation-duration: 0.5s;
@@ -124,7 +124,7 @@
 }
 
 .doc-search:hover {
-  border: 1px solid var(--text-accent);
+  border-color: var(--text-accent);
 
   animation-duration: 0.5s;
   animation-name: docSearchGrow;
