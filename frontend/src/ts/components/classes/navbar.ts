@@ -31,8 +31,6 @@ export class NavbarCompenent extends DefaultComponent {
     $(".nav-doc-search").on({
       mouseenter: () => {
         setTimeout(() => {
-          console.log(docPrev);
-
           docPrev.show();
         }, 150);
       },
