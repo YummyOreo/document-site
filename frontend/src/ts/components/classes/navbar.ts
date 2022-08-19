@@ -30,7 +30,9 @@ export class NavbarCompenent extends DefaultComponent {
 
     $(".doc-search").on({
       mouseenter: () => {
-        $(".doc-search-text-prev").show();
+        setTimeout(() => {
+          $(".doc-search-text-prev").show();
+        }, 150);
       },
       mouseleave: () => {
         $(".doc-search-text-prev").hide();
