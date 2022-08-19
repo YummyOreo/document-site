@@ -65,11 +65,11 @@
   color: var(--text-gray) !important;
 }
 
-.doc {
+.nav-doc {
   padding-top: 0.143rem;
 }
 
-.doc-item {
+.nav-doc-item {
   transition: var(--transition);
 
   background-color: var(--background-color-4);
@@ -82,18 +82,18 @@
   width: 3.5rem;
 }
 
-.doc-item object {
+.nav-doc-item object {
   filter: var(--background-color-3-filter);
 
   transform: scale(0.7);
 }
 
-.doc-item-inner {
+.nav-doc-inner {
   justify-content: center;
   display: flex;
 }
 
-.doc-make:hover {
+.nav-doc-make:hover {
   border-color: var(--text-accent);
 
   animation-name: docMakeGrow;
@@ -110,7 +110,7 @@
   }
 }
 
-.doc-search-text-prev {
+.nav-doc-prev {
   display: none;
 
   font-size: 20px;
@@ -120,11 +120,11 @@
   padding-top: 0.05rem;
 }
 
-.doc-search:hover div {
+.nav-doc-search:hover div {
   justify-content: left;
 }
 
-.doc-search:hover {
+.nav-doc-search:hover {
   border-color: var(--text-accent);
 
   animation-duration: 0.5s;
