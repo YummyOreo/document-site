@@ -7,16 +7,17 @@ export const api = {
 export async function MakeRequest(
   TYPE: string,
   URL: string,
-  BODY: string = "",
+  BODY: any = "",
   PARAMS: { [name: string]: string } = {},
-  HEADERS: { [name: string]: string } = {}
+  HEADERS: { [name: string]: string } = {},
+  BODY_TYPE: string = "text/plain"
 ): Promise<any> {
   const param = new URLSearchParams(PARAMS);
 
   const headers = Object.assign(
     {},
     {
-      "Content-Type": "text/plain",
+      "Content-Type": BODY_TYPE,
       Accept: "application/json",
     },
     HEADERS
