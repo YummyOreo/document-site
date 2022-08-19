@@ -96,8 +96,7 @@
 .nav-doc-make:hover {
   border-color: var(--text-accent);
 
-  animation-name: docMakeGrow;
-  animation-duration: 0.5s;
+  animation: docMakeGrow 0.5s;
   width: 5.25rem;
 }
 
@@ -120,15 +119,14 @@
   padding-top: 0.05rem;
 }
 
-.nav-doc-search:hover div {
+.nav-doc-search:hover .nav-doc-inner {
   justify-content: left;
 }
 
 .nav-doc-search:hover {
   border-color: var(--text-accent);
 
-  animation-duration: 0.5s;
-  animation-name: docSearchGrow;
+  animation: docSearchGrow 0.5s;
   width: 12.25rem;
 }
 
