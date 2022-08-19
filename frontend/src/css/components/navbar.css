@@ -23,14 +23,10 @@
   transition: var(--transition);
 }
 
-.logo:hover {
+.Home:hover object {
   filter: var(--text-accent-filter);
 
   transform: scale(2.8);
-}
-
-.nav-links {
-  padding-left: 6.5rem;
 }
 
 .nav-item * {
