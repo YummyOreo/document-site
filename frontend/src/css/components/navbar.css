@@ -86,12 +86,9 @@
   transform: scale(0.7);
 }
 
-.doc-item div {
-  display: flex;
-}
-
-.doc-item div {
+.doc-item-inner {
   justify-content: center;
+  display: flex;
 }
 
 .doc-make:hover {
@@ -112,6 +109,8 @@
 }
 
 .doc-search-text-prev {
+  display: none;
+
   font-size: 20px;
   color: var(--text-gray-prev);
 

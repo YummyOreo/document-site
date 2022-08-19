@@ -26,8 +26,6 @@ export class NavbarCompenent extends DefaultComponent {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
 
-    $(".doc-search-text-prev").hide();
-
     $(".doc-search").on({
       mouseenter: () => {
         setTimeout(() => {
