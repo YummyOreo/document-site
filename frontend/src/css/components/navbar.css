@@ -29,6 +29,10 @@
   transform: scale(2.8);
 }
 
+.nav-links {
+  padding-left: 4.5rem;
+}
+
 .nav-item * {
   transition: var(--transition);
 }
