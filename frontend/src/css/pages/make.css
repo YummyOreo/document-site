@@ -1,0 +1,20 @@
+.doc {
+  padding-top: 20px;
+}
+
+.body {
+  padding: 12px 20px;
+  height: 54.5rem;
+  width: 55rem;
+
+  outline: none;
+  resize: none;
+
+  background-color: var(--background-color-3);
+  border-radius: 5px;
+  border: 2px solid var(--background-color-2);
+}
+
+.roles {
+  padding-bottom: 2rem;
+}

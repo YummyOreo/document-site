@@ -15,7 +15,7 @@ export class Page extends PageDefault {
     this.url = urls;
     this.html = "make.html";
     this.defaultComponents = ["navbar", "footer"];
-    this.css = [];
+    this.css = ["make.css"];
   }
 
   async run() {
