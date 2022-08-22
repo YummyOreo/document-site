@@ -24,3 +24,22 @@
 .roles {
   padding-bottom: 2rem;
 }
+
+.role:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.role {
+  padding: 5px 10px;
+  display: inline;
+
+  background-color: #99aab5;
+  border-radius: 19px;
+}
+
+.role span {
+  top: -1px;
+
+  justify-content: right;
+  position: relative;
+}
