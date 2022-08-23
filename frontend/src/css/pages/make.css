@@ -37,6 +37,8 @@
 
   background-color: #e40083;
   border-radius: 19px;
+
+  cursor: pointer;
 }
 
 .role span {
@@ -44,4 +46,8 @@
 
   justify-content: right;
   position: relative;
+}
+
+#doc-title {
+  cursor: pointer;
 }

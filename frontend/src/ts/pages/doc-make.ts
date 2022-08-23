@@ -35,16 +35,13 @@ export class Page extends PageDefault {
 
     $("#body").on("blur", (e) => {
       this.body = $(e.target).val().toString();
-      console.log(this.body);
     });
 
     $("#doc-title").on("click", async () => {
-      const namePopupId = await this.makeNamePopup();
-      popupController.showPopup(namePopupId);
+      await this.makeNamePopup();
     });
 
-    const namePopupId = await this.makeNamePopup();
-    popupController.showPopup(namePopupId);
+    await this.makeNamePopup();
   }
 
   async makeNamePopup() {
@@ -58,26 +55,16 @@ export class Page extends PageDefault {
     popup.makeFunc = (popup: PopupDefault) => {
       closeOnClick(popup.id);
 
-      if (this.title != "") {
-        const elm: any = document.getElementById("doc-input-title");
-        elm.value = this.title;
-      }
+      const elm: any = document.getElementById("doc-input-title");
+      elm.value = this.title;
 
       $(".doc-name-submit").on("click", () => {
-        popupController.hidePopup(popup.id);
-
-        setTimeout(() => {
-          popupController.deletePopup(popup.id);
-        }, 300);
+        popupController.closePopup(popup.id);
       });
 
       $(".doc-name-popup").on("keypress", function (e) {
         if (e.which == 13) {
-          popupController.hidePopup(popup.id);
-
-          setTimeout(() => {
-            popupController.deletePopup(popup.id);
-          }, 300);
+          popupController.closePopup(popup.id);
         }
       });
     };
@@ -95,6 +82,7 @@ export class Page extends PageDefault {
     };
 
     const id = popupController.makePopup(popup);
+    popupController.showPopup(id);
 
     return id;
   }
