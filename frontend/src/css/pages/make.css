@@ -30,11 +30,18 @@
 }
 
 .role {
+  transition: var(--transition);
+
   padding: 5px 10px;
   display: inline;
 
   background-color: #99aab5;
   border-radius: 19px;
+}
+
+.role:hover {
+  padding: 6px 14px;
+  font-size: 17px;
 }
 
 .role span {
