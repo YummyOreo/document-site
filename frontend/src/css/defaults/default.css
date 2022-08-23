@@ -1,6 +1,10 @@
 @import "utils.css";
 @import "vars.css";
 
+::placeholder {
+  color: var(--background-color-4) !important;
+}
+
 object {
   pointer-events: none;
 }
