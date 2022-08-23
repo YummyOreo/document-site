@@ -83,10 +83,10 @@ export class Page extends PageDefault {
     };
 
     popup.hideFunc = (popup: any) => {
-      if (this.title == "") {
+      const elm: any = document.getElementById("doc-input-title");
+      if (elm.value == "") {
         this.title = "Unamed";
       } else {
-        const elm: any = document.getElementById("doc-input-title");
         this.title = elm.value;
       }
 
