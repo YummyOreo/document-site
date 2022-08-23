@@ -39,11 +39,6 @@
   border-radius: 19px;
 }
 
-.role:hover {
-  padding: 6px 14px;
-  font-size: 17px;
-}
-
 .role span {
   top: -1px;
 
