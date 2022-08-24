@@ -72,8 +72,7 @@ export class Page extends PageDefault {
     popup.makeFunc = (popup: PopupDefault) => {
       closeOnClick(popup.id);
 
-      const elm: any = document.getElementById("doc-input-title");
-      elm.value = this.title;
+      $("#doc-input-title").val(this.title);
 
       $(".doc-name-submit").on("click", () => {
         popupController.closePopup(popup.id);
@@ -87,11 +86,11 @@ export class Page extends PageDefault {
     };
 
     popup.hideFunc = () => {
-      const elm: any = document.getElementById("doc-input-title");
-      if (elm.value == "") {
+      const elm = $("#doc-input-title");
+      if (elm.val() == "") {
         this.title = "Unamed";
       } else {
-        this.title = elm.value;
+        this.title = elm.val().toString();
       }
 
       $("#doc-title").text(this.title);
