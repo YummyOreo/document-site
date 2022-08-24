@@ -1,6 +1,6 @@
 import * as express from "express";
 
-import { make } from "../doc/";
+import { make, get } from "../doc/";
 
 export const router = express.Router();
 
@@ -11,3 +11,4 @@ export const router = express.Router();
   - uses Markdown
 */
 router.post("/", make /*, more funcs here*/);
+router.get("/", get /*, more funcs here*/);
