@@ -1,5 +1,6 @@
 node_modules
 **/ts/**/*.js
+!md.js
 .env
 # Local Netlify folder
 .netlify

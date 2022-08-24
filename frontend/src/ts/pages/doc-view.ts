@@ -2,6 +2,8 @@ import { PageDefault } from "../types/classes";
 
 import * as Snackbar from "../../js/snackbar.min.js";
 
+import * as md from "../parser/md";
+
 export const urls = ["/view"];
 
 export class Page extends PageDefault {
@@ -36,5 +38,9 @@ export class Page extends PageDefault {
 
     this.id = urlParams.get("id");
     console.log(this.id);
+
+    $(".body").html(
+      md.parse("# Marked in the browser\n\nRendered by **marked**.")
+    );
   }
 }
