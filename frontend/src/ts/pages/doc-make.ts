@@ -1,6 +1,7 @@
 import { closeOnClick } from "../popup/common-popups";
 import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
+import makeDoc from "../api/endpoints/doc";
 
 export const urls = ["/make"];
 
@@ -41,6 +42,12 @@ export class Page extends PageDefault {
       await this.makeNamePopup();
     });
 
+    $("#submit").on("click", async () => {
+      if (this.title == "" || this.title == "Unamed") return;
+      const id = await makeDoc(this.body, this.title);
+      window.location.href = `/view?${id["id"]}`;
+    });
+
     await this.makeNamePopup();
   }
 
@@ -63,13 +70,13 @@ export class Page extends PageDefault {
       });
 
       $(".doc-name-popup").on("keypress", function (e) {
-        if (e.which == 13) {
+        if (e.key === "Enter") {
           popupController.closePopup(popup.id);
         }
       });
     };
 
-    popup.hideFunc = (popup: any) => {
+    popup.hideFunc = () => {
       const elm: any = document.getElementById("doc-input-title");
       if (elm.value == "") {
         this.title = "Unamed";
@@ -78,7 +85,6 @@ export class Page extends PageDefault {
       }
 
       $("#doc-title").text(this.title);
-      console.log(this.title);
     };
 
     const id = popupController.makePopup(popup);
