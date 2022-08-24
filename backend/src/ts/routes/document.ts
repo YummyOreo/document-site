@@ -11,4 +11,10 @@ export const router = express.Router();
   - uses Markdown
 */
 router.post("/", make /*, more funcs here*/);
+
+/*
+  Gets the document by the id:
+  Params:
+    - ID: the id of the document you want to get
+*/
 router.get("/", get /*, more funcs here*/);
