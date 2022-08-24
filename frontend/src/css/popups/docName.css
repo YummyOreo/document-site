@@ -1,0 +1,24 @@
+.doc-name-popup {
+  padding-bottom: 30%;
+}
+
+.doc-name-popup div {
+  padding-bottom: 1rem;
+}
+
+#doc-input-title {
+  transition: var(--transition);
+
+  padding: 10px 20px;
+
+  outline: none;
+  resize: none;
+
+  background-color: var(--text-gray-prev);
+  border-radius: 5px;
+  border: 2px solid var(--background-color-4);
+}
+
+#doc-input-title:focus {
+  border-color: var(--text-accent);
+}

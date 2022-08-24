@@ -57,15 +57,14 @@ export function deletePopup(id: string) {
   currentOpen = currentOpen.filter((data) => data != id);
 }
 
-// closes the last opened popup
-export function closeLastOpened() {
-  const id = currentOpen[currentOpen.length - 1];
-  hidePopup(id);
-}
+export function closePopup(id: string) {
+  if (!currentOpen.includes(id)) return;
 
-export function deleteLastOpened() {
-  const id = currentOpen[currentOpen.length - 1];
-  deletePopup(id);
+  hidePopup(id);
+
+  setTimeout(() => {
+    deletePopup(id);
+  }, 300);
 }
 
 export function isOpen(id: string) {

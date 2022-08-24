@@ -1,6 +1,14 @@
 @import "utils.css";
 @import "vars.css";
 
+::placeholder {
+  color: var(--background-color-4) !important;
+}
+
+object {
+  pointer-events: none;
+}
+
 body {
   background-color: var(--background-color-1);
   color: var(--text-white);

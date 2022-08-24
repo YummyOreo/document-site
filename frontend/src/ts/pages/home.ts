@@ -23,6 +23,7 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+
     $(".preview-img").on("click", () => {
       const image = `${folder.assets}home/png/Preview.png`;
 

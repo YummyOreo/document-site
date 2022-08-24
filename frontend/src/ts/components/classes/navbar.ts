@@ -25,5 +25,18 @@ export class NavbarCompenent extends DefaultComponent {
     $(window).on("scroll", function () {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
+
+    const docPrev = $(".nav-doc-prev");
+
+    $(".nav-doc-search").on({
+      mouseenter: () => {
+        setTimeout(() => {
+          docPrev.show();
+        }, 150);
+      },
+      mouseleave: () => {
+        docPrev.hide();
+      },
+    });
   }
 }

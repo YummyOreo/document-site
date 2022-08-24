@@ -4,19 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "netlify functions:serve",
-    "build": "netlify functions:build"
+    "start": "netlify-lambda serve ./src/functions",
+    "build": "tsc && netlify-lambda build ./src/functions"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@netlify/functions": "^1.0.0",
     "@types/express": "^4.17.13",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.17.1",
     "mongodb": "^4.8.0",
     "mongodb-client-encryption": "^2.1.0",
+    "netlify-lambda": "^2.0.15",
     "serverless-http": "^3.0.1",
     "webpack-node-externals": "^3.0.0"
   },

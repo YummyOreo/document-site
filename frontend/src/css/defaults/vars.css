@@ -6,6 +6,7 @@
   --text-gray: #a5a8a9;
   --text-light-gray: #d2d4d4;
   --text-gray-other: #5c5c5e;
+  --text-gray-prev: #505155;
 
   --text-accent: #0088a9;
   --text-accent-filter: invert(36%) sepia(96%) saturate(2732%)
@@ -14,6 +15,10 @@
   --background-color-1: #1d1e22;
   --background-color-2: #24252a;
   --background-color-3: #161619;
+  --background-color-4: #2f3035;
 
-  --transition: all 0.5s ease 0s;
+  --background-color-3-filter: invert(5%) sepia(5%) saturate(1257%)
+    hue-rotate(201deg) brightness(103%) contrast(93%);
+
+  --transition: all 0.5s ease-in-out 0s;
 }

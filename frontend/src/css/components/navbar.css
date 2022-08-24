@@ -23,10 +23,14 @@
   transition: var(--transition);
 }
 
-.logo:hover {
+.Home:hover object {
   filter: var(--text-accent-filter);
 
   transform: scale(2.8);
+}
+
+.nav-links {
+  padding-left: 6rem;
 }
 
 .nav-item * {
@@ -38,7 +42,7 @@
 
   pointer-events: none;
   display: inline-block;
-  padding: 0px 20px;
+  padding: 0px 10px;
 }
 
 .nav-item a {
@@ -59,4 +63,78 @@
 .nav-disabled {
   cursor: pointer;
   color: var(--text-gray) !important;
+}
+
+.nav-doc {
+  padding-top: 0.143rem;
+}
+
+.nav-doc-item {
+  transition: var(--transition);
+
+  background-color: var(--background-color-4);
+  border-radius: 5px;
+  border: 1px solid var(--background-color-3);
+
+  padding: 0.2rem 0.4rem;
+
+  display: inline-block;
+  width: 3.5rem;
+}
+
+.nav-doc-item object {
+  filter: var(--background-color-3-filter);
+
+  transform: scale(0.7);
+}
+
+.nav-doc-inner {
+  justify-content: center;
+  display: flex;
+}
+
+.nav-doc-make:hover {
+  border-color: var(--text-accent);
+
+  animation: docMakeGrow 0.5s;
+  width: 5.25rem;
+}
+
+@keyframes docMakeGrow {
+  from {
+    width: 3.5rem;
+  }
+  to {
+    width: 5.25rem;
+  }
+}
+
+.nav-doc-prev {
+  display: none;
+
+  font-size: 20px;
+  color: var(--text-gray-prev);
+
+  padding-left: 0.55rem;
+  padding-top: 0.05rem;
+}
+
+.nav-doc-search:hover .nav-doc-inner {
+  justify-content: left;
+}
+
+.nav-doc-search:hover {
+  border-color: var(--text-accent);
+
+  animation: docSearchGrow 0.5s;
+  width: 12.25rem;
+}
+
+@keyframes docSearchGrow {
+  from {
+    width: 3.5rem;
+  }
+  to {
+    width: 12.25rem;
+  }
 }
