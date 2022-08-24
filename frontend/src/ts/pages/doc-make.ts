@@ -3,6 +3,8 @@ import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
 import makeDoc from "../api/endpoints/doc";
 
+import * as Snackbar from "../../js/snackbar.min.js";
+
 export const urls = ["/make"];
 
 export class Page extends PageDefault {
@@ -43,7 +45,15 @@ export class Page extends PageDefault {
     });
 
     $("#submit").on("click", async () => {
-      if (this.title == "" || this.title == "Unamed") return;
+      if (this.title == "" || this.title == "Unamed") {
+        Snackbar.show({
+          pos: "top-right",
+          text: "Plase provide a title",
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
       const id = await makeDoc(this.body, this.title);
       window.location.href = `/view?${id["id"]}`;
     });
