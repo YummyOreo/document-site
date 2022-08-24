@@ -1,7 +1,7 @@
 import { closeOnClick } from "../popup/common-popups";
 import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
-import makeDoc from "../api/endpoints/doc";
+import { makeDoc } from "../api/endpoints/doc";
 
 import * as Snackbar from "../../js/snackbar.min.js";
 
@@ -55,6 +55,8 @@ export class Page extends PageDefault {
         return;
       }
       const id = await makeDoc(this.body, this.title);
+      console.log(id);
+
       window.location.href = `/view?id=${id["id"]}`;
     });
 

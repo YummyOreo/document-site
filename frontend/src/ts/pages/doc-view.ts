@@ -3,6 +3,7 @@ import { PageDefault } from "../types/classes";
 import * as Snackbar from "../../js/snackbar.min.js";
 
 import * as md from "../parser/md";
+import { getDoc } from "../api/endpoints/doc";
 
 export const urls = ["/view"];
 
@@ -37,10 +38,11 @@ export class Page extends PageDefault {
     }
 
     this.id = urlParams.get("id");
-    console.log(this.id);
 
-    $(".body").html(
-      md.parse("# Marked in the browser\n\nRendered by **marked**.")
-    );
+    const doc: { body: string; title: string } | any = await getDoc(this.id);
+    console.log(doc);
+
+    $(".body").html(md.parse(doc["body"]));
+    $(".title").text(doc["title"]);
   }
 }

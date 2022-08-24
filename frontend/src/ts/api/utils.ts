@@ -27,7 +27,7 @@ export async function MakeRequest(
     method: TYPE,
     credentials: "same-origin",
     headers,
-    body: BODY,
+    body: BODY == "" ? undefined : BODY,
   });
 
   return await response.json();
