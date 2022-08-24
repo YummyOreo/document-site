@@ -1,0 +1,53 @@
+.doc {
+  padding-top: 20px;
+}
+
+.body {
+  transition: var(--transition);
+
+  padding: 12px 20px;
+  height: 54.5rem;
+  width: 55rem;
+
+  outline: none;
+  resize: none;
+
+  background-color: var(--background-color-3);
+  border-radius: 5px;
+  border: 2px solid var(--background-color-2);
+}
+
+.body:focus {
+  border-color: var(--text-accent);
+}
+
+.roles {
+  padding-bottom: 2rem;
+}
+
+.role:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.role {
+  transition: var(--transition);
+
+  padding: 5px 10px;
+  display: inline;
+
+  background-color: #e40083;
+  border-radius: 19px;
+
+  cursor: pointer;
+}
+
+.role span {
+  top: -1px;
+
+  justify-content: right;
+  position: relative;
+}
+
+#doc-title {
+  cursor: pointer;
+}
