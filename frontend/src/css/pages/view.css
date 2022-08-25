@@ -17,6 +17,9 @@
   border: 2px solid var(--background-color-2);
 
   margin-bottom: 5rem;
+
+  word-wrap: break-word;
+  overflow: scroll;
 }
 
 .body:hover {

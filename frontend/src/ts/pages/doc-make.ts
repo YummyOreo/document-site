@@ -4,6 +4,7 @@ import * as popupController from "../popup/popup-controller";
 import { makeDoc } from "../api/endpoints/doc";
 
 import * as Snackbar from "../../js/snackbar.min.js";
+import * as md from "../../js/md";
 
 export const urls = ["/make"];
 
@@ -93,6 +94,10 @@ export class Page extends PageDefault {
     });
 
     await this.makeNamePopup();
+
+    $("#prev").on("click", async () => {
+      await this.makePrevPopup();
+    });
   }
 
   async makeNamePopup() {
@@ -130,9 +135,25 @@ export class Page extends PageDefault {
       $("#doc-title").text(this.title);
     };
 
-    const id = popupController.makePopup(popup);
-    popupController.showPopup(id);
+    popupController.makePopup(popup);
+    popupController.showPopup(popup);
+  }
 
-    return id;
+  async makePrevPopup() {
+    const popup = new PopupDefault(
+      "50%",
+      "80%",
+      "var(--background-color-2)",
+      "doc-prev",
+      undefined
+    );
+    popup.makeFunc = (popup: PopupDefault) => {
+      closeOnClick(popup);
+
+      $(".body-prev").html(md.parse(this.body));
+    };
+
+    popupController.makePopup(popup);
+    popupController.showPopup(popup);
   }
 }
