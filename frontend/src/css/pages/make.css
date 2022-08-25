@@ -51,3 +51,23 @@
 #doc-title {
   cursor: pointer;
 }
+
+.body-prev {
+  transition: var(--transition);
+
+  padding: 12px 20px;
+  min-height: 98%;
+  max-height: 10rem;
+  min-width: 99%;
+  max-width: 55rem;
+
+  outline: none;
+  resize: none;
+
+  background-color: var(--background-color-3);
+  border-radius: 5px;
+  border: 2px solid var(--background-color-2);
+
+  word-wrap: break-word;
+  overflow: scroll;
+}
