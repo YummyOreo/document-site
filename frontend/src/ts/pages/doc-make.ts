@@ -100,7 +100,7 @@ export class Page extends PageDefault {
       "50%",
       "80%",
       "var(--background-color-3)",
-      "docName.html",
+      "doc-name-popup",
       "docName.css"
     );
     popup.makeFunc = (popup: PopupDefault) => {

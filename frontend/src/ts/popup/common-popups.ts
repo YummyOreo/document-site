@@ -19,7 +19,7 @@ export function makeImagePopup(image: string = null): PopupDefault {
     "90%",
     "90%",
     "var(--background-color-3)",
-    "image.html",
+    "popup-image",
     "image.css"
   );
   popup.makeFunc = (popup: PopupDefault) => {
