@@ -57,7 +57,7 @@ export class Page extends PageDefault {
       const id = await makeDoc(this.body, this.title);
       console.log(id);
 
-      window.location.href = `/view?id=${id["id"]}`;
+      //window.location.href = `/view?id=${id["id"]}`;
     });
 
     await this.makeNamePopup();
