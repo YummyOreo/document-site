@@ -19,7 +19,7 @@ export class PopupDefault {
   width: string;
   height: string;
   color: string;
-  html: string;
+  className: string;
   css: string;
   id: string;
   showFunc: Function;
@@ -29,19 +29,19 @@ export class PopupDefault {
     width: string,
     height: string,
     color: string,
-    html: string,
+    className: string,
     css: string
   ) {
     this.width = width;
     this.height = height;
     this.color = color;
-    this.html = html;
+    this.className = className;
     this.css = css;
   }
 
   makePopup() {
     $(`#popup-${this.id}.popup-inner`).load(
-      `${folder.htmlPopup}${this.html}`,
+      `${folder.htmlPopup}popup.html .${this.className}`,
       () => {
         if (this.css != undefined && !loadedCss.includes(this.css)) {
           $("head").append(
