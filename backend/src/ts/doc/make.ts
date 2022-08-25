@@ -60,6 +60,11 @@ async function check(req: express.Request): Promise<string> {
       req.body.length - 20000
     } characters`;
   }
+  if (req.query["title"].toString().length > 40) {
+    return `Your title is too long. Please reduce your title by: ${
+      req.query["title"].toString().length - 40
+    } characters`;
+  }
 
   return "";
 }

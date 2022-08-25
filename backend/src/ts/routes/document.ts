@@ -8,6 +8,8 @@ export const router = express.Router();
   Makes a document with the string provided:
   - max 20k char
 
+  - max 40 char for title
+
   - uses Markdown
 */
 router.post("/", make /*, more funcs here*/);

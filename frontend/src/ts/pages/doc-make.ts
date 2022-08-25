@@ -54,6 +54,29 @@ export class Page extends PageDefault {
         });
         return;
       }
+      if (this.body.length > 20000) {
+        Snackbar.show({
+          pos: "top-right",
+          text: `Your document is too long. Please reduce your document by: ${
+            this.body.length - 20000
+          } characters`,
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+      if (this.title.length > 40) {
+        Snackbar.show({
+          pos: "top-right",
+          text: `Your title is too long. Please reduce your title by: ${
+            this.title.length - 40
+          } characters`,
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+
       const id = await makeDoc(this.body, this.title);
 
       if (!id["id"]) {
