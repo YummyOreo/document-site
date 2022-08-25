@@ -36,11 +36,17 @@ async function check(req: express.Request): Promise<string> {
     return "Plese provide a id";
   }
 
-  try {
-    new ObjectId(req.query["id"].toString());
-  } catch {
+  if (!isValidObjectId(req.query["id"].toString())) {
     return "Plese provide a valid id";
   }
 
   return "";
+}
+
+function isValidObjectId(id) {
+  if (ObjectId.isValid(id)) {
+    if (String(new ObjectId(id)) === id) return true;
+    return false;
+  }
+  return false;
 }

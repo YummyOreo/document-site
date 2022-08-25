@@ -7,7 +7,7 @@ export const api = {
 export async function MakeRequest(
   TYPE: string,
   URL: string,
-  BODY: any = "",
+  BODY: any = undefined,
   PARAMS: { [name: string]: string } = {},
   HEADERS: { [name: string]: string } = {},
   BODY_TYPE: string = "text/plain"
@@ -27,7 +27,7 @@ export async function MakeRequest(
     method: TYPE,
     credentials: "same-origin",
     headers,
-    body: BODY == "" ? undefined : BODY,
+    body: BODY,
   });
 
   return await response.json();
