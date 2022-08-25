@@ -7,7 +7,7 @@ export const api = {
 export async function MakeRequest(
   TYPE: string,
   URL: string,
-  BODY: any = "",
+  BODY: any = undefined,
   PARAMS: { [name: string]: string } = {},
   HEADERS: { [name: string]: string } = {},
   BODY_TYPE: string = "text/plain"

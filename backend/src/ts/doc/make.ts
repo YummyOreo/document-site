@@ -1,5 +1,6 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/documents";
+import * as sanitizeHtml from "sanitize-html";
 
 export async function make(req: express.Request, res: express.Response) {
   await check(req).then((error) => {
@@ -11,7 +12,10 @@ export async function make(req: express.Request, res: express.Response) {
   if (res.headersSent) return;
 
   const title = req.query["title"];
-  const body = req.body;
+  const dangerBody = req.body;
+
+  let body = sanitizeHtml(dangerBody);
+  body += " ";
 
   getCollection()
     .insertOne({
@@ -58,6 +62,11 @@ async function check(req: express.Request): Promise<string> {
   if (req.body.length > 20000) {
     return `Your document is too long. Please reduce your document by: ${
       req.body.length - 20000
+    } characters`;
+  }
+  if (req.query["title"].toString().length > 40) {
+    return `Your title is too long. Please reduce your title by: ${
+      req.query["title"].toString().length - 40
     } characters`;
   }
 

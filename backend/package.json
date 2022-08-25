@@ -19,10 +19,12 @@
     "mongodb": "^4.8.0",
     "mongodb-client-encryption": "^2.1.0",
     "netlify-lambda": "^2.0.15",
+    "sanitize-html": "^2.7.1",
     "serverless-http": "^3.0.1",
     "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
-    "@types/node": "^18.0.5"
+    "@types/node": "^18.0.5",
+    "@types/sanitize-html": "^2.6.2"
   }
 }

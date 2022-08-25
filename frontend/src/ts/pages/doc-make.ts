@@ -1,7 +1,7 @@
 import { closeOnClick } from "../popup/common-popups";
 import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
-import makeDoc from "../api/endpoints/doc";
+import { makeDoc } from "../api/endpoints/doc";
 
 import * as Snackbar from "../../js/snackbar.min.js";
 
@@ -54,8 +54,42 @@ export class Page extends PageDefault {
         });
         return;
       }
+      if (this.body.length > 20000) {
+        Snackbar.show({
+          pos: "top-right",
+          text: `Your document is too long. Please reduce your document by: ${
+            this.body.length - 20000
+          } characters`,
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+      if (this.title.length > 40) {
+        Snackbar.show({
+          pos: "top-right",
+          text: `Your title is too long. Please reduce your title by: ${
+            this.title.length - 40
+          } characters`,
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+
       const id = await makeDoc(this.body, this.title);
-      window.location.href = `/view?${id["id"]}`;
+
+      if (id["error"]) {
+        Snackbar.show({
+          pos: "top-right",
+          text: id["error"],
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+
+      window.location.href = `/view?id=${id["id"]}`;
     });
 
     await this.makeNamePopup();

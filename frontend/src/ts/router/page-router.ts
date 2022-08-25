@@ -1,10 +1,20 @@
 import { loadDefaultComponents } from "../components/component-controller";
-import { DocumentsPage, HomePage, MakeDocumentPage } from "../pages/";
+import {
+  DocumentsPage,
+  HomePage,
+  MakeDocumentPage,
+  ViewDocumentPage,
+} from "../pages/";
 import ErrorPage from "../pages/error";
 import { PageDefault } from "../types/classes";
 import * as folder from "../constants/folder";
 
-const pages: any[] = [DocumentsPage, HomePage, MakeDocumentPage];
+const pages: any[] = [
+  DocumentsPage,
+  HomePage,
+  MakeDocumentPage,
+  ViewDocumentPage,
+];
 
 export let currentPage: PageDefault;
 
