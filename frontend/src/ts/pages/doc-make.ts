@@ -104,17 +104,17 @@ export class Page extends PageDefault {
       "docName.css"
     );
     popup.makeFunc = (popup: PopupDefault) => {
-      closeOnClick(popup.id);
+      closeOnClick(popup);
 
       $("#doc-input-title").val(this.title);
 
       $(".doc-name-submit").on("click", () => {
-        popupController.closePopup(popup.id);
+        popupController.closePopup(popup);
       });
 
       $(".doc-name-popup").on("keypress", function (e) {
         if (e.key === "Enter") {
-          popupController.closePopup(popup.id);
+          popupController.closePopup(popup);
         }
       });
     };
