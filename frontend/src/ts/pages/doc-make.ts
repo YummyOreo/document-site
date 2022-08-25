@@ -79,7 +79,7 @@ export class Page extends PageDefault {
 
       const id = await makeDoc(this.body, this.title);
 
-      if (!id["id"]) {
+      if (id["error"]) {
         Snackbar.show({
           pos: "top-right",
           text: id["error"],

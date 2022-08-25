@@ -1,9 +1,8 @@
 import { PageDefault } from "../types/classes";
+import { getDoc } from "../api/endpoints/doc";
 
 import * as Snackbar from "../../js/snackbar.min.js";
-
-import * as md from "../parser/md";
-import { getDoc } from "../api/endpoints/doc";
+import * as md from "../../js/md";
 
 export const urls = ["/view"];
 
@@ -41,7 +40,7 @@ export class Page extends PageDefault {
 
     const doc: { body: string; title: string } | any = await getDoc(this.id);
 
-    if (!doc["body"]) {
+    if (doc["error"]) {
       Snackbar.show({
         pos: "top-right",
         text: doc["error"],
