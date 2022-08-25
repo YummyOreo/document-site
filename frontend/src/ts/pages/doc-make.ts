@@ -55,9 +55,18 @@ export class Page extends PageDefault {
         return;
       }
       const id = await makeDoc(this.body, this.title);
-      console.log(id);
 
-      //window.location.href = `/view?id=${id["id"]}`;
+      if (!id["id"]) {
+        Snackbar.show({
+          pos: "top-right",
+          text: id["error"],
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      }
+
+      window.location.href = `/view?id=${id["id"]}`;
     });
 
     await this.makeNamePopup();

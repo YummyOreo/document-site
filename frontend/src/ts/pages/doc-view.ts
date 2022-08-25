@@ -40,7 +40,16 @@ export class Page extends PageDefault {
     this.id = urlParams.get("id");
 
     const doc: { body: string; title: string } | any = await getDoc(this.id);
-    console.log(doc);
+
+    if (!doc["body"]) {
+      Snackbar.show({
+        pos: "top-right",
+        text: doc["error"],
+        textColor: "#ecf0f1",
+        actionTextColor: "#B00020",
+      });
+      return;
+    }
 
     $(".body").html(md.parse(doc["body"]));
     $(".title").text(doc["title"]);
