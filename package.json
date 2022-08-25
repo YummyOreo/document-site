@@ -1,9 +1,5 @@
 {
   "dependencies": {
-    "concurrently": "^7.2.2",
-    "glob-parent": "6.0.0",
-    "netlify-cli": "^10.10.0",
-    "prettier": "^2.7.1",
     "typescript": "^4.7.4"
   },
   "name": "document-site",
@@ -28,8 +24,12 @@
   },
   "homepage": "https://github.com/YummyOreo/document-site#readme",
   "devDependencies": {
+    "concurrently": "^7.3.0",
+    "glob-parent": "^6.0.2",
     "husky": "^8.0.1",
-    "lint-staged": "^13.0.3"
+    "lint-staged": "^13.0.3",
+    "netlify-cli": "^11.5.0",
+    "prettier": "^2.7.1"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
