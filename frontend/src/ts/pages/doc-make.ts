@@ -14,7 +14,6 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  defaultComponents: string[];
 
   title: string;
   body: string;
@@ -24,7 +23,6 @@ export class Page extends PageDefault {
     this.name = "Make Document";
     this.url = urls;
     this.html = "make.html";
-    this.defaultComponents = ["navbar", "footer"];
     this.css = ["make.css"];
 
     this.title = "";

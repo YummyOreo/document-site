@@ -12,14 +12,12 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  defaultComponents: string[];
   id: string;
   constructor() {
     super();
     this.name = "Viewing Document";
     this.url = urls;
     this.html = "view.html";
-    this.defaultComponents = ["navbar", "footer"];
     this.css = ["view.css"];
   }
 

@@ -11,13 +11,11 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  defaultComponents: string[];
   constructor() {
     super();
     this.name = "Home";
     this.url = urls;
     this.html = "home.html";
-    this.defaultComponents = ["navbar", "footer"];
     this.css = ["home.css"];
   }
 

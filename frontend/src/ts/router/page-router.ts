@@ -1,4 +1,3 @@
-import { loadDefaultComponents } from "../components/component-controller";
 import {
   DocumentsPage,
   HomePage,
@@ -44,8 +43,6 @@ async function displayPage(page: PageDefault) {
         );
       });
     }
-    await loadDefaultComponents();
-
     await runPage(page);
   });
 }

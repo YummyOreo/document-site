@@ -1,7 +1,6 @@
-import * as folder from "../constants/folder";
-import { currentPage } from "../router/page-router";
 import { DefaultComponent } from "../types/classes";
 import { FooterCompenent, NavbarCompenent } from "./classes/";
+import * as folder from "../constants/folder";
 
 export const loadedCss: string[] = [];
 
@@ -12,69 +11,35 @@ export const allComponents: { [name: string]: typeof DefaultComponent } = {
 
 export const loadedComponents: { [name: string]: DefaultComponent } = {};
 
-export async function loadDefaultComponents() {
-  if (currentPage.defaultComponents == undefined) return;
+export class component extends HTMLElement {
+  componentName: string;
+  componentClass: import("d:/Desktop 2/document site/frontend/src/ts/types/classes").DefaultComponent;
+  constructor() {
+    super();
+    this.componentName = this.attributes.getNamedItem("name").value;
+    this.componentClass = new allComponents[this.componentName]();
 
-  const components = currentPage.defaultComponents;
-  for (const i in components) {
-    const name = components[i];
+    this.id = this.componentName;
 
-    loadedComponents[name] = new allComponents[name]();
+    this.loadComponent(this.componentClass);
   }
 
-  loadComponents();
-}
-
-export async function loadComponents() {
-  for (const componentName in loadedComponents) {
-    const component = loadedComponents[componentName];
-
-    const element = document.getElementById(component.name);
-
-    if (element == undefined) {
-      console.error("Component does not have a div.");
-      deleteComponentByName(componentName);
-      continue;
-    }
-    if (!element.classList.contains("component")) {
-      console.error("Component's div does not have the class component");
-      deleteComponentByName(componentName);
-      continue;
-    }
-
-    loadComponent(component, element);
+  loadComponent(component: DefaultComponent) {
+    $(`#${this.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
+      if (component.css != undefined) {
+        component.css.forEach((css) => {
+          if (!loadedCss.includes(css)) {
+            $("head").append(
+              $('<link rel="stylesheet" type="text/css" />').attr(
+                "href",
+                `${folder.cssComponents}${css}`
+              )
+            );
+            loadedCss.push(css);
+          }
+        });
+      }
+      component.run();
+    });
   }
-}
-
-export async function loadComponent(
-  component: DefaultComponent,
-  element: Element
-) {
-  if (!(component.name in loadedComponents)) {
-    loadedComponents[component.name] = component;
-  }
-
-  $(`#${element.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
-    if (component.css != undefined) {
-      component.css.forEach((css) => {
-        if (!loadedCss.includes(css)) {
-          $("head").append(
-            $('<link rel="stylesheet" type="text/css" />').attr(
-              "href",
-              `${folder.cssComponents}${css}`
-            )
-          );
-          loadedCss.push(css);
-        }
-      });
-    }
-    component.run();
-  });
-}
-
-export function deleteComponentByName(name: string) {
-  $(`#${name}`).empty();
-  $(`#${name}`).remove();
-
-  delete loadedComponents[name];
 }

@@ -7,7 +7,6 @@ export class PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  defaultComponents: string[];
   constructor(name: string = "") {}
 
   async run() {
