@@ -5,12 +5,10 @@ export default class ErrorPage extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  defaultComponents: string[];
   constructor() {
     super();
     this.name = "Error";
     this.html = "error.html";
-    this.defaultComponents = ["navbar", "footer"];
   }
 
   async run() {}
