@@ -2,6 +2,8 @@ import { getAll } from "../api/endpoints/doc";
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
 
+import * as Snackbar from "../../js/snackbar.min.js";
+
 export const urls = ["/documents*"];
 
 export class Page extends PageDefault {
@@ -23,6 +25,15 @@ export class Page extends PageDefault {
     super.run();
 
     $(".sort button").on("click", (e) => {
+      if (e.target.textContent == "A - Z") {
+        Snackbar.show({
+          pos: "top-right",
+          text: "Coming Soon",
+          textColor: "#ecf0f1",
+          actionTextColor: "#198754",
+        });
+        return;
+      }
       $(".clicked").removeClass("clicked");
 
       e.target.classList.add("clicked");
