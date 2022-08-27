@@ -1,6 +1,6 @@
 import * as express from "express";
 
-import { make, get } from "../doc/";
+import { make, get, list } from "../doc/";
 
 export const router = express.Router();
 
@@ -20,3 +20,5 @@ router.post("/", make /*, more funcs here*/);
     - ID: the id of the document you want to get
 */
 router.get("/", get /*, more funcs here*/);
+
+router.get("/list", list);
