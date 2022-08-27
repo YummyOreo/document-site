@@ -30,20 +30,21 @@ export class component extends HTMLElement {
   }
 
   loadComponent(component: DefaultComponent) {
+    if (component.css != undefined) {
+      component.css.forEach((css) => {
+        if (!loadedCss.includes(css)) {
+          $("head").append(
+            $('<link rel="stylesheet" type="text/css" />').attr(
+              "href",
+              `${folder.cssComponents}${css}`
+            )
+          );
+          loadedCss.push(css);
+        }
+      });
+    }
+
     $(this).load(`${folder.htmlComponents}${component.html}`, () => {
-      if (component.css != undefined) {
-        component.css.forEach((css) => {
-          if (!loadedCss.includes(css)) {
-            $("head").append(
-              $('<link rel="stylesheet" type="text/css" />').attr(
-                "href",
-                `${folder.cssComponents}${css}`
-              )
-            );
-            loadedCss.push(css);
-          }
-        });
-      }
       component.run();
     });
   }
@@ -68,20 +69,21 @@ export class componentAdapt extends HTMLElement {
   }
 
   loadComponent(component: DefaultComponent) {
+    if (component.css != undefined) {
+      component.css.forEach((css) => {
+        if (!loadedCss.includes(css)) {
+          $("head").append(
+            $('<link rel="stylesheet" type="text/css" />').attr(
+              "href",
+              `${folder.cssComponents}${css}`
+            )
+          );
+        }
+        loadedCss.push(css);
+      });
+    }
+
     $(this).load(`${folder.htmlComponents}${component.html}`, () => {
-      if (component.css != undefined) {
-        component.css.forEach((css) => {
-          if (!loadedCss.includes(css)) {
-            $("head").append(
-              $('<link rel="stylesheet" type="text/css" />').attr(
-                "href",
-                `${folder.cssComponents}${css}`
-              )
-            );
-            loadedCss.push(css);
-          }
-        });
-      }
       component.run();
     });
   }
