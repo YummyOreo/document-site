@@ -1,6 +1,6 @@
 #wapper {
-  padding-top: 4rem;
   padding-bottom: 5rem;
+  padding-top: 4rem;
 }
 
 .wapper {
@@ -28,10 +28,10 @@
   background-color: var(--background-color-4);
   border-radius: 5px;
   border: 1px solid var(--background-color-2);
-  color: var(--text-white);
 
   font-weight: 500;
   font-size: 16px;
+  color: var(--text-white);
 
   margin-left: 10px;
   padding: 9px 25px;

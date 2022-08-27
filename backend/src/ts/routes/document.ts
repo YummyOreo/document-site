@@ -21,4 +21,7 @@ router.post("/", make /*, more funcs here*/);
 */
 router.get("/", get /*, more funcs here*/);
 
+/*
+  Gets the 20 most recent documents
+*/
 router.get("/list", list);

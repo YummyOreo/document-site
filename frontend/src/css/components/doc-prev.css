@@ -42,14 +42,16 @@
 .doc-text {
   padding-right: 1rem;
   padding-left: 35%;
-  height: 6rem;
+
   max-width: 45rem !important;
+  height: 6rem;
 
   font-weight: 300;
   font-size: 20px;
 
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+
   overflow: hidden;
   display: -webkit-box;
 }

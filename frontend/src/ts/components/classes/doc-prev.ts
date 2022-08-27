@@ -33,8 +33,6 @@ export class DocumentPrevComponent extends DefaultComponent {
 
     $(this.element).find(".doc-title").text(this.doc["title"]);
     $(this.element).find(".doc-text").text(this.doc["body"]);
-    $(this.element)
-      .find("a")
-      .attr("href", "/view?id=" + this.compId);
+    $(this.element).find("a").attr("href", `/view?id=${this.compId}`);
   }
 }

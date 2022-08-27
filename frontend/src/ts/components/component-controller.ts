@@ -24,8 +24,6 @@ export class component extends HTMLElement {
     this.componentClass = new allComponents[this.componentName]();
     this.componentClass.element = this;
 
-    this.id = `${this.componentName}`;
-
     this.loadComponent(this.componentClass);
   }
 
@@ -62,8 +60,6 @@ export class componentAdapt extends HTMLElement {
     this.componentName = this.attributes.getNamedItem("name").value;
     this.componentClass = new allComponents[this.componentName]();
     this.componentClass.element = this;
-
-    this.id = `${this.componentName}`;
 
     this.loadComponent(this.componentClass);
   }

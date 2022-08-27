@@ -20,7 +20,7 @@ export async function getDoc(id: string): Promise<any> {
   );
 }
 
-export async function getAll(): Promise<any> {
+export async function getDocs(): Promise<any> {
   return await apiUtils.MakeRequest(
     "GET",
     `${apiUtils.api["url"]}${BASE}/list`

@@ -1,4 +1,4 @@
-import { getAll } from "../api/endpoints/doc";
+import { getDocs } from "../api/endpoints/doc";
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
 
@@ -27,39 +27,33 @@ export class Page extends PageDefault {
     super.run();
 
     $(".sort button").on("click", (e) => {
-      if (e.target.textContent == "A - Z") {
-        store["documents"] = this.mergeSort(store["documents"]);
-        this.docPrevs.forEach((elm: any, index: number) => {
-          elm.setAttribute("compId", store["documents"][index]["_id"]);
-          elm.setAttribute("index", index.toString());
-          elm.load();
-        });
+      switch (e.target.textContent) {
+        case "A - Z":
+          store["documents"] = this.mergeSort(store["documents"]);
+          break;
+        case "Z - A":
+          store["documents"] = this.mergeSort(store["documents"]).reverse();
+          break;
+        case "Recent":
+          store["documents"] = this.documents["documents"];
+          break;
+        default:
+          store["documents"] = this.documents["documents"];
       }
 
-      if (e.target.textContent == "Z - A") {
-        store["documents"] = this.mergeSort(store["documents"]).reverse();
-        this.docPrevs.forEach((elm: any, index: number) => {
-          elm.setAttribute("compId", store["documents"][index]["_id"]);
-          elm.setAttribute("index", index.toString());
-          elm.load();
-        });
-      }
-
-      if (e.target.textContent == "Recent") {
-        store["documents"] = this.documents["documents"];
-        this.docPrevs.forEach((elm: any, index: number) => {
-          elm.setAttribute("compId", store["documents"][index]["_id"]);
-          elm.setAttribute("index", index.toString());
-          elm.load();
-        });
-      }
+      this.docPrevs.forEach((elm: any, index: number) => {
+        elm.setAttribute("compId", store["documents"][index]["_id"]);
+        elm.setAttribute("index", index.toString());
+        elm.load();
+      });
 
       $(".clicked").removeClass("clicked");
 
       e.target.classList.add("clicked");
     });
 
-    this.documents = await getAll();
+    this.documents = await getDocs();
+
     store["documents"] = this.documents["documents"].reverse();
 
     store["documents"].forEach((val: any, index: any) => {
@@ -76,8 +70,6 @@ export class Page extends PageDefault {
 
       $(".documents").append(elm);
     });
-
-    console.log(this.mergeSort(store["documents"]));
   }
 
   merge(arr1: any[], arr2: any[]): any {
