@@ -13,9 +13,16 @@ export class Page extends PageDefault {
     this.name = "Documents";
     this.url = urls;
     this.html = "documents.html";
+    this.css = ["docs.css"];
   }
 
   async run() {
     super.run();
+
+    $(".sort button").on("click", (e) => {
+      $(".clicked").removeClass("clicked");
+
+      e.target.classList.add("clicked");
+    });
   }
 }
