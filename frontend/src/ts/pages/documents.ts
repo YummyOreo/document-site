@@ -31,13 +31,17 @@ export class Page extends PageDefault {
     this.documents = await getAll();
     store["documents"] = this.documents["documents"].reverse();
 
-    const elm: any = document.createElement("custom-adapt-component");
+    store["documents"].forEach((val: any, index: any) => {
+      console.log(index);
 
-    elm.setAttribute("name", "documentPrev");
-    elm.setAttribute("compId", store["documents"][0]["_id"]);
-    elm.setAttribute("index", "0");
-    elm.load();
+      const elm: any = document.createElement("custom-adapt-component");
 
-    $(".documents").append(elm);
+      elm.setAttribute("name", "documentPrev");
+      elm.setAttribute("compId", val["_id"]);
+      elm.setAttribute("index", index.toString());
+      elm.load();
+
+      $(".documents").append(elm);
+    });
   }
 }

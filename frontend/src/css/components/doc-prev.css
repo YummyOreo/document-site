@@ -9,7 +9,6 @@
 }
 
 .doc-wapper {
-  position: absolute;
   width: 15%;
 }
 
@@ -40,10 +39,11 @@
   cursor: pointer;
 }
 
-.doc-prev p {
+.doc-text {
   padding-right: 1rem;
   padding-left: 35%;
   height: 6rem;
+  max-width: 45rem !important;
 
   font-weight: 300;
   font-size: 20px;

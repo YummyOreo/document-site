@@ -48,3 +48,11 @@
 .clicked:hover {
   border-color: var(--background-color-2) !important;
 }
+
+.documents {
+  min-height: 50.9rem;
+  max-height: 50.9rem;
+  width: 54.9rem;
+
+  overflow: scroll;
+}

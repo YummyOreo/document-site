@@ -31,7 +31,7 @@ export class DocumentPrevComponent extends DefaultComponent {
   async getDoc() {
     this.doc = store["documents"][this.index];
 
-    $(".doc-title").text(this.doc["title"]);
-    $(".doc-prev p").text(this.doc["body"]);
+    $(this.element).find(".doc-title").text(this.doc["title"]);
+    $(this.element).find(".doc-text").text(this.doc["body"]);
   }
 }
