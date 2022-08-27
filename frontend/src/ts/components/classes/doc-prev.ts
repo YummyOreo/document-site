@@ -7,6 +7,7 @@ export class DocumentPrevComponent extends DefaultComponent {
   css: string[];
 
   compId: string;
+  index: number;
 
   title: string;
   author: string;
@@ -23,15 +24,12 @@ export class DocumentPrevComponent extends DefaultComponent {
 
   async run() {
     this.compId = this.element.attributes.getNamedItem("compId").value;
+    this.index = parseInt(this.element.attributes.getNamedItem("index").value);
     this.getDoc();
   }
 
   async getDoc() {
-    store["documents"].forEach((e: any) => {
-      if (e["_id"] == this.compId) {
-        this.doc = e;
-      }
-    });
+    this.doc = store["documents"][this.index];
 
     $(".doc-title").text(this.doc["title"]);
     $(".doc-prev p").text(this.doc["body"]);

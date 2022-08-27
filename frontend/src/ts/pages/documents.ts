@@ -29,12 +29,13 @@ export class Page extends PageDefault {
     });
 
     this.documents = await getAll();
-    store["documents"] = this.documents["documents"];
+    store["documents"] = this.documents["documents"].reverse();
 
     const elm: any = document.createElement("custom-adapt-component");
 
     elm.setAttribute("name", "documentPrev");
-    elm.setAttribute("compId", "6306bca9c82c57f7209361bc");
+    elm.setAttribute("compId", store["documents"][0]["_id"]);
+    elm.setAttribute("index", "0");
     elm.load();
 
     $(".documents").append(elm);
