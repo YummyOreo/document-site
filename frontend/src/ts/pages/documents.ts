@@ -57,8 +57,6 @@ export class Page extends PageDefault {
     store["documents"] = this.documents["documents"].reverse();
 
     store["documents"].forEach((val: any, index: any) => {
-      console.log(index);
-
       const elm: any = document.createElement("custom-adapt-component");
 
       elm.setAttribute("name", "documentPrev");
