@@ -1,5 +1,6 @@
 #wapper {
   padding-top: 4rem;
+  padding-bottom: 5rem;
 }
 
 .wapper {
@@ -17,26 +18,23 @@
 
   border-bottom: 2px solid var(--background-color-2);
 
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .sort button {
-  background-color: var(--background-color-4);
+  transition: var(--transition);
 
+  background-color: var(--background-color-4);
   border-radius: 5px;
   border: 1px solid var(--background-color-2);
+  color: var(--text-white);
 
   font-weight: 500;
   font-size: 16px;
 
-  color: var(--text-white);
-
-  padding: 9px 25px;
-
   margin-left: 10px;
-
-  transition: var(--transition);
+  padding: 9px 25px;
 }
 
 .sort button:hover {

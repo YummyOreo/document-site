@@ -1,5 +1,9 @@
 import { DefaultComponent } from "../types/classes";
-import { FooterCompenent, NavbarCompenent } from "./classes/";
+import {
+  DocumentPrevComponent,
+  FooterCompenent,
+  NavbarCompenent,
+} from "./classes/";
 import * as folder from "../constants/folder";
 
 export const loadedCss: string[] = [];
@@ -7,25 +11,26 @@ export const loadedCss: string[] = [];
 export const allComponents: { [name: string]: typeof DefaultComponent } = {
   footer: FooterCompenent,
   navbar: NavbarCompenent,
+  documentPrev: DocumentPrevComponent,
 };
-
-export const loadedComponents: { [name: string]: DefaultComponent } = {};
 
 export class component extends HTMLElement {
   componentName: string;
   componentClass: import("d:/Desktop 2/document site/frontend/src/ts/types/classes").DefaultComponent;
+  num: number;
   constructor() {
     super();
     this.componentName = this.attributes.getNamedItem("name").value;
     this.componentClass = new allComponents[this.componentName]();
 
-    this.id = this.componentName;
+    this.id = `${this.componentName}`;
 
     this.loadComponent(this.componentClass);
   }
 
   loadComponent(component: DefaultComponent) {
-    $(`#${this.id}`).load(`${folder.htmlComponents}${component.html}`, () => {
+    $(this).load(`${folder.htmlComponents}${component.html}`, () => {
+      console.log(component);
       if (component.css != undefined) {
         component.css.forEach((css) => {
           if (!loadedCss.includes(css)) {
