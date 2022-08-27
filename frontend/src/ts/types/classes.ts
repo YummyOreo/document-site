@@ -91,6 +91,7 @@ export class DefaultComponent {
   name: string;
   html: string;
   css: string[];
+  element: HTMLElement;
   constructor() {}
 
   async run() {}

@@ -4,6 +4,14 @@ export class DocumentPrevComponent extends DefaultComponent {
   name: string;
   html: string;
   css: string[];
+
+  compId: string;
+
+  title: string;
+  author: string;
+  prev: string;
+
+  roles: string[];
   constructor() {
     super();
     this.name = "doc-prev";
@@ -11,5 +19,7 @@ export class DocumentPrevComponent extends DefaultComponent {
     this.css = ["doc-prev.css"];
   }
 
-  async run() {}
+  async run() {
+    this.compId = this.element.attributes.getNamedItem("compId").value;
+  }
 }

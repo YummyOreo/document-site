@@ -22,6 +22,7 @@ export class component extends HTMLElement {
     super();
     this.componentName = this.attributes.getNamedItem("name").value;
     this.componentClass = new allComponents[this.componentName]();
+    this.componentClass.element = this;
 
     this.id = `${this.componentName}`;
 
@@ -30,7 +31,6 @@ export class component extends HTMLElement {
 
   loadComponent(component: DefaultComponent) {
     $(this).load(`${folder.htmlComponents}${component.html}`, () => {
-      console.log(component);
       if (component.css != undefined) {
         component.css.forEach((css) => {
           if (!loadedCss.includes(css)) {
