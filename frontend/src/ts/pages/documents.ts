@@ -27,6 +27,7 @@ export class Page extends PageDefault {
     super.run();
 
     $(".sort button").on("click", (e) => {
+      if (e.target.classList.contains("clicked")) return;
       switch (e.target.textContent) {
         case "A - Z":
           store["documents"] = this.mergeSort(store["documents"]);
