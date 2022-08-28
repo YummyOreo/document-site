@@ -44,7 +44,7 @@ export class Page extends PageDefault {
       this.docPrevs.forEach((elm: any, index: number) => {
         elm.setAttribute("compId", store["documents"][index]["_id"]);
         elm.setAttribute("index", index.toString());
-        elm.load();
+        elm.connectedCallback();
       });
 
       $(".clicked").removeClass("clicked");
@@ -57,12 +57,11 @@ export class Page extends PageDefault {
     store["documents"] = this.documents["documents"].reverse();
 
     store["documents"].forEach((val: any, index: any) => {
-      const elm: any = document.createElement("custom-adapt-component");
+      const elm: any = document.createElement("custom-component");
 
       elm.setAttribute("name", "documentPrev");
       elm.setAttribute("compId", val["_id"]);
       elm.setAttribute("index", index.toString());
-      elm.load();
 
       this.docPrevs.push(elm);
 

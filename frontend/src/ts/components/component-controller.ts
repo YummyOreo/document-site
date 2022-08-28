@@ -20,6 +20,9 @@ export class component extends HTMLElement {
   num: number;
   constructor() {
     super();
+  }
+
+  connectedCallback() {
     this.componentName = this.attributes.getNamedItem("name").value;
     this.componentClass = new allComponents[this.componentName]();
     this.componentClass.element = this;
@@ -39,43 +42,6 @@ export class component extends HTMLElement {
           );
           loadedCss.push(css);
         }
-      });
-    }
-
-    $(this).load(`${folder.htmlComponents}${component.html}`, () => {
-      component.run();
-    });
-  }
-}
-
-export class componentAdapt extends HTMLElement {
-  componentName: string;
-  componentClass: import("d:/Desktop 2/document site/frontend/src/ts/types/classes").DefaultComponent;
-  num: number;
-  constructor() {
-    super();
-  }
-
-  load() {
-    this.componentName = this.attributes.getNamedItem("name").value;
-    this.componentClass = new allComponents[this.componentName]();
-    this.componentClass.element = this;
-
-    this.loadComponent(this.componentClass);
-  }
-
-  loadComponent(component: DefaultComponent) {
-    if (component.css != undefined) {
-      component.css.forEach((css) => {
-        if (!loadedCss.includes(css)) {
-          $("head").append(
-            $('<link rel="stylesheet" type="text/css" />').attr(
-              "href",
-              `${folder.cssComponents}${css}`
-            )
-          );
-        }
-        loadedCss.push(css);
       });
     }
 
