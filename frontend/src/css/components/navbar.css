@@ -119,6 +119,10 @@
   padding-top: 0.05rem;
 }
 
+.nav-doc-search:hover .nav-doc-prev {
+  display: block;
+}
+
 .nav-doc-search:hover .nav-doc-inner {
   justify-content: left;
 }

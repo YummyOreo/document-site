@@ -1,0 +1,57 @@
+.doc-prev {
+  padding-left: 1rem;
+  padding-top: 0.5rem;
+
+  border-bottom: 2px solid var(--background-color-2);
+
+  display: flex;
+  columns: 2;
+}
+
+.doc-wapper {
+  width: 15%;
+}
+
+.doc-title {
+  font-size: 1.5rem;
+}
+
+.doc-author {
+  color: var(--text-gray);
+}
+
+.roles {
+  padding-top: 0.5rem;
+}
+
+.role {
+  transition: var(--transition);
+
+  display: inline-block;
+
+  margin-right: 1px;
+  height: 20px;
+  width: 20px;
+
+  background-color: #e40083;
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+.doc-text {
+  padding-right: 1rem;
+  padding-left: 35%;
+
+  max-width: 45rem !important;
+  height: 6rem;
+
+  font-weight: 300;
+  font-size: 20px;
+
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+  display: -webkit-box;
+}

@@ -19,3 +19,10 @@ export async function getDoc(id: string): Promise<any> {
     { id }
   );
 }
+
+export async function getDocs(): Promise<any> {
+  return await apiUtils.MakeRequest(
+    "GET",
+    `${apiUtils.api["url"]}${BASE}/list`
+  );
+}

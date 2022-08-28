@@ -31,18 +31,19 @@ export default async function getPage(): Promise<void> {
 }
 
 async function displayPage(page: PageDefault) {
+  if (page.css != undefined) {
+    page.css.forEach((css) => {
+      $("head").append(
+        $('<link rel="stylesheet" type="text/css" />').attr(
+          "href",
+          `${folder.cssPage}${css}`
+        )
+      );
+    });
+  }
+
   $(".main").load(`${folder.htmlPage}${page.html}`, async () => {
     $(document).prop("title", page.name);
-    if (page.css != undefined) {
-      page.css.forEach((css) => {
-        $("head").append(
-          $('<link rel="stylesheet" type="text/css" />').attr(
-            "href",
-            `${folder.cssPage}${css}`
-          )
-        );
-      });
-    }
     await runPage(page);
   });
 }
