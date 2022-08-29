@@ -35,7 +35,11 @@ export async function auth(req: express.Request, res: express.Response) {
 
   if (res.headersSent) return;
 
-  res.status(304).redirect(`${CLIENT_URL}login?token=${token["access_token"]}`);
+  res
+    .status(304)
+    .redirect(
+      `${CLIENT_URL}auth?token=${token["access_token"]}&name=${user["username"]}`
+    );
 }
 
 async function Oauth(req) {
