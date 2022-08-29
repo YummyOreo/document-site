@@ -1,9 +1,9 @@
 import * as express from "express";
-import { make } from "../user";
+import { auth } from "../user";
 
 export const router = express.Router();
 
 /*
   Makes a user
 */
-router.get("/make", make /*, more funcs here*/);
+router.get("/auth", auth /*, more funcs here*/);

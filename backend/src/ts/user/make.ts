@@ -5,8 +5,18 @@ import { CLIENT_URL } from "../env/other";
 
 import DiscordOauth2 = require("discord-oauth2");
 
-export async function make(req: express.Request, res: express.Response) {
+export async function auth(req: express.Request, res: express.Response) {
+  function error() {
+    return res
+      .status(500)
+      .send({ error: "There was a error trying to authenticate you" });
+  }
+
   const [user, token] = await Oauth(req);
+
+  if (user == true || token == true) {
+    return error();
+  }
 
   const userScheme = {
     id: user["id"],
@@ -15,13 +25,17 @@ export async function make(req: express.Request, res: express.Response) {
     token: token["access_token"],
   };
 
-  if ((await getCollection().findOne({ id: user["id"] })) != null) {
-    getCollection().findOneAndReplace({ id: user["id"] }, userScheme);
+  if (await getCollection().findOne({ id: user["id"] })) {
+    getCollection()
+      .findOneAndReplace({ id: user["id"] }, userScheme)
+      .catch(error);
   } else {
-    getCollection().insertOne(userScheme);
+    getCollection().insertOne(userScheme).catch(error);
   }
 
-  res.status(304).redirect(`${CLIENT_URL}?token=${token["access_token"]}`);
+  if (res.headersSent) return;
+
+  res.status(304).redirect(`${CLIENT_URL}login?token=${token["access_token"]}`);
 }
 
 async function Oauth(req) {
@@ -39,7 +53,19 @@ async function Oauth(req) {
       scope: "identify",
       grantType: "authorization_code",
     })
-    .catch(console.log);
+    .catch((e: any) => {
+      console.log(e);
+      return true;
+    });
 
-  return [await oauth.getUser(token["access_token"]), token];
+  if (token == true) {
+    return [true, true];
+  }
+
+  const user = await oauth.getUser(token["access_token"]).catch((e: any) => {
+    console.log(e);
+    return true;
+  });
+
+  return [user, token];
 }
