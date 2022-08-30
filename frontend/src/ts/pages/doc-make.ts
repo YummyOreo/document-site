@@ -1,4 +1,4 @@
-import { closeOnClick } from "../popup/common-popups";
+import { closeOnClick, makeNoAccess } from "../popup/common-popups";
 import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
 import { makeDoc } from "../api/endpoints/doc";
@@ -79,6 +79,9 @@ export class Page extends PageDefault {
       const id = await makeDoc(this.body, this.title);
 
       if (id["error"]) {
+        if (id["status"] == 401) {
+          return popupController.showPopup(makeNoAccess());
+        }
         Snackbar.show({
           pos: "top-right",
           text: id["error"],

@@ -80,6 +80,8 @@
 
   display: inline-block;
   width: 3.5rem;
+
+  cursor: pointer;
 }
 
 .nav-doc-item object {

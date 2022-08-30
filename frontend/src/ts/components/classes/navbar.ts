@@ -1,5 +1,8 @@
 import { currentPage } from "../../router/page-router";
+import { auth } from "../../store";
 import { DefaultComponent } from "../../types/classes";
+
+import * as Snackbar from "../../../js/snackbar.min.js";
 
 export class NavbarCompenent extends DefaultComponent {
   name: string;
@@ -26,5 +29,18 @@ export class NavbarCompenent extends DefaultComponent {
     $(window).on("scroll", function () {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
+
+    if (auth.token == "" || auth.token == undefined) {
+      $(".nav-doc a").removeAttr("href");
+      $(".nav-doc-make").on("click", () => {
+        Snackbar.show({
+          pos: "top-right",
+          text: `You have to login to make a document.`,
+          textColor: "#ecf0f1",
+          actionTextColor: "#B00020",
+        });
+        return;
+      });
+    }
   }
 }
