@@ -7,9 +7,10 @@ import DiscordOauth2 = require("discord-oauth2");
 
 export async function auth(req: express.Request, res: express.Response) {
   function error() {
-    return res
-      .status(500)
-      .send({ error: "There was a error trying to authenticate you" });
+    return res.status(500).send({
+      error: "There was a error trying to authenticate you",
+      status: 500,
+    });
   }
 
   const [user, token] = await Oauth(req);

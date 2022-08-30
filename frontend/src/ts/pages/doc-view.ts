@@ -3,6 +3,8 @@ import { getDoc } from "../api/endpoints/doc";
 
 import * as Snackbar from "../../js/snackbar.min.js";
 import * as md from "../../js/md";
+import { showPopup } from "../popup/popup-controller";
+import { makeNoAccess } from "../popup/common-popups";
 
 export const urls = ["/view"];
 
@@ -39,6 +41,9 @@ export class Page extends PageDefault {
     const doc: { body: string; title: string } | any = await getDoc(this.id);
 
     if (doc["error"]) {
+      if (doc["status"] == 401) {
+        return showPopup(makeNoAccess());
+      }
       Snackbar.show({
         pos: "top-right",
         text: doc["error"],

@@ -39,3 +39,17 @@ export function makeImagePopup(image: string = null): PopupDefault {
 
   return popup;
 }
+
+export function makeNoAccess(): PopupDefault {
+  const popup = new PopupDefault(
+    "90%",
+    "90%",
+    "var(--background-color-3)",
+    "no-access",
+    undefined
+  );
+
+  popupController.makePopup(popup);
+
+  return popup;
+}

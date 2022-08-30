@@ -5,7 +5,7 @@ import * as sanitizeHtml from "sanitize-html";
 export async function make(req: express.Request, res: express.Response) {
   await check(req).then((error) => {
     if (error != "") {
-      res.status(400).send({ error });
+      res.status(400).send({ error, status: 400 });
     }
   });
 
@@ -31,6 +31,7 @@ export async function make(req: express.Request, res: express.Response) {
       res.status(500).send({
         error:
           "There was a internal error trying to make your document, please report this to the developers",
+        status: 500,
       });
     });
 }
