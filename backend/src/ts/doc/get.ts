@@ -22,7 +22,7 @@ export async function get(req: express.Request, res: express.Response) {
     .catch(() => {
       res.status(500).send({
         error:
-          "There was a internal error trying to fetch your document, please report this to the developers",
+          "There was a internal error trying to fetch your document. If this keeps happening, please contact the devs.",
         status: 500,
       });
     });

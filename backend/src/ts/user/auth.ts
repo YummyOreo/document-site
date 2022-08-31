@@ -1,14 +1,21 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/users";
-import { ID, SECRET, REDIRECT } from "../env/auth";
+import { DISCORD_ID, DISCORD_SECRET, DISCORD_REDIRECT } from "../env/auth";
 import { CLIENT_URL } from "../env/other";
 
 import DiscordOauth2 = require("discord-oauth2");
 
+const oauth = new DiscordOauth2({
+  clientId: DISCORD_ID,
+  clientSecret: DISCORD_SECRET,
+  redirectUri: DISCORD_REDIRECT,
+});
+
 export async function auth(req: express.Request, res: express.Response) {
   function error() {
     return res.status(500).send({
-      error: "There was a error trying to authenticate you",
+      error:
+        "There was a error trying to authenticate you. If this keeps happening, please contact the devs.",
       status: 500,
     });
   }
@@ -36,6 +43,8 @@ export async function auth(req: express.Request, res: express.Response) {
 
   if (res.headersSent) return;
 
+  console.log(CLIENT_URL);
+
   res
     .status(304)
     .redirect(
@@ -44,12 +53,6 @@ export async function auth(req: express.Request, res: express.Response) {
 }
 
 async function Oauth(req) {
-  const oauth = new DiscordOauth2({
-    clientId: ID,
-    clientSecret: SECRET,
-    redirectUri: REDIRECT,
-  });
-
   const code: any = req.query["code"];
 
   const token = await oauth

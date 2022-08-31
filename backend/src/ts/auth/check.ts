@@ -8,7 +8,7 @@ export async function isAuthed(
 ) {
   if (
     !req.header("Authorization") ||
-    !req.header("Authorization").startsWith("Bearer")
+    !req.header("Authorization").startsWith("Bearer ")
   ) {
     return res
       .status(400)
@@ -19,13 +19,12 @@ export async function isAuthed(
 
   const user = await getCollection()
     .findOne({ token })
-    .catch((e: any) => {
-      res
-        .status(500)
-        .send({
-          error: "There was a interal server error, please try again.",
-          status: 500,
-        });
+    .catch(() => {
+      res.status(500).send({
+        error:
+          "There was a interal server error, please try again. If this keeps happening, please contact the devs.",
+        status: 500,
+      });
     });
 
   if (res.headersSent) return;

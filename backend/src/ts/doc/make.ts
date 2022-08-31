@@ -30,7 +30,7 @@ export async function make(req: express.Request, res: express.Response) {
     .catch(() => {
       res.status(500).send({
         error:
-          "There was a internal error trying to make your document, please report this to the developers",
+          "There was a internal error trying to make your document. If this keeps happening, please contact the devs.",
         status: 500,
       });
     });
