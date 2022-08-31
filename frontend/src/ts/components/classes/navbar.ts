@@ -32,6 +32,7 @@ export class NavbarCompenent extends DefaultComponent {
 
     if (auth.token == "" || auth.token == undefined) {
       $(".nav-doc a").removeAttr("href");
+
       $(".nav-doc-make").on("click", () => {
         Snackbar.show({
           pos: "top-right",
