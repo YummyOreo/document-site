@@ -172,3 +172,7 @@
 .profile-name:hover {
   color: var(--text-gray);
 }
+
+.profile-dropdown {
+  display: none;
+}
