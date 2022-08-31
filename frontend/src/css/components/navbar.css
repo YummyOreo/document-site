@@ -1,6 +1,6 @@
 #navbar {
   position: sticky;
-  z-index: 10;
+  z-index: 6;
 
   box-shadow: 0px 1px 15px var(--background-color-2);
   transition: var(--transition);
@@ -62,7 +62,9 @@
 }
 
 .nav-doc {
+  display: flex;
   position: absolute;
+  align-items: center;
 
   padding-top: 0.143rem;
   right: 10%;
@@ -142,4 +144,31 @@
   to {
     width: 12.25rem;
   }
+}
+
+.profile {
+  margin-right: 0.5rem;
+  margin-left: 1rem;
+
+  max-width: 10rem;
+  width: fit-content;
+
+  display: inline-block;
+
+  white-space: nowrap;
+  overflow: hidden;
+
+  cursor: pointer;
+}
+
+.profile span {
+  transition: all 0.3s ease-in-out 0s;
+
+  font-weight: 600;
+  font-size: large;
+  color: var(--background-color-3);
+}
+
+.profile span:hover {
+  color: var(--text-gray);
 }
