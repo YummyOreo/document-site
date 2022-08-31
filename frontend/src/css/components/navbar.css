@@ -29,10 +29,6 @@
   transform: scale(2.8);
 }
 
-.nav-links {
-  padding-left: 6rem;
-}
-
 .nav-item * {
   transition: var(--transition);
 }
@@ -66,7 +62,10 @@
 }
 
 .nav-doc {
+  position: absolute;
+
   padding-top: 0.143rem;
+  right: 10%;
 }
 
 .nav-doc-item {
