@@ -25,6 +25,18 @@ export class NavbarCompenent extends DefaultComponent {
       disabledElement.removeAttribute("href");
     }
 
+    if (auth.signedIn) {
+      $(".profile-name").text(auth.name);
+    }
+
+    $(".profile-name").on("click", (e) => {
+      if (auth.signedIn) {
+        // dropdown
+        return;
+      }
+      // redirect to discord auth
+    });
+
     // makes it so if you scroll down far enought the navbar hides its self
     $(window).on("scroll", function () {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));

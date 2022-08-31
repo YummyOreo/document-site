@@ -161,7 +161,7 @@
   cursor: pointer;
 }
 
-.profile span {
+.profile-name {
   transition: all 0.3s ease-in-out 0s;
 
   font-weight: 600;
@@ -169,6 +169,6 @@
   color: var(--background-color-3);
 }
 
-.profile span:hover {
+.profile-name:hover {
   color: var(--text-gray);
 }

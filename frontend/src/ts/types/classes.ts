@@ -100,4 +100,5 @@ export class DefaultComponent {
 export interface DefaultAuth {
   name: string;
   token: string;
+  signedIn: boolean;
 }
