@@ -149,6 +149,7 @@
 .profile {
   margin-right: 0.5rem;
   margin-left: 1rem;
+  padding: 0.45rem 0.5rem;
 
   max-width: 10rem;
   width: fit-content;
@@ -159,6 +160,10 @@
   overflow: hidden;
 
   cursor: pointer;
+
+  background-color: var(--background-color-4);
+  border-radius: 5px;
+  border: 1px solid var(--background-color-3);
 }
 
 .profile-name {
@@ -174,5 +179,29 @@
 }
 
 .profile-dropdown {
-  display: none;
+  position: absolute;
+  right: 3%;
+  top: 95%;
+  height: 5rem;
+  width: 30%;
+
+  background-color: var(--background-color-4);
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border: 1px solid var(--background-color-3);
+  border-top: none;
+}
+
+.profile-dropdown-inner {
+  transition: all 0.3s ease-in-out 0s;
+
+  padding: 0.3rem unset;
+  padding-right: 0.3rem;
+
+  color: var(--background-color-3);
+
+  font-weight: 600;
+  text-align: center;
+  font-size: large;
 }

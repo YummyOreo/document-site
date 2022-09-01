@@ -31,7 +31,7 @@ export class NavbarCompenent extends DefaultComponent {
 
     $(".profile-name").on("click", (e) => {
       if (auth.signedIn) {
-        // dropdown
+        $(".profile").css("border-bottom-right-radius", "0px");
         return;
       }
       // redirect to discord auth
