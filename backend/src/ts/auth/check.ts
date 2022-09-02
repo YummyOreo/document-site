@@ -6,8 +6,6 @@ export async function isAuthed(
   res: express.Response,
   next: any
 ) {
-  console.log(req.headers);
-
   if (
     !req.header("Authorization") ||
     !req.header("Authorization").startsWith("Bearer ")
@@ -30,6 +28,7 @@ export async function isAuthed(
     });
 
   if (res.headersSent) return;
+
   if (!user) {
     return res
       .status(401)
@@ -38,7 +37,3 @@ export async function isAuthed(
 
   next();
 }
-
-export function checkRole() {}
-
-export function getRole() {}

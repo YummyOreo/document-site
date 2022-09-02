@@ -43,8 +43,6 @@ export async function auth(req: express.Request, res: express.Response) {
 
   if (res.headersSent) return;
 
-  console.log(CLIENT_URL);
-
   res
     .status(304)
     .redirect(
