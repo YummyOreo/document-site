@@ -1,13 +1,6 @@
-export const DISCORD_ID: string = process.env.DISCORD_CLIENT_ID
-  ? process.env.DISCORD_CLIENT_ID
-  : "";
-export const DISCORD_SECRET: string = process.env.DISCORD_SECRET
-  ? process.env.DISCORD_SECRET
-  : "";
-export const DISCORD_REDIRECT: string = process.env.DISCORD_REDIRECT
-  ? process.env.DISCORD_REDIRECT
-  : "";
+import { getEnv } from "./utils";
 
-export const DISCORD_URL: string = process.env.DISCORD_URL
-  ? process.env.DISCORD_URL
-  : "";
+export const DISCORD_REDIRECT: string = getEnv("DISCORD_REDIRECT");
+export const DISCORD_SECRET: string = getEnv("DISCORD_SECRET");
+export const DISCORD_URL: string = getEnv("DISCORD_URL");
+export const DISCORD_ID: string = getEnv("DISCORD_CLIENT_ID");
