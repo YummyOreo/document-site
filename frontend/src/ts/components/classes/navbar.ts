@@ -1,5 +1,5 @@
 import { currentPage } from "../../router/page-router";
-import { auth } from "../../store";
+import { auth, store } from "../../store";
 import { DefaultComponent } from "../../types/classes";
 
 import * as Snackbar from "../../../js/snackbar.min.js";
@@ -27,22 +27,12 @@ export class NavbarCompenent extends DefaultComponent {
 
     if (auth.signedIn) {
       $(".profile-name").text(auth.name);
-    }
+      $(".profile-outer").addClass("profile-logged-in");
+    } else {
+      $(".profile-name").on("click", () => {
+        this.login();
+      });
 
-    $(".profile-name").on("click", (e) => {
-      if (auth.signedIn) {
-        $(".profile").css("border-bottom-right-radius", "0px");
-        return;
-      }
-      // redirect to discord auth
-    });
-
-    // makes it so if you scroll down far enought the navbar hides its self
-    $(window).on("scroll", function () {
-      $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
-    });
-
-    if (auth.token == "" || auth.token == undefined) {
       $(".nav-doc a").removeAttr("href");
 
       $(".nav-doc-make").on("click", () => {
@@ -55,5 +45,42 @@ export class NavbarCompenent extends DefaultComponent {
         return;
       });
     }
+
+    $("#sign-out").on("click", () => {
+      auth.name = "";
+      auth.signedIn = false;
+      auth.token = "";
+
+      localStorage.clear();
+
+      Snackbar.show({
+        pos: "top-right",
+        text: `Logging out.`,
+        textColor: "#ecf0f1",
+        actionTextColor: "#B00020",
+      });
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    });
+
+    $("#update-profile").on("click", () => {
+      this.login();
+    });
+
+    // makes it so if you scroll down far enought the navbar hides its self
+    $(window).on("scroll", function () {
+      $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
+    });
+  }
+
+  login() {
+    Snackbar.show({
+      pos: "top-right",
+      text: `Redirecting to discord auth page.`,
+      textColor: "#ecf0f1",
+      actionTextColor: "#B00020",
+    });
   }
 }
