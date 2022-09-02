@@ -1,4 +1,4 @@
-import { closeOnClick, makeNoAccess } from "../popup/common-popups";
+import { closeOnClick, makeAccessDeniedPopup } from "../popup/common-popups";
 import { PageDefault, PopupDefault } from "../types/classes";
 import * as popupController from "../popup/popup-controller";
 import { makeDoc } from "../api/endpoints/doc";
@@ -80,7 +80,10 @@ export class Page extends PageDefault {
 
       if (id["error"]) {
         if (id["status"] == 401) {
-          return popupController.showPopup(makeNoAccess());
+          popupController.showPopup(
+            makeAccessDeniedPopup("You do not have access to make documents!")
+          );
+          return;
         }
         Snackbar.show({
           pos: "top-right",

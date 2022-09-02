@@ -6,13 +6,15 @@ export async function isAuthed(
   res: express.Response,
   next: any
 ) {
+  console.log(req.headers);
+
   if (
     !req.header("Authorization") ||
     !req.header("Authorization").startsWith("Bearer ")
   ) {
     return res
-      .status(400)
-      .send({ error: "Invalid Authorization methiod.", status: 400 });
+      .status(401)
+      .send({ error: "Invalid Authorization methiod.", status: 401 });
   }
 
   const token = req.header("Authorization").replace("Bearer ", "");

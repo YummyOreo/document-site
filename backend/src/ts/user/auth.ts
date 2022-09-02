@@ -61,8 +61,7 @@ async function Oauth(req) {
       scope: "identify",
       grantType: "authorization_code",
     })
-    .catch((e: any) => {
-      console.log(e);
+    .catch(() => {
       return true;
     });
 
@@ -70,8 +69,7 @@ async function Oauth(req) {
     return [true, true];
   }
 
-  const user = await oauth.getUser(token["access_token"]).catch((e: any) => {
-    console.log(e);
+  const user = await oauth.getUser(token["access_token"]).catch(() => {
     return true;
   });
 

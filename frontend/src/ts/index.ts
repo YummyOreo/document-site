@@ -4,8 +4,12 @@ import { auth } from "./store";
 
 customElements.define("custom-component", component);
 
-auth.name = localStorage.getItem("name");
-auth.token = localStorage.getItem("token");
-if (auth.token) auth.signedIn = true;
+getLocalStorage();
 
 await getPage();
+
+function getLocalStorage() {
+  auth.name = localStorage.getItem("name");
+  auth.token = localStorage.getItem("token");
+  if (auth.token) auth.signedIn = true;
+}

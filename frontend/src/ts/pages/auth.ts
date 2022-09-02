@@ -23,6 +23,7 @@ export class Page extends PageDefault {
     localStorage.clear();
     localStorage.setItem("token", token);
     localStorage.setItem("name", name);
+
     setTimeout(() => {
       $("h1").html("Redirecting...");
     }, 500);

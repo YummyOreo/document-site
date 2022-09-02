@@ -1,6 +1,6 @@
 #navbar {
   position: sticky;
-  z-index: 6;
+  z-index: 10;
 
   box-shadow: 0px 1px 15px var(--background-color-2);
   transition: var(--transition);
@@ -62,9 +62,9 @@
 }
 
 .nav-doc {
-  display: flex;
-  position: absolute;
   align-items: center;
+  position: absolute;
+  display: flex;
 
   padding-top: 0.143rem;
   right: 10%;
@@ -146,34 +146,44 @@
   }
 }
 
+.profile-outer * {
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.profile-logged-in:hover .profile-dropdown {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.profile-logged-in:hover .profile {
+  border-bottom-right-radius: 0px;
+}
+
 .profile {
   transition: all 0.3s ease-in-out 0s;
 
   position: relative;
+  display: inline-block;
   top: 0.15rem;
 
   margin-right: 0.5rem;
   margin-left: 1rem;
   padding: 0.4rem 0.5rem;
 
+  background-color: var(--background-color-4);
+  border-radius: 5px;
+  border: 1px solid var(--background-color-3);
+
   max-width: 10rem;
   width: fit-content;
-
-  display: inline-block;
 
   white-space: nowrap;
   overflow: hidden;
 
   cursor: pointer;
-
-  background-color: var(--background-color-4);
-  border-radius: 5px;
-  border: 1px solid var(--background-color-3);
 }
 
 .profile-name {
-  transition: all 0.3s ease-in-out 0s;
-
   font-weight: 600;
   font-size: large;
   color: var(--background-color-3);
@@ -184,8 +194,6 @@
 }
 
 .profile-dropdown {
-  transition: all 0.3s ease-in-out 0s;
-
   pointer-events: none;
   opacity: 0;
 
@@ -205,8 +213,6 @@
 }
 
 .profile-dropdown-item {
-  transition: all 0.3s ease-in-out 0s;
-
   padding: 0.3rem unset;
   padding-bottom: 0.1rem;
 
@@ -225,13 +231,4 @@
 
 .profile-dropdown-item:hover {
   color: var(--text-gray);
-}
-
-.profile-logged-in:hover .profile-dropdown {
-  pointer-events: all;
-  opacity: 1;
-}
-
-.profile-logged-in:hover .profile {
-  border-bottom-right-radius: 0px;
 }
