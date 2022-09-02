@@ -7,3 +7,7 @@ export const DISCORD_SECRET: string = process.env.DISCORD_SECRET
 export const DISCORD_REDIRECT: string = process.env.DISCORD_REDIRECT
   ? process.env.DISCORD_REDIRECT
   : "";
+
+export const DISCORD_URL: string = process.env.DISCORD_URL
+  ? process.env.DISCORD_URL
+  : "";

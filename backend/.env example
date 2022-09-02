@@ -5,3 +5,4 @@ CLIENT_URL=http://localhost:5000/
 CLIENT_ID=
 SECRET=
 REDIRECT=http://localhost:9000/.netlify/functions/api/user/auth
+DISCORD_URL

@@ -3,6 +3,7 @@ import { auth, store } from "../../store";
 import { DefaultComponent } from "../../types/classes";
 
 import * as Snackbar from "../../../js/snackbar.min.js";
+import { getUrl } from "../../api/endpoints/auth";
 
 export class NavbarCompenent extends DefaultComponent {
   name: string;
@@ -29,8 +30,8 @@ export class NavbarCompenent extends DefaultComponent {
       $(".profile-name").text(auth.name);
       $(".profile-outer").addClass("profile-logged-in");
     } else {
-      $(".profile-name").on("click", () => {
-        this.login();
+      $(".profile-name").on("click", async () => {
+        await this.login();
       });
 
       $(".nav-doc a").removeAttr("href");
@@ -65,8 +66,8 @@ export class NavbarCompenent extends DefaultComponent {
       }, 1000);
     });
 
-    $("#update-profile").on("click", () => {
-      this.login();
+    $("#update-profile").on("click", async () => {
+      await this.login();
     });
 
     // makes it so if you scroll down far enought the navbar hides its self
@@ -75,12 +76,25 @@ export class NavbarCompenent extends DefaultComponent {
     });
   }
 
-  login() {
+  async login() {
     Snackbar.show({
       pos: "top-right",
       text: `Redirecting to discord auth page.`,
       textColor: "#ecf0f1",
       actionTextColor: "#B00020",
     });
+
+    const url = await getUrl();
+
+    if (url == "") {
+      Snackbar.show({
+        pos: "top-right",
+        text: `There was a error trying to redirect you.`,
+        textColor: "#ecf0f1",
+        actionTextColor: "#B00020",
+      });
+      return;
+    }
+    window.location.href = url["url"];
   }
 }

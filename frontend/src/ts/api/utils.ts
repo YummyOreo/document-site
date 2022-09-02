@@ -22,7 +22,11 @@ export async function MakeRequest(
     headers["Authorization"] = `Bearer ${AUTH}`;
   }
 
-  const response = await fetch(`${URL}?${param.toString()}`, {
+  if (param) {
+    URL = `${URL}?${param.toString()}`;
+  }
+
+  const response = await fetch(URL, {
     method: TYPE,
     credentials: "same-origin",
     headers,
