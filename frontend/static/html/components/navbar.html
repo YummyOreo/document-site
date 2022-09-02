@@ -10,18 +10,39 @@
       </li>
     </ul>
   </nav>
+  <div></div>
   <div class="nav-doc">
-    <a href="/make">
+    <a href="/make" style="padding-right: 0.5rem">
       <div class="nav-doc-item nav-doc-make">
         <div class="nav-doc-inner">
           <object data="/static/assets/navbar/svg/plus.svg" width="35"></object>
         </div>
       </div>
     </a>
-    <div class="nav-doc-item nav-doc-search">
-      <div class="nav-doc-inner">
-        <object data="/static/assets/navbar/svg/search.svg" width="35"></object>
-        <div class="nav-doc-prev">Search</div>
+    <a>
+      <div class="nav-doc-item nav-doc-search">
+        <div class="nav-doc-inner">
+          <object
+            data="/static/assets/navbar/svg/search.svg"
+            width="35"
+          ></object>
+          <div class="nav-doc-prev">Search</div>
+        </div>
+      </div>
+    </a>
+
+    <div class="profile-outer">
+      <div class="profile">
+        <span class="profile-name">Sign in</span>
+      </div>
+
+      <div class="profile-dropdown">
+        <div class="profile-dropdown-item" id="sign-out">
+          <span>Sign Out</span>
+        </div>
+        <div class="profile-dropdown-item" id="update-profile">
+          <span>Update</span>
+        </div>
       </div>
     </div>
   </div>

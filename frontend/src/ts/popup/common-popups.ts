@@ -39,3 +39,22 @@ export function makeImagePopup(image: string = null): PopupDefault {
 
   return popup;
 }
+
+export function makeAccessDeniedPopup(
+  prompt: string = "You do not have access to view this document!"
+): PopupDefault {
+  const popup = new PopupDefault(
+    "90%",
+    "90%",
+    "var(--background-color-3)",
+    "no-access",
+    undefined
+  );
+
+  popupController.makePopup(popup);
+  popup.makeFunc = () => {
+    $(".no-access h1").text(prompt);
+  };
+
+  return popup;
+}

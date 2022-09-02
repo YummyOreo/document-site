@@ -7,23 +7,26 @@ export const api = {
 export async function MakeRequest(
   TYPE: string,
   URL: string,
-  BODY: any = undefined,
-  PARAMS: { [name: string]: string } = {},
-  HEADERS: { [name: string]: string } = {},
-  BODY_TYPE: string = "text/plain"
+  BODY?: any,
+  AUTH?: string,
+  PARAMS: { [name: string]: string } = {}
 ): Promise<any> {
   const param = new URLSearchParams(PARAMS);
 
-  const headers = Object.assign(
-    {},
-    {
-      "Content-Type": BODY_TYPE,
-      Accept: "application/json",
-    },
-    HEADERS
-  );
+  const headers: any = {
+    "Content-Type": "text/plain",
+    Accept: "application/json",
+  };
 
-  const response = await fetch(`${URL}?${param.toString()}`, {
+  if (AUTH) {
+    headers["Authorization"] = `Bearer ${AUTH}`;
+  }
+
+  if (param) {
+    URL = `${URL}?${param.toString()}`;
+  }
+
+  const response = await fetch(URL, {
     method: TYPE,
     credentials: "same-origin",
     headers,

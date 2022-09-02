@@ -1,7 +1,4 @@
-import * as dotenv from "dotenv";
-dotenv.config();
+import { getEnv } from "./utils";
 
-export const URL: string = process.env.MONGODB_URL
-  ? process.env.MONGODB_URL
-  : "";
-export const DB_NAME: string = process.env.DB_NAME ? process.env.DB_NAME : "";
+export const DB_NAME: string = getEnv("DB_NAME");
+export const DB_URL: string = getEnv("MONGODB_URL");
