@@ -23,6 +23,6 @@ router.post("/", isAuthed, make /*, more funcs here*/);
 router.get("/", isAuthed, get /*, more funcs here*/);
 
 /*
-  Gets the 20 most recent documents
+  Gets the all documents
 */
 router.get("/list", list);
