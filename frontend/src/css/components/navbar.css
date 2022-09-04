@@ -114,7 +114,6 @@
 
 .nav-doc-input {
   display: none;
-  position: relative;
   width: 90%;
   color: var(--text-white);
   padding-left: 0.5rem;
@@ -123,16 +122,6 @@
 
 .nav-doc-input:focus {
   outline: 0px none !important;
-}
-
-.nav-doc-prev {
-  display: none;
-
-  font-size: 20px;
-  color: var(--text-gray-prev);
-
-  padding-left: 0.55rem;
-  padding-top: 0.05rem;
 }
 
 @keyframes docSearchGrow {
