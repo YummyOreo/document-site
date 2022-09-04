@@ -74,6 +74,65 @@ export class NavbarCompenent extends DefaultComponent {
     $(window).on("scroll", function () {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
+
+    let searchInputOn = false;
+
+    $(".nav-doc-search").on("mouseover", () => {
+      this.openNavSearch();
+    });
+
+    $(".nav-doc-search").on("mouseout", () => {
+      if (!searchInputOn) {
+        this.closeNavSearch();
+      }
+    });
+
+    $(".nav-doc-input").focus(() => {
+      searchInputOn = true;
+      $(".nav-doc-input").css("display", "block");
+    });
+
+    $(".nav-doc-input").focusout(() => {
+      searchInputOn = false;
+
+      $(".nav-doc-input").css("display", "none");
+      $(".nav-doc-input").val("");
+      if (".nav-doc-search:hover".length != 0) {
+        this.closeNavSearch();
+      }
+    });
+
+    $(".nav-doc-search").on("keypress", function (e) {
+      if (e.key === "Enter" && searchInputOn) {
+        const query: string = $(".nav-doc-input").val().toString();
+        console.info("Search");
+        if (query.trim() == "") {
+          Snackbar.show({
+            pos: "top-right",
+            text: `You can not search for nothing.`,
+            textColor: "#ecf0f1",
+            actionTextColor: "#B00020",
+          });
+        }
+      }
+    });
+  }
+
+  closeNavSearch() {
+    $(".nav-doc-search").css("width", "3.5rem");
+    $(".nav-doc-search").css("border-color", "var(--background-color-3)");
+    $(".nav-doc-search")
+      .find(".nav-doc-inner")
+      .css("justify-content", "center");
+    $(".nav-doc-input").css("display", "none");
+  }
+
+  openNavSearch() {
+    $(".nav-doc-search").css("animation", "docSearchGrow 0.5s");
+    $(".nav-doc-search").css("width", "12.25rem");
+    $(".nav-doc-search").css("border-color", "var(--text-accent)");
+    $(".nav-doc-search").find(".nav-doc-inner").css("justify-content", "left");
+    $(".nav-doc-input").css("display", "block");
   }
 
   async login() {
