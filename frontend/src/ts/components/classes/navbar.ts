@@ -105,15 +105,17 @@ export class NavbarCompenent extends DefaultComponent {
     $(".nav-doc-search").on("keypress", function (e) {
       if (e.key === "Enter" && searchInputOn) {
         const query: string = $(".nav-doc-input").val().toString();
-        console.info("Search");
         if (query.trim() == "") {
-          Snackbar.show({
+          return Snackbar.show({
             pos: "top-right",
             text: `You can not search for nothing.`,
             textColor: "#ecf0f1",
             actionTextColor: "#B00020",
           });
         }
+        // if we dont do this, then if you do & it will act as a new param
+        const cleanQuery = query.replace("&", "%26");
+        window.location.href = `/search?q=${cleanQuery}`;
       }
     });
   }

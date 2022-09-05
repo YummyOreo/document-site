@@ -4,6 +4,7 @@ import {
   MakeDocumentPage,
   ViewDocumentPage,
   AuthPage,
+  SearchPage,
 } from "../pages/";
 import ErrorPage from "../pages/error";
 import { PageDefault } from "../types/classes";
@@ -14,6 +15,7 @@ const pages: any[] = [
   HomePage,
   MakeDocumentPage,
   ViewDocumentPage,
+  SearchPage,
   AuthPage,
 ];
 
