@@ -5,7 +5,7 @@ import { PageDefault } from "../types/classes";
 import * as Snackbar from "../../js/snackbar.min.js";
 import { getValDocuments, mergeSort } from "../util/sort";
 
-export const urls = ["/documents*"];
+export const urls = ["/documents*", "/list*"];
 
 export class Page extends PageDefault {
   name: string;

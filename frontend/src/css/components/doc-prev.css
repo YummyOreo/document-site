@@ -1,4 +1,6 @@
 .doc-prev {
+  cursor: pointer;
+
   padding-left: 1rem;
   padding-top: 0.5rem;
 
@@ -6,6 +8,21 @@
 
   display: flex;
   columns: 2;
+}
+
+.doc-prev:hover {
+  border: 2px solid var(--background-color-2);
+  animation: docPrevOutline 0.4s;
+  border: 2px solid var(--text-accent);
+}
+
+@keyframes docPrevOutline {
+  from {
+    border: 2px solid var(--background-color-2);
+  }
+  to {
+    border: 2px solid var(--text-accent);
+  }
 }
 
 .doc-wapper {
