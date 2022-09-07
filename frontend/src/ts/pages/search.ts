@@ -1,4 +1,5 @@
 import { PageDefault } from "../types/classes";
+import { searchDocs } from "../util/search";
 
 export const urls = ["/search"];
 
@@ -19,5 +20,6 @@ export class Page extends PageDefault {
 
     const query = urlParams.get("q");
     console.log(query);
+    searchDocs();
   }
 }
