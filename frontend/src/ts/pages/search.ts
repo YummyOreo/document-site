@@ -12,6 +12,7 @@ export class Page extends PageDefault {
     super();
     this.name = "Search";
     this.html = "search.html";
+    this.css = ["search.css"];
     this.url = urls;
   }
 

@@ -1,0 +1,31 @@
+#wapper {
+  padding-bottom: 5rem;
+  padding-top: 4rem;
+}
+
+.wapper {
+  height: 54.5rem;
+  width: 55rem;
+
+  background-color: var(--background-color-3);
+  border-radius: 10px;
+  border: 2px solid var(--background-color-2);
+}
+
+.search {
+  height: 3.6rem;
+  width: 100%;
+
+  border-bottom: 2px solid var(--background-color-2);
+
+  align-items: center;
+  display: flex;
+}
+
+.documents {
+  min-height: 50.9rem;
+  max-height: 50.9rem;
+  width: 54.9rem;
+
+  overflow: scroll;
+}
