@@ -124,6 +124,10 @@
   outline: 0px none !important;
 }
 
+.nav-doc-input::placeholder {
+  color: var(--text-gray-prev) !important;
+}
+
 @keyframes docSearchGrow {
   from {
     width: 3.5rem;
