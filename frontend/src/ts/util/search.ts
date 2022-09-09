@@ -1,18 +1,43 @@
-export function searchDocs() {
-  const testTitle = "This is a a test title";
-  const testQuery = "This is a test";
+import { store } from "../store";
+import { getValSearch, mergeSort } from "./sort";
 
-  const testTitleWords = testTitle.toLowerCase().split(" ");
-  const testQueryWords = testQuery.toLowerCase().split(" ");
+export function searchDocs(query: string) {
+  const queryWords = query.toLowerCase().split(" ");
 
-  let goodWords: any[] = [];
+  let weights: { [name: string]: number } = {};
 
-  for (var i = 0; i < testQueryWords.length; i++) {
-    console.log(testTitleWords.includes(testQueryWords[i]));
+  for (var i in store["documents"]) {
+    const doc = store["documents"][i];
 
-    if (testTitleWords.includes(testQueryWords[i])) {
-      goodWords.push(testQueryWords[i]);
+    let goodWords: any[] = [];
+    const titleWords = doc["title"].toLowerCase().split(" ");
+
+    for (var y in titleWords) {
+      for (var x = 0; x < queryWords.length; x++) {
+        if (titleWords[y].search(queryWords[x]) != -1) {
+          goodWords.push(titleWords[y]);
+        }
+      }
     }
+
+    let wordWeight = 0;
+
+    for (var b in goodWords) {
+      wordWeight += goodWords[b].length;
+    }
+
+    weights[i] = wordWeight;
   }
-  console.log(goodWords);
+  return mergeSort(match(weights), getValSearch);
+}
+
+function match(vals: { [name: string]: number }): any[] {
+  let matchedVals: any[] = [];
+
+  for (var i in vals) {
+    let newVal = store["documents"][i];
+    newVal["weight"] = vals[i];
+    matchedVals.push(newVal);
+  }
+  return matchedVals;
 }

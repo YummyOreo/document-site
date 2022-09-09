@@ -38,3 +38,7 @@ export function mergeSort(arr: any[], getVal: Function): any {
 export function getValDocuments(array: any[], i: number): any {
   return array[i]["title"].replace(" ", "").toLowerCase();
 }
+
+export function getValSearch(array: any[], i: number): any {
+  return array[i]["weight"];
+}

@@ -1,3 +1,5 @@
+import { getDocs } from "../api/endpoints/doc";
+import { store } from "../store";
 import { PageDefault } from "../types/classes";
 import { searchDocs } from "../util/search";
 
@@ -8,6 +10,7 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
+  documents: any;
   constructor() {
     super();
     this.name = "Search";
@@ -20,7 +23,21 @@ export class Page extends PageDefault {
     const urlParams = new URLSearchParams(window.location.search);
 
     const query = urlParams.get("q");
-    console.log(query);
-    searchDocs();
+
+    this.documents = await getDocs();
+
+    store["documents"] = this.documents["documents"];
+
+    store["documents"] = searchDocs(query).reverse();
+
+    store["documents"].forEach((val: any, index: any) => {
+      const elm: any = document.createElement("custom-component");
+
+      elm.setAttribute("name", "documentPrev");
+      elm.setAttribute("compId", val["_id"]);
+      elm.setAttribute("index", index.toString());
+
+      $(".documents").append(elm);
+    });
   }
 }
