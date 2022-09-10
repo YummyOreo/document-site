@@ -9,19 +9,21 @@ export class NavbarCompenent extends DefaultComponent {
   name: string;
   html: string;
   css: string[];
+  searchInputOn: boolean;
   constructor() {
     super();
     this.name = "navbar";
     this.html = "navbar.html";
     this.css = ["navbar.css"];
+    this.searchInputOn = false;
   }
 
   async run() {
     this.disableNavLinks();
 
-    this.authHandling();
+    this.handleAuth();
 
-    this.searchBar();
+    this.handleSearchBar();
 
     // makes it so if you scroll down far enought the navbar hides its self
     $(window).on("scroll", function () {
@@ -55,44 +57,45 @@ export class NavbarCompenent extends DefaultComponent {
     window.location.href = url["url"];
   }
 
-  closeNavSearch() {
-    $(".nav-doc-search").css("width", "3.5rem");
-    $(".nav-doc-search").css("border-color", "var(--background-color-3)");
+  closeSearchInput() {
+    $(".nav-doc-search").css({
+      width: "3.5rem",
+      "border-color": "var(--background-color-3)",
+    });
     $(".nav-doc-search")
       .find(".nav-doc-inner")
       .css("justify-content", "center");
     $(".nav-doc-input").css("display", "none");
   }
 
-  openNavSearch() {
-    $(".nav-doc-search").css("animation", "docSearchGrow 0.5s");
-    $(".nav-doc-search").css("width", "12.25rem");
-    $(".nav-doc-search").css("border-color", "var(--text-accent)");
+  openSearchInput() {
+    $(".nav-doc-search").css({
+      animation: "docSearchGrow 0.5s",
+      width: "12.25rem",
+      "border-color": "var(--text-accent)",
+      display: "block",
+    });
     $(".nav-doc-search").find(".nav-doc-inner").css("justify-content", "left");
     $(".nav-doc-input").css("display", "block");
   }
 
-  authHandling() {
-    if (auth.signedIn) {
-      $(".profile-name").text(auth.name);
-      $(".profile-outer").addClass("profile-logged-in");
-    } else {
-      $(".profile-name").on("click", async () => {
-        await this.login();
-      });
+  handleDocSignedOut() {
+    $(".nav-doc a").removeAttr("href");
 
-      $(".nav-doc a").removeAttr("href");
-
-      $(".nav-doc-make").on("click", () => {
-        Snackbar.show({
-          pos: "top-right",
-          text: `You have to login to make a document.`,
-          textColor: "var(--text-white)",
-          actionTextColor: "var(--text-error)",
-        });
-        return;
+    $(".nav-doc-make").on("click", () => {
+      Snackbar.show({
+        pos: "top-right",
+        text: `You have to login to make a document.`,
+        textColor: "var(--text-white)",
+        actionTextColor: "var(--text-error)",
       });
-    }
+      return;
+    });
+  }
+
+  handleProfileSignedIn() {
+    $(".profile-name").text(auth.name);
+    $(".profile-outer").addClass("profile-logged-in");
 
     $("#sign-out").on("click", () => {
       auth.name = "";
@@ -118,58 +121,74 @@ export class NavbarCompenent extends DefaultComponent {
     });
   }
 
-  searchBar() {
-    let searchInputOn = false;
+  handleAuth() {
+    if (auth.signedIn) {
+      this.handleProfileSignedIn();
+    } else {
+      $(".profile-name").on("click", async () => {
+        await this.login();
+      });
+      this.handleDocSignedOut();
+    }
+  }
 
+  handleSearchBar() {
     $(".nav-doc-search").on("mouseover", () => {
-      this.openNavSearch();
+      this.openSearchInput();
     });
 
     $(".nav-doc-search").on("mouseout", () => {
-      if (!searchInputOn) {
-        this.closeNavSearch();
+      if (!this.searchInputOn) {
+        this.closeSearchInput();
       }
     });
 
+    this.handleSearchInput();
+  }
+
+  handleSearchInput() {
     $(".nav-doc-input").focus(() => {
-      searchInputOn = true;
+      this.searchInputOn = true;
       $(".nav-doc-input").css("display", "block");
     });
 
     $(".nav-doc-input").focusout(() => {
-      searchInputOn = false;
+      this.searchInputOn = false;
 
       $(".nav-doc-input").css("display", "none");
       $(".nav-doc-input").val("");
       if (".nav-doc-search:hover".length != 0) {
-        this.closeNavSearch();
+        this.closeSearchInput();
       }
     });
 
-    $(".nav-doc-search").on("keypress", function (e) {
-      if (e.key === "Enter" && searchInputOn) {
-        if (!auth.signedIn) {
-          return Snackbar.show({
-            pos: "top-right",
-            text: `You can not search if you are not logged in.`,
-            textColor: "var(--text-white)",
-            actionTextColor: "var(--text-error)",
-          });
-        }
+    $(".nav-doc-search").on("keypress", this.handleSearchEnter);
+  }
 
-        const query: string = $(".nav-doc-input").val().toString();
-        if (query.trim() == "") {
-          return Snackbar.show({
-            pos: "top-right",
-            text: `You can not search for nothing.`,
-            textColor: "var(--text-white)",
-            actionTextColor: "var(--text-error)",
-          });
-        }
-        // if we dont do this, then if you do & it will act as a new param
-        const cleanQuery = query.replace("&", "%26");
-        window.location.href = `/search?q=${cleanQuery}`;
+  handleSearchEnter(e: any) {
+    if (e.key === "Enter") {
+      if (!auth.signedIn) {
+        return Snackbar.show({
+          pos: "top-right",
+          text: `You can not search if you are not logged in.`,
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
+        });
       }
-    });
+
+      // redirects to the search page
+      const query: string = $(".nav-doc-input").val().toString();
+      if (query.trim() == "") {
+        return Snackbar.show({
+          pos: "top-right",
+          text: "You can not search for nothing.",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
+        });
+      }
+      // if we dont do this, then if you do & it will act as a new param
+      const cleanQuery = query.replace("&", "%26");
+      window.location.href = `/search?q=${cleanQuery}`;
+    }
   }
 }
