@@ -1,9 +1,10 @@
 import { getDocs } from "../api/endpoints/doc";
-import { store } from "../store";
+import { auth, store } from "../store";
 import { PageDefault } from "../types/classes";
 
-import * as Snackbar from "../../js/snackbar.min.js";
 import { getValDocuments, mergeSort } from "../util/sort";
+import { showPopup } from "../popup/popup-controller";
+import { makeAccessDeniedPopup } from "../popup/common-popups";
 
 export const urls = ["/documents*", "/list*"];
 
@@ -26,6 +27,12 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+
+    if (!auth.signedIn) {
+      return showPopup(
+        makeAccessDeniedPopup("You have to be logged in to view documents.")
+      );
+    }
 
     $(".sort button").on("click", (e) => {
       if (e.target.classList.contains("clicked")) return;

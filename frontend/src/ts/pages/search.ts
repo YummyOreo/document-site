@@ -1,5 +1,7 @@
 import { getDocs } from "../api/endpoints/doc";
-import { store } from "../store";
+import { makeAccessDeniedPopup } from "../popup/common-popups";
+import { showPopup } from "../popup/popup-controller";
+import { auth, store } from "../store";
 import { PageDefault } from "../types/classes";
 import { searchDocs } from "../util/search";
 
@@ -22,6 +24,14 @@ export class Page extends PageDefault {
   }
 
   async run() {
+    if (!auth.signedIn) {
+      return showPopup(
+        makeAccessDeniedPopup(
+          "You have to be logged in to search for something."
+        )
+      );
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
 
     const query = urlParams.get("q");

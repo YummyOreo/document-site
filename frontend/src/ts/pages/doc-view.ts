@@ -30,8 +30,8 @@ export class Page extends PageDefault {
       Snackbar.show({
         pos: "top-right",
         text: "Plase provide a id. If you don't know how to do this, ask the developer",
-        textColor: "#ecf0f1",
-        actionTextColor: "#B00020",
+        textColor: "var(--text-white)",
+        actionTextColor: "var(--text-error)",
       });
       return;
     }
@@ -49,8 +49,8 @@ export class Page extends PageDefault {
       Snackbar.show({
         pos: "top-right",
         text: doc["error"],
-        textColor: "#ecf0f1",
-        actionTextColor: "#B00020",
+        textColor: "var(--text-white)",
+        actionTextColor: "var(--text-error)",
       });
       return;
     }

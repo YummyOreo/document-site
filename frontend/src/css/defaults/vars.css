@@ -8,6 +8,9 @@
   --text-gray-other: #5c5c5e;
   --text-gray-prev: #505155;
 
+  --text-success: #198754;
+  --text-error: #b00020;
+
   --text-accent: #0088a9;
   --text-accent-filter: invert(36%) sepia(96%) saturate(2732%)
     hue-rotate(167deg) brightness(89%) contrast(101%);

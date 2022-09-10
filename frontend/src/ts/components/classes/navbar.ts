@@ -41,21 +41,14 @@ export class NavbarCompenent extends DefaultComponent {
   }
 
   async login() {
-    Snackbar.show({
-      pos: "top-right",
-      text: `Redirecting to discord auth page.`,
-      textColor: "#ecf0f1",
-      actionTextColor: "#B00020",
-    });
-
     const url = await getUrl();
 
     if (url == "") {
       Snackbar.show({
         pos: "top-right",
         text: `There was a error trying to redirect you.`,
-        textColor: "#ecf0f1",
-        actionTextColor: "#B00020",
+        textColor: "var(--text-white)",
+        actionTextColor: "var(--text-error)",
       });
       return;
     }
@@ -94,8 +87,8 @@ export class NavbarCompenent extends DefaultComponent {
         Snackbar.show({
           pos: "top-right",
           text: `You have to login to make a document.`,
-          textColor: "#ecf0f1",
-          actionTextColor: "#B00020",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
         });
         return;
       });
@@ -111,8 +104,8 @@ export class NavbarCompenent extends DefaultComponent {
       Snackbar.show({
         pos: "top-right",
         text: `Logging out.`,
-        textColor: "#ecf0f1",
-        actionTextColor: "#B00020",
+        textColor: "var(--text-white)",
+        actionTextColor: "var(--text-success)",
       });
 
       setTimeout(() => {
@@ -155,13 +148,22 @@ export class NavbarCompenent extends DefaultComponent {
 
     $(".nav-doc-search").on("keypress", function (e) {
       if (e.key === "Enter" && searchInputOn) {
+        if (!auth.signedIn) {
+          return Snackbar.show({
+            pos: "top-right",
+            text: `You can not search if you are not logged in.`,
+            textColor: "var(--text-white)",
+            actionTextColor: "var(--text-error)",
+          });
+        }
+
         const query: string = $(".nav-doc-input").val().toString();
         if (query.trim() == "") {
           return Snackbar.show({
             pos: "top-right",
             text: `You can not search for nothing.`,
-            textColor: "#ecf0f1",
-            actionTextColor: "#B00020",
+            textColor: "var(--text-white)",
+            actionTextColor: "var(--text-error)",
           });
         }
         // if we dont do this, then if you do & it will act as a new param
