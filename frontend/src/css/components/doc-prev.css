@@ -11,7 +11,11 @@
 }
 
 .doc-prev:hover {
+  /*
+    This is needed so it does not show white, it shows gray/black
+  */
   border: 2px solid var(--background-color-2);
+
   animation: docPrevOutline 0.4s;
   border: 2px solid var(--text-accent);
 }

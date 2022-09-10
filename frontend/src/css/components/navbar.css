@@ -114,10 +114,12 @@
 
 .nav-doc-input {
   display: none;
-  width: 90%;
-  color: var(--text-white);
+
   padding-left: 0.5rem;
+  width: 90%;
+
   background-color: var(--background-color-4);
+  color: var(--text-white);
 }
 
 .nav-doc-input:focus {
@@ -197,10 +199,9 @@
 
   background-color: var(--background-color-4);
 
-  border: 1px solid var(--background-color-3);
-  border-radius: 5px;
-
   border-top-right-radius: 0px;
+  border-radius: 5px;
+  border: 1px solid var(--background-color-3);
 }
 
 .profile-dropdown-item {
