@@ -26,10 +26,6 @@ export class DocumentPrevComponent extends DefaultComponent {
     this.compId = this.element.attributes.getNamedItem("compId").value;
     this.index = parseInt(this.element.attributes.getNamedItem("index").value);
     this.getDoc();
-
-    //$(this.element).on("click", () => {
-    //  window.location.href = `/view?id=${this.compId}`;
-    //});
   }
 
   async getDoc() {

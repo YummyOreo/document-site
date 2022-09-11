@@ -1,9 +1,8 @@
 .doc-prev {
-  cursor: pointer;
-
   padding-left: 1rem;
   padding-top: 0.5rem;
 
+  border: 0px solid var(--background-color-2);
   border-bottom: 2px solid var(--background-color-2);
 
   display: flex;
@@ -11,10 +10,7 @@
 }
 
 .doc-prev:hover {
-  /*
-    This is needed so it does not show white, it shows gray/black
-  */
-  border: 2px solid var(--background-color-2);
+  border-width: 2px;
 
   animation: docPrevOutline 0.4s;
   border: 2px solid var(--text-accent);
