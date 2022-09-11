@@ -56,3 +56,9 @@
 
   overflow: scroll;
 }
+
+.no-doc {
+  padding-top: 3rem;
+
+  color: var(--text-gray);
+}
