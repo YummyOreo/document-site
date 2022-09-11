@@ -4,6 +4,7 @@ import { showPopup } from "../popup/popup-controller";
 import { auth, store } from "../store";
 import { PageDefault } from "../types/classes";
 import { searchDocs } from "../util/search";
+import { changeUrl } from "../util/url";
 
 export const urls = ["/search"];
 
@@ -36,11 +37,14 @@ export class Page extends PageDefault {
 
     const query = urlParams.get("q");
 
+    $("#search-box").val(query);
+
     await this.sort(query);
 
     $("#search-box").on("keypress", (e) => {
       if (e.key === "Enter") {
         const query = $("#search-box").val().toString();
+        changeUrl(`/search?q=${query.replace("&", "%26")}`);
 
         store["documents"] = searchDocs(query).reverse();
 
