@@ -48,8 +48,8 @@ export class Page extends PageDefault {
         Snackbar.show({
           pos: "top-right",
           text: "Plase provide a title",
-          textColor: "#ecf0f1",
-          actionTextColor: "#B00020",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
         });
         return;
       }
@@ -59,8 +59,8 @@ export class Page extends PageDefault {
           text: `Your document is too long. Please reduce your document by: ${
             this.body.length - 20000
           } characters`,
-          textColor: "#ecf0f1",
-          actionTextColor: "#B00020",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
         });
         return;
       }
@@ -70,8 +70,8 @@ export class Page extends PageDefault {
           text: `Your title is too long. Please reduce your title by: ${
             this.title.length - 40
           } characters`,
-          textColor: "#ecf0f1",
-          actionTextColor: "#B00020",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
         });
         return;
       }
@@ -88,8 +88,8 @@ export class Page extends PageDefault {
         Snackbar.show({
           pos: "top-right",
           text: id["error"],
-          textColor: "#ecf0f1",
-          actionTextColor: "#B00020",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
         });
         return;
       }

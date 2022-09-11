@@ -2,10 +2,27 @@
   padding-left: 1rem;
   padding-top: 0.5rem;
 
+  border: 0px solid var(--background-color-2);
   border-bottom: 2px solid var(--background-color-2);
 
   display: flex;
   columns: 2;
+}
+
+.doc-prev:hover {
+  border-width: 2px;
+
+  animation: docPrevOutline 0.4s;
+  border: 2px solid var(--text-accent);
+}
+
+@keyframes docPrevOutline {
+  from {
+    border: 2px solid var(--background-color-2);
+  }
+  to {
+    border: 2px solid var(--text-accent);
+  }
 }
 
 .doc-wapper {

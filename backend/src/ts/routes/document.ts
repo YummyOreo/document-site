@@ -1,7 +1,7 @@
 import * as express from "express";
 import { isAuthed } from "../auth/check";
 
-import { make, get, list } from "../doc/";
+import { make, get, getAll } from "../doc/";
 
 export const router = express.Router();
 
@@ -23,6 +23,6 @@ router.post("/", isAuthed, make /*, more funcs here*/);
 router.get("/", isAuthed, get /*, more funcs here*/);
 
 /*
-  Gets the 20 most recent documents
+  Gets the all documents
 */
-router.get("/list", list);
+router.get("/getAll", getAll);

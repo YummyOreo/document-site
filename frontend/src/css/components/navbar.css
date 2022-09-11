@@ -112,29 +112,22 @@
   }
 }
 
-.nav-doc-prev {
+.nav-doc-input {
   display: none;
 
-  font-size: 20px;
-  color: var(--text-gray-prev);
+  padding-left: 0.5rem;
+  width: 90%;
 
-  padding-left: 0.55rem;
-  padding-top: 0.05rem;
+  background-color: var(--background-color-4);
+  color: var(--text-white);
 }
 
-.nav-doc-search:hover .nav-doc-prev {
-  display: block;
+.nav-doc-input:focus {
+  outline: 0px none !important;
 }
 
-.nav-doc-search:hover .nav-doc-inner {
-  justify-content: left;
-}
-
-.nav-doc-search:hover {
-  border-color: var(--text-accent);
-
-  animation: docSearchGrow 0.5s;
-  width: 12.25rem;
+.nav-doc-input::placeholder {
+  color: var(--text-gray-prev) !important;
 }
 
 @keyframes docSearchGrow {
@@ -206,10 +199,9 @@
 
   background-color: var(--background-color-4);
 
-  border: 1px solid var(--background-color-3);
-  border-radius: 5px;
-
   border-top-right-radius: 0px;
+  border-radius: 5px;
+  border: 1px solid var(--background-color-3);
 }
 
 .profile-dropdown-item {
