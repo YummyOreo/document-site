@@ -1,5 +1,5 @@
 import { store } from "../store";
-import { getValSearch, mergeSort } from "./sort";
+import { mergeSort } from "./sort";
 
 export function searchDocs(query: string) {
   const queryWords = query.toLowerCase().split(" ");
@@ -28,7 +28,10 @@ export function searchDocs(query: string) {
 
     weights[i] = wordWeight;
   }
-  return mergeSort(match(weights), getValSearch);
+  return mergeSort(
+    match(weights),
+    (array: any[], i: number) => array[i]["weight"]
+  );
 }
 
 function match(vals: { [name: string]: number }): any[] {
