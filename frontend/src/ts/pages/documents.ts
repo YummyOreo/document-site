@@ -28,14 +28,36 @@ export class Page extends PageDefault {
   async run() {
     super.run();
 
-    if (!auth.signedIn) {
-      return showPopup(
-        makeAccessDeniedPopup("You have to be logged in to view documents.")
-      );
+    $(".sort button").on("click", (e) => {
+      this.sort(e);
+    });
+
+    this.documents = await getDocs();
+
+    if (this.documents["status"] == 401) {
+      return;
     }
 
-    $(".sort button").on("click", (e) => {
-      if (e.target.classList.contains("clicked")) return;
+    $(".no-doc").remove();
+
+    store["documents"] = this.documents["documents"].reverse();
+
+    store["documents"].forEach((val: any, index: any) => {
+      const elm: any = document.createElement("custom-component");
+
+      elm.setAttribute("name", "documentPrev");
+      elm.setAttribute("compId", val["_id"]);
+      elm.setAttribute("index", index.toString());
+
+      this.docPrevs.push(elm);
+
+      $(".documents").append(elm);
+    });
+  }
+
+  async sort(e: any) {
+    if (e.target.classList.contains("clicked")) return;
+    if (store["documents"]) {
       switch (e.target.textContent) {
         case "A - Z":
           store["documents"] = mergeSort(store["documents"], getValDocuments);
@@ -58,26 +80,10 @@ export class Page extends PageDefault {
         elm.setAttribute("index", index.toString());
         elm.connectedCallback();
       });
+    }
 
-      $(".clicked").removeClass("clicked");
+    $(".clicked").removeClass("clicked");
 
-      e.target.classList.add("clicked");
-    });
-
-    this.documents = await getDocs();
-
-    store["documents"] = this.documents["documents"].reverse();
-
-    store["documents"].forEach((val: any, index: any) => {
-      const elm: any = document.createElement("custom-component");
-
-      elm.setAttribute("name", "documentPrev");
-      elm.setAttribute("compId", val["_id"]);
-      elm.setAttribute("index", index.toString());
-
-      this.docPrevs.push(elm);
-
-      $(".documents").append(elm);
-    });
+    e.target.classList.add("clicked");
   }
 }

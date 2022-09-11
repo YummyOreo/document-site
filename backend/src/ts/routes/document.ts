@@ -25,4 +25,4 @@ router.get("/", isAuthed, get /*, more funcs here*/);
 /*
   Gets the all documents
 */
-router.get("/getAll", getAll);
+router.get("/getAll", isAuthed, getAll);

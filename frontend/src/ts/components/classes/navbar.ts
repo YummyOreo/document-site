@@ -54,6 +54,7 @@ export class NavbarCompenent extends DefaultComponent {
       });
       return;
     }
+    localStorage.setItem("last", window.location.href);
     window.location.href = url["url"];
   }
 

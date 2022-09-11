@@ -17,10 +17,12 @@ export class Page extends PageDefault {
   async run() {
     const urlParams = new URLSearchParams(window.location.search);
 
+    const lastPage = localStorage.getItem("last");
+
+    localStorage.clear();
     const token = urlParams.get("token");
     const name = urlParams.get("name");
 
-    localStorage.clear();
     localStorage.setItem("token", token);
     localStorage.setItem("name", name);
 
@@ -29,6 +31,9 @@ export class Page extends PageDefault {
     }, 500);
 
     setTimeout(() => {
+      if (lastPage) {
+        return (window.location.href = lastPage);
+      }
       window.location.href = "/";
     }, 1000);
   }
