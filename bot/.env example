@@ -1,0 +1,6 @@
+TOKEN=
+NAME=
+
+MONGODB_URL=mongodb://localhost:27017
+DB_NAME=document
+CLIENT_URL=http://localhost:5000/
