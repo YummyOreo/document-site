@@ -49,17 +49,24 @@ client.on("interactionCreate", async (interaction) => {
     const roles = interaction.guild?.roles.cache.map((role) => role);
 
     const above = "826150208329089106";
-    let isAbove = false;
+    const pos = await interaction.guild?.roles.fetch(above).then((role) => {
+      return role?.position;
+    });
+    if (pos == undefined) return;
 
     const filteredRoles: any[] = [];
     roles?.forEach(async (role) => {
-      if (role.id == above || isAbove) {
-        filteredRoles.push(role);
-        isAbove = true;
+      if (role.position >= pos) {
+        filteredRoles.push({ role, members: role?.members });
       }
     });
 
-    console.log(filteredRoles);
+    for (const i in filteredRoles) {
+      console.log({
+        role: filteredRoles[i].role,
+        members: filteredRoles[i].members,
+      });
+    }
 
     await interaction.reply("Pong!");
   }
