@@ -68,6 +68,27 @@ client.on("interactionCreate", async (interaction) => {
       });
     }
 
+    let converted = {};
+
+    for (const i in filteredRoles) {
+      const role = filteredRoles[i];
+
+      const color =
+        role.role.color.toString(16) == 0
+          ? "99aab5"
+          : role.role.color.toString(16);
+
+      const id = role.role.id;
+      const name = role.role.name;
+      const position = role.role.rawPosition;
+
+      const members = role.members.map((value: any, key: any) => key);
+
+      console.log({ color, id, name, position, members });
+    }
+
+    // colors have to be converted to hex ie 15844367 -> 0xF1C40F (then remove the 0x)
+
     await interaction.reply("Pong!");
   }
 });
