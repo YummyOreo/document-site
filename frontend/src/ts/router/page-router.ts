@@ -5,6 +5,7 @@ import {
   ViewDocumentPage,
   AuthPage,
   SearchPage,
+  SettingsPage,
 } from "../pages/";
 import ErrorPage from "../pages/error";
 import { PageDefault } from "../types/classes";
@@ -17,6 +18,7 @@ const pages: any[] = [
   ViewDocumentPage,
   SearchPage,
   AuthPage,
+  SettingsPage,
 ];
 
 export let currentPage: PageDefault;
