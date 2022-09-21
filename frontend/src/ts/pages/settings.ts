@@ -1,6 +1,6 @@
 import { PageDefault } from "../types/classes";
 
-export const urls = ["/settings*", "/settings"];
+export const urls = ["/settings/*", "/settings"];
 
 export class Page extends PageDefault {
   name: string;
@@ -18,5 +18,9 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+    const setting = window.location.pathname
+      .replace("/settings/", "")
+      .replace("/settings", "");
+    console.log(setting);
   }
 }

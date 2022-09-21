@@ -1,12 +1,10 @@
 import { getDocs } from "../api/endpoints/doc";
-import { auth, store } from "../store";
+import { store } from "../store";
 import { PageDefault } from "../types/classes";
 
 import { getValDocuments, mergeSort } from "../util/sort";
-import { showPopup } from "../popup/popup-controller";
-import { makeAccessDeniedPopup } from "../popup/common-popups";
 
-export const urls = ["/documents*", "/list*"];
+export const urls = ["/documents", "/list"];
 
 export class Page extends PageDefault {
   name: string;

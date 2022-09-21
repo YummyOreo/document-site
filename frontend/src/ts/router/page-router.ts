@@ -63,7 +63,8 @@ function compairUrl(targetUrl: string[]): Boolean {
 
   for (const i in targetUrl) {
     const url = targetUrl[i];
-    if (url == currentUrl) return true;
+
+    if (currentUrl == url) return true;
 
     if (url.endsWith("*")) {
       if (currentUrl.startsWith(url.slice(0, -1))) return true;
