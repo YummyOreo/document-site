@@ -26,7 +26,7 @@ export class NavbarCompenent extends DefaultComponent {
     this.handleSearchBar();
 
     // makes it so if you scroll down far enought the navbar hides its self
-    $(window).on("scroll", function () {
+    $(window).on("scroll", () => {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });
   }
@@ -63,9 +63,11 @@ export class NavbarCompenent extends DefaultComponent {
       width: "3.5rem",
       "border-color": "var(--background-color-3)",
     });
+
     $(".nav-doc-search")
       .find(".nav-doc-inner")
       .css("justify-content", "center");
+
     $(".nav-doc-input").css("display", "none");
   }
 
@@ -76,7 +78,9 @@ export class NavbarCompenent extends DefaultComponent {
       "border-color": "var(--text-accent)",
       display: "block",
     });
+
     $(".nav-doc-search").find(".nav-doc-inner").css("justify-content", "left");
+
     $(".nav-doc-input").css("display", "block");
   }
 
@@ -96,6 +100,7 @@ export class NavbarCompenent extends DefaultComponent {
 
   handleProfileSignedIn() {
     $(".profile-name").text(auth.name);
+
     $(".profile-outer").addClass("profile-logged-in");
 
     $("#sign-out").on("click", () => {
@@ -129,6 +134,7 @@ export class NavbarCompenent extends DefaultComponent {
       $(".profile-name").on("click", async () => {
         await this.login();
       });
+
       this.handleDocSignedOut();
     }
   }
@@ -157,7 +163,9 @@ export class NavbarCompenent extends DefaultComponent {
       this.searchInputOn = false;
 
       $(".nav-doc-input").css("display", "none");
+
       $(".nav-doc-input").val("");
+
       if (".nav-doc-search:hover".length != 0) {
         this.closeSearchInput();
       }
