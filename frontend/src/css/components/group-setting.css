@@ -1,0 +1,47 @@
+.group {
+  padding: 1rem 1rem;
+  padding-left: 1rem;
+
+  border: 0px solid var(--background-color-2);
+  border-bottom: 2px solid var(--background-color-2);
+
+  display: flex;
+}
+
+.group:hover {
+  border-width: 2px;
+
+  animation: groupOutline 0.4s;
+  border: 2px solid var(--text-accent);
+}
+
+@keyframes groupOutline {
+  from {
+    border: 2px solid var(--background-color-2);
+  }
+  to {
+    border: 2px solid var(--text-accent);
+  }
+}
+
+.group-wapper {
+  align-items: center;
+  display: inline-flex;
+}
+
+.group-arrow object {
+  filter: var(--background-color-4-filter);
+  transition: var(--transition);
+
+  transform: scale(0.8);
+
+  rotate: 0deg;
+}
+
+.group-name {
+  margin-left: 1rem;
+
+  font-size: 1.5rem;
+
+  width: 60%;
+}

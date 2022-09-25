@@ -27,7 +27,6 @@ export class NavbarCompenent extends DefaultComponent {
 
     // role checks
     if (auth.signedIn) {
-      // this will check if their role is correct
       $(".nav-doc-setting").css("opacity", "1");
     }
 

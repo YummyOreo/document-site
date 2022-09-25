@@ -22,6 +22,8 @@
 
   --background-color-3-filter: invert(5%) sepia(5%) saturate(1257%)
     hue-rotate(201deg) brightness(103%) contrast(93%);
+  --background-color-4-filter: invert(13%) sepia(3%) saturate(2176%)
+    hue-rotate(193deg) brightness(100%) contrast(85%);
 
   --transition: all 0.5s ease-in-out 0s;
 }
