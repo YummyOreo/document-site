@@ -22,6 +22,32 @@
   display: flex;
 }
 
+.panel button {
+  transition: var(--transition);
+
+  background-color: var(--background-color-4);
+  border-radius: 5px;
+  border: 1px solid var(--background-color-2);
+
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-white);
+
+  margin-left: 5px;
+  padding: 0px 5px;
+}
+
+.panel button:hover {
+  border-color: var(--text-accent);
+}
+
+.panel button object {
+  transition: var(--transition);
+  filter: var(--background-color-3-filter);
+
+  transform: scale(0.7);
+}
+
 .roles {
   min-height: 50.9rem;
   max-height: 50.9rem;

@@ -22,5 +22,9 @@ export class Page extends PageDefault {
       .replace("/settings/", "")
       .replace("/settings", "");
     console.log(setting);
+
+    $(".panel button").on("click", (e: any) => {
+      $(e.target).find("object").css("rotate", 360);
+    });
   }
 }
