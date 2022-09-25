@@ -87,8 +87,11 @@
 
 .nav-doc-item object {
   filter: var(--background-color-3-filter);
+  transition: var(--transition);
 
   transform: scale(0.7);
+
+  rotate: 0deg;
 }
 
 .nav-doc-inner {
@@ -96,20 +99,30 @@
   display: flex;
 }
 
-.nav-doc-make:hover {
+.nav-doc-reg:hover {
   border-color: var(--text-accent);
 
-  animation: docMakeGrow 0.5s;
+  animation: docRegGrow 0.5s;
   width: 5.25rem;
 }
 
-@keyframes docMakeGrow {
+@keyframes docRegGrow {
   from {
     width: 3.5rem;
   }
   to {
     width: 5.25rem;
   }
+}
+
+.nav-doc-setting {
+  opacity: 0;
+}
+
+.nav-doc-setting:hover object {
+  border-color: var(--text-accent);
+
+  rotate: 180deg;
 }
 
 .nav-doc-input {

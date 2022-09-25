@@ -2,6 +2,7 @@ import { DefaultComponent } from "../types/classes";
 import {
   DocumentPrevComponent,
   FooterCompenent,
+  GroupSettingComponent,
   NavbarCompenent,
 } from "./classes/";
 import * as folder from "../constants/folder";
@@ -12,6 +13,7 @@ export const allComponents: { [name: string]: typeof DefaultComponent } = {
   footer: FooterCompenent,
   navbar: NavbarCompenent,
   documentPrev: DocumentPrevComponent,
+  groupSetting: GroupSettingComponent,
 };
 
 export class component extends HTMLElement {

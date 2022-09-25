@@ -25,6 +25,12 @@ export class NavbarCompenent extends DefaultComponent {
 
     this.handleSearchBar();
 
+    // role checks
+    if (auth.signedIn) {
+      // this will check if their role is correct
+      $(".nav-doc-setting").css("opacity", "1");
+    }
+
     // makes it so if you scroll down far enought the navbar hides its self
     $(window).on("scroll", () => {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
