@@ -12,16 +12,14 @@ export async function make(req: express.Request, res: express.Response) {
   // if we see that we have sent something then we know that there was a error
   if (res.headersSent) return;
 
-  const users = JSON.parse(req.body)["users"];
-  if (users == null || users == undefined) {
-    return res.status(400).send({
-      error: "Please provide a body containing the users",
-      status: 400,
-    });
-  }
+  const users = req.body["users"];
 }
 
 async function check(req: express.Request): Promise<string> {
+  if (req.headers["content-type"] != "application/json") {
+    return 'Please set the "content-type" header to "application/json"';
+  }
+
   if (!("name" in req.query)) {
     return "Plese provide a name in the query params";
   }
@@ -38,7 +36,7 @@ async function check(req: express.Request): Promise<string> {
     return "Plese provide a color";
   }
 
-  if (!req.body || req.body == "") {
+  if (!req.body || req.body["users"] == undefined) {
     return "Plese provide a body with the user's id";
   }
 

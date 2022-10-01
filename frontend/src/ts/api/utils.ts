@@ -9,12 +9,13 @@ export async function MakeRequest(
   URL: string,
   BODY?: any,
   AUTH?: string,
-  PARAMS: { [name: string]: string } = {}
+  PARAMS: { [name: string]: string } = {},
+  CONTENT_TYPE: string = "tex/plain"
 ): Promise<any> {
   const param = new URLSearchParams(PARAMS);
 
   const headers: any = {
-    "Content-Type": "text/plain",
+    "Content-Type": CONTENT_TYPE,
     Accept: "application/json",
   };
 
