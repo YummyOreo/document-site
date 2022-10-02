@@ -10,4 +10,4 @@ export interface UserDefault {
   discriminator: string;
 }
 
-export type updateGroup = { [name: string]: string | [string] };
+export type updateGroup = { [name: string]: string | string[] | any };

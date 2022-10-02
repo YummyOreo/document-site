@@ -1,7 +1,5 @@
 import { UserDefault } from "../../../types/BackendTypes";
 
-export let currentUser = undefined;
-
 export class User implements UserDefault {
   token: string;
   name: string;
@@ -35,3 +33,5 @@ export class User implements UserDefault {
 export function setCurrentUser(user: User) {
   currentUser = user;
 }
+
+export let currentUser = new User(undefined, undefined, undefined, undefined);

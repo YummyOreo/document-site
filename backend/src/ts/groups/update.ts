@@ -1,6 +1,7 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
 import { updateGroup } from "../../../types/BackendTypes";
+import { currentUser } from "../auth/user";
 import { getCollection } from "../db/collections/roles";
 
 export async function update(req: express.Request, res: express.Response) {
