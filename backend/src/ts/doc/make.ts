@@ -23,7 +23,7 @@ export async function make(req: express.Request, res: express.Response) {
       body,
     })
     .then((document) => {
-      res.status(200).send({
+      res.status(201).send({
         id: document.insertedId.toString(),
       });
     })

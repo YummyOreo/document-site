@@ -13,6 +13,23 @@ export async function make(req: express.Request, res: express.Response) {
   if (res.headersSent) return;
 
   const users = req.body["users"];
+
+  const role = { name: req.query["name"], color: req.query["color"], users };
+
+  getCollection()
+    .insertOne(role)
+    .then((document) => {
+      res.status(201).send({
+        id: document.insertedId.toString(),
+      });
+    })
+    .catch(() => {
+      res.status(500).send({
+        error:
+          "There was a internal error trying to create your group. If this keeps happening, please contact the devs.",
+        status: 500,
+      });
+    });
 }
 
 async function check(req: express.Request): Promise<string> {
@@ -24,7 +41,7 @@ async function check(req: express.Request): Promise<string> {
     return "Plese provide a name in the query params";
   }
 
-  if (req.query["title"] == "") {
+  if (req.query["name"] == "") {
     return "Plese provide a name";
   }
 
@@ -37,14 +54,14 @@ async function check(req: express.Request): Promise<string> {
   }
 
   if (!req.body || req.body["users"] == undefined) {
-    return "Plese provide a body with the user's id";
+    return "Plese provide a body with a list of the users";
   }
 
   if (
     (await getCollection().find({ name: req.query["name"] }).toArray()).length >
     0
   ) {
-    return "A role with that name already exists";
+    return "A group with that name already exists";
   }
 
   if (req.query["name"].toString().length > 40) {
