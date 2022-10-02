@@ -1,5 +1,6 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/users";
+import { setCurrentUser, User } from "./user";
 
 export async function isAuthed(
   req: express.Request,
@@ -27,13 +28,19 @@ export async function isAuthed(
       });
     });
 
-  if (res.headersSent) return;
+  if (res.headersSent) {
+    return;
+  }
 
   if (!user) {
     return res
       .status(401)
       .send({ error: "Faild to authenticate.", status: 401 });
   }
+
+  setCurrentUser(
+    new User(token, user["id"], user["name"], user["discriminator"])
+  );
 
   next();
 }

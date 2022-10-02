@@ -1,4 +1,5 @@
 import * as express from "express";
+import { currentUser } from "../auth/user";
 import { getCollection } from "../db/collections/roles";
 
 export async function getAll(_: any, res: express.Response) {
