@@ -1,6 +1,6 @@
 import * as express from "express";
 import { currentUser } from "../auth/user";
-import { getCollection } from "../db/collections/roles";
+import { getCollection } from "../db/collections/groups";
 
 export async function make(req: express.Request, res: express.Response) {
   await check(req).then((error) => {

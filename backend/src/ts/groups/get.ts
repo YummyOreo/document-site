@@ -1,6 +1,7 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
-import { getCollection } from "../db/collections/roles";
+import { currentUser } from "../auth/user";
+import { getCollection } from "../db/collections/groups";
 
 export async function get(req: express.Request, res: express.Response) {
   await check(req).then(async (error) => {
@@ -10,6 +11,8 @@ export async function get(req: express.Request, res: express.Response) {
   });
 
   if (res.headersSent) return;
+
+  console.log(await currentUser.getGroups());
 
   getCollection()
     .findOne({ _id: new ObjectId(req.query["id"].toString()) })

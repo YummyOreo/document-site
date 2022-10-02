@@ -1,5 +1,5 @@
 import * as express from "express";
-import { getCollection } from "../db/collections/roles";
+import { getCollection } from "../db/collections/groups";
 
 export async function getAll(_: any, res: express.Response) {
   const groups = await getCollection().find({}).toArray();
