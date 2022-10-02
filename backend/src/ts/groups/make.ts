@@ -14,10 +14,10 @@ export async function make(req: express.Request, res: express.Response) {
 
   const users = req.body["users"];
 
-  const role = { name: req.query["name"], color: req.query["color"], users };
+  const group = { name: req.query["name"], color: req.query["color"], users };
 
   getCollection()
-    .insertOne(role)
+    .insertOne(group)
     .then((document) => {
       res.status(201).send({
         id: document.insertedId.toString(),
@@ -55,13 +55,6 @@ async function check(req: express.Request): Promise<string> {
 
   if (!req.body || req.body["users"] == undefined) {
     return "Plese provide a body with a list of the users";
-  }
-
-  if (
-    (await getCollection().find({ name: req.query["name"] }).toArray()).length >
-    0
-  ) {
-    return "A group with that name already exists";
   }
 
   if (req.query["name"].toString().length > 40) {
