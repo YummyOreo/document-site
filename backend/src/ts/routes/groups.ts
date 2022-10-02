@@ -1,6 +1,6 @@
 import * as express from "express";
 import { isAuthed } from "../auth/check";
-import { get, make } from "../groups";
+import { get, getAll, make } from "../groups";
 
 export const router = express.Router();
 
@@ -25,3 +25,14 @@ router.post("/", isAuthed, /* check if they have id (see above) ,*/ make);
 
 */
 router.get("/", isAuthed, /* check if they have id (see above) ,*/ get);
+
+/*
+	Gets all the groups
+	
+	- they have to be authed and have a ceritain id (out of a list)
+*/
+router.get(
+  "/getAll",
+  isAuthed,
+  /* check if they have id (see above) ,*/ getAll
+);
