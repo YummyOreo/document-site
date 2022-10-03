@@ -1,6 +1,7 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
 import { getCollection } from "../db/collections/documents";
+import { isValidObjectId } from "../utils/mongo";
 
 export async function get(req: express.Request, res: express.Response) {
   await check(req).then(async (error) => {
@@ -42,12 +43,4 @@ async function check(req: express.Request): Promise<string> {
   }
 
   return "";
-}
-
-function isValidObjectId(id) {
-  if (ObjectId.isValid(id)) {
-    if (String(new ObjectId(id)) === id) return true;
-    return false;
-  }
-  return false;
 }

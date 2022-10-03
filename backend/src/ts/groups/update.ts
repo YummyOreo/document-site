@@ -1,8 +1,8 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
 import { updateGroup } from "../../../types/BackendTypes";
-import { currentUser } from "../auth/user";
 import { getCollection } from "../db/collections/groups";
+import { isValidObjectId } from "../utils/mongo";
 
 export async function update(req: express.Request, res: express.Response) {
   await check(req).then((error) => {
@@ -79,12 +79,4 @@ async function check(req: express.Request): Promise<string> {
   }
 
   return "";
-}
-
-function isValidObjectId(id) {
-  if (ObjectId.isValid(id)) {
-    if (String(new ObjectId(id)) === id) return true;
-    return false;
-  }
-  return false;
 }
