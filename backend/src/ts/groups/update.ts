@@ -15,7 +15,7 @@ export async function update(req: express.Request, res: express.Response) {
   // if we see that we have sent something then we know that there was a error
   if (res.headersSent) return;
 
-  const updatedContent = await getUpdatedContent(req);
+  const updatedContent: updateGroup = await getUpdatedContent(req);
 
   const id = req.query["id"].toString();
 

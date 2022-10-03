@@ -4,6 +4,7 @@ import { DISCORD_ID, DISCORD_SECRET, DISCORD_REDIRECT } from "../env/auth";
 import { CLIENT_URL } from "../env/other";
 
 import DiscordOauth2 = require("discord-oauth2");
+import { authenticateResult } from "../../../types/BackendTypes";
 
 const oauth = new DiscordOauth2({
   clientId: DISCORD_ID,
@@ -20,7 +21,7 @@ export async function auth(req: express.Request, res: express.Response) {
     });
   }
 
-  const [user, token] = await Oauth(req);
+  const [user, token] = await authenticate(req);
 
   if (user == true || token == true) {
     return error();
@@ -50,7 +51,7 @@ export async function auth(req: express.Request, res: express.Response) {
     );
 }
 
-async function Oauth(req) {
+async function authenticate(req: express.Request): Promise<authenticateResult> {
   const code: any = req.query["code"];
 
   const token = await oauth

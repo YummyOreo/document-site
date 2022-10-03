@@ -1,4 +1,5 @@
 import * as express from "express";
+import { Group } from "../../../types/BackendTypes";
 import { getCollection } from "../db/collections/groups";
 
 export async function make(req: express.Request, res: express.Response) {
@@ -12,9 +13,13 @@ export async function make(req: express.Request, res: express.Response) {
   // if we see that we have sent something then we know that there was a error
   if (res.headersSent) return;
 
-  const users = req.body["users"];
+  const users: string[] = req.body["users"];
 
-  const group = { name: req.query["name"], color: req.query["color"], users };
+  const group: Group = {
+    name: req.query["name"].toString(),
+    color: req.query["color"].toString(),
+    users,
+  };
 
   getCollection()
     .insertOne(group)

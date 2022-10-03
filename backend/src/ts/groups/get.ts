@@ -1,5 +1,6 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
+import { Group } from "../../../types/BackendTypes";
 import { getCollection } from "../db/collections/groups";
 import { isValidObjectId } from "../utils/mongo";
 
@@ -15,11 +16,13 @@ export async function get(req: express.Request, res: express.Response) {
   getCollection()
     .findOne({ _id: new ObjectId(req.query["id"].toString()) })
     .then((document) => {
-      res.status(200).send({
+      const group: Group = {
         name: document["name"],
         color: document["color"],
         users: document["users"],
-      });
+      };
+
+      res.status(200).send(group);
     })
     .catch(() => {
       res.status(500).send({

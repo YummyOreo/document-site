@@ -1,6 +1,7 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/documents";
 import * as sanitizeHtml from "sanitize-html";
+import { Doc } from "../../../types/BackendTypes";
 
 export async function make(req: express.Request, res: express.Response) {
   await check(req).then((error) => {
@@ -11,17 +12,16 @@ export async function make(req: express.Request, res: express.Response) {
 
   if (res.headersSent) return;
 
-  const title = req.query["title"];
+  const title = req.query["title"].toString();
   const dangerBody = req.body;
 
   let body = sanitizeHtml(dangerBody);
   body += " ";
 
+  const document: Doc = { title, body };
+
   getCollection()
-    .insertOne({
-      title,
-      body,
-    })
+    .insertOne(document)
     .then((document) => {
       res.status(201).send({
         id: document.insertedId.toString(),
