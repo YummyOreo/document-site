@@ -42,3 +42,7 @@ export type updateGroup = { [name: string]: string | string[] | any };
 export type authenticateResult = Array<
   boolean | DiscordOauth2.User | DiscordOauth2.TokenRequestResult
 >;
+
+export interface Config {
+  admin: string[];
+}
