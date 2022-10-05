@@ -5,7 +5,7 @@ import { setCurrentUser, User } from "./user";
 export async function isAuthed(
   req: express.Request,
   res: express.Response,
-  next: any
+  next: express.NextFunction
 ) {
   if (
     !req.header("Authorization") ||

@@ -1,7 +1,14 @@
 import * as express from "express";
-import { auth, url } from "../user";
+import { isAuthed } from "../auth/check";
+import { auth, get, url } from "../user";
 
 export const router = express.Router();
+
+/*
+  Gets the user's perms, group, and info
+*/
+
+router.get("/", isAuthed, get);
 
 /*
   Makes a user
