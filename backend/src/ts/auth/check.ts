@@ -1,6 +1,6 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/users";
-import { setCurrentUser, User } from "./user";
+import { currentUser, setCurrentUser, User } from "./user";
 
 export async function isAuthed(
   req: express.Request,
@@ -43,4 +43,16 @@ export async function isAuthed(
   );
 
   next();
+}
+
+export async function checkGroup(groupId: string) {
+  const userGroups = await currentUser.getGroups();
+
+  for (const i in userGroups) {
+    const group = userGroups[i];
+
+    if (group == groupId) return true;
+  }
+
+  return false;
 }
