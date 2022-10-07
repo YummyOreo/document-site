@@ -15,7 +15,12 @@ export const router = express.Router();
 	 - list of users (discord id, this auto includes them)
 	 - Color (hex)
 */
-router.post("/", isAuthed, /* check if they have id (see above) ,*/ make);
+router.post(
+  "/",
+  isAuthed,
+  requireAdmin,
+  /* check if they have id (see above) ,*/ make
+);
 
 /*
 	 Updates a role
@@ -27,7 +32,12 @@ router.post("/", isAuthed, /* check if they have id (see above) ,*/ make);
 	 - list of users? (discord id, this auto includes them)
 	 - Color? (hex)
 */
-router.patch("/", isAuthed, /* check if they have id (see above) ,*/ update);
+router.patch(
+  "/",
+  isAuthed,
+  requireAdmin,
+  /* check if they have id (see above) ,*/ update
+);
 
 /*
 	Gets a role by their id
