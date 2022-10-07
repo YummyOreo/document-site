@@ -6,7 +6,7 @@ export let config: Config = {
 };
 
 export async function loadConfig() {
-  const currentConfig: any = await getCollection().find().toArray();
+  const currentConfig: any = await getCollection().find({}).toArray();
 
   if (currentConfig == undefined || currentConfig.length <= 0) {
     return createConfig();

@@ -1,5 +1,6 @@
 import * as express from "express";
 import { isAuthed } from "../auth/check";
+import { requireAdmin } from "../auth/perms";
 import { get, getAll, make, update } from "../groups";
 
 export const router = express.Router();
@@ -36,7 +37,12 @@ router.patch("/", isAuthed, /* check if they have id (see above) ,*/ update);
 	- the id of the role (must be a valid doc id)
 
 */
-router.get("/", isAuthed, /* check if they have id (see above) ,*/ get);
+router.get(
+  "/",
+  isAuthed,
+  requireAdmin,
+  /* check if they have id (see above) ,*/ get
+);
 
 /*
 	Gets all the groups
