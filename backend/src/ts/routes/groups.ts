@@ -15,12 +15,7 @@ export const router = express.Router();
 	 - list of users (discord id, this auto includes them)
 	 - Color (hex)
 */
-router.post(
-  "/",
-  isAuthed,
-  requireAdmin,
-  /* check if they have id (see above) ,*/ make
-);
+router.post("/", isAuthed, requireAdmin, make);
 
 /*
 	 Updates a role
@@ -32,12 +27,7 @@ router.post(
 	 - list of users? (discord id, this auto includes them)
 	 - Color? (hex)
 */
-router.patch(
-  "/",
-  isAuthed,
-  requireAdmin,
-  /* check if they have id (see above) ,*/ update
-);
+router.patch("/", isAuthed, requireAdmin, update);
 
 /*
 	Gets a role by their id
@@ -47,20 +37,11 @@ router.patch(
 	- the id of the role (must be a valid doc id)
 
 */
-router.get(
-  "/",
-  isAuthed,
-  requireAdmin,
-  /* check if they have id (see above) ,*/ get
-);
+router.get("/", isAuthed, requireAdmin, get);
 
 /*
 	Gets all the groups
 	
 	- they have to be authed and have a ceritain id (out of a list)
 */
-router.get(
-  "/getAll",
-  isAuthed,
-  /* check if they have id (see above) ,*/ getAll
-);
+router.get("/getAll", isAuthed, getAll);

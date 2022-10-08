@@ -18,6 +18,7 @@ export async function make(req: express.Request, res: express.Response) {
   const group: Group = {
     name: req.query["name"].toString(),
     color: req.query["color"].toString(),
+    position: Number(req.query["position"]),
     users,
   };
 
@@ -58,6 +59,17 @@ async function check(req: express.Request): Promise<string> {
     return "Plese provide a color";
   }
 
+  if (!("position" in req.query)) {
+    return "Plese provide a position in the query params";
+  }
+
+  if (
+    req.query["position"] == "" ||
+    isNumeric(req.query["position"]) == false
+  ) {
+    return "Plese provide a valid position";
+  }
+
   if (!req.body || req.body["users"] == undefined) {
     return "Plese provide a body with a list of the users";
   }
@@ -69,4 +81,8 @@ async function check(req: express.Request): Promise<string> {
   }
 
   return "";
+}
+
+function isNumeric(num) {
+  return !isNaN(Number(num));
 }

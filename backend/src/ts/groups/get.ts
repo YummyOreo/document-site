@@ -20,6 +20,7 @@ export async function get(req: express.Request, res: express.Response) {
         name: document["name"],
         color: document["color"],
         users: document["users"],
+        position: document["position"],
       };
 
       res.status(200).send(group);

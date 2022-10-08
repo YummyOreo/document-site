@@ -16,6 +16,7 @@ export interface UserDefault {
 export interface Group {
   name: string;
   color: string;
+  position: number;
   users: string[];
 }
 
@@ -23,6 +24,7 @@ export interface GroupWithId {
   _id: string | ObjectId;
   name: string;
   color: string;
+  position: number;
   users: string[];
 }
 
