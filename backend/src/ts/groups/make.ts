@@ -83,6 +83,6 @@ async function check(req: express.Request): Promise<string> {
   return "";
 }
 
-function isNumeric(num) {
+function isNumeric(num: any) {
   return !isNaN(Number(num));
 }
