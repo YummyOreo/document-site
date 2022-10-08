@@ -1,7 +1,8 @@
 import * as express from "express";
 import { getCollection } from "../db/collections/documents";
 import * as sanitizeHtml from "sanitize-html";
-import { Doc } from "../../../types/BackendTypes";
+import { Author, Doc } from "../../../types/BackendTypes";
+import { currentUser } from "../auth/user";
 
 export async function make(req: express.Request, res: express.Response) {
   await check(req).then((error) => {
@@ -18,7 +19,12 @@ export async function make(req: express.Request, res: express.Response) {
   let body = sanitizeHtml(dangerBody);
   body += " ";
 
-  const document: Doc = { title, body };
+  const author: Author = {
+    name: currentUser.getName(),
+    id: currentUser.getId(),
+  };
+
+  const document: Doc = { title, body, author };
 
   getCollection()
     .insertOne(document)

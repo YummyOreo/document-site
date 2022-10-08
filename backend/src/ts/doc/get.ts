@@ -19,6 +19,7 @@ export async function get(req: express.Request, res: express.Response) {
       const doc: Doc = {
         title: document["title"],
         body: document["body"],
+        author: document["author"],
       };
 
       res.status(200).send(doc);

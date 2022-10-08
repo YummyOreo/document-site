@@ -28,9 +28,15 @@ export interface GroupWithId {
   users: string[];
 }
 
+export interface Author {
+  name: string;
+  id: string;
+}
+
 export interface Doc {
   title: string;
   body: string;
+  author: Author;
 }
 
 export interface DocWithId {
