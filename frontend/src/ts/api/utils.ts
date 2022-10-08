@@ -10,7 +10,7 @@ export async function MakeRequest(
   BODY?: any,
   AUTH?: string,
   PARAMS: { [name: string]: string } = {},
-  CONTENT_TYPE: string = "tex/plain"
+  CONTENT_TYPE: string = "text/plain"
 ): Promise<any> {
   const param = new URLSearchParams(PARAMS);
 

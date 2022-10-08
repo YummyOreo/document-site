@@ -32,7 +32,10 @@ export class DocumentPrevComponent extends DefaultComponent {
     this.doc = store["documents"][this.index];
 
     $(this.element).find(".doc-title").text(this.doc["title"]);
-    $(this.element).find(".doc-text").text(this.doc["body"]);
+    $(this.element)
+      .find(".doc-text")
+      .text(this.doc["body"].replace(/(\r\n|\n|\r)/gm, " "));
+    $(this.element).find(".doc-author").text(this.doc["author"]["name"]);
     $(this.element).find("a").attr("href", `/view?id=${this.compId}`);
   }
 }

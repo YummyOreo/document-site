@@ -71,3 +71,7 @@
   word-wrap: break-word;
   overflow: scroll;
 }
+
+.doc-prev * {
+  font-weight: unset;
+}

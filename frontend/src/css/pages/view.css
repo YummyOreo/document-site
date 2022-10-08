@@ -1,5 +1,13 @@
 .document {
-  padding-top: 20px;
+  padding-top: 10px;
+}
+
+p {
+  font-weight: unset;
+}
+
+h1 {
+  padding-top: 5px;
 }
 
 .body {
@@ -52,4 +60,11 @@
 
   justify-content: right;
   position: relative;
+}
+
+.author {
+  padding-bottom: 5px;
+  margin-top: -10px;
+
+  color: var(--text-gray);
 }

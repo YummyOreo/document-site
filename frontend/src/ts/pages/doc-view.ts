@@ -57,5 +57,6 @@ export class Page extends PageDefault {
 
     $(".body").html(md.parse(doc["body"]));
     $(".title").text(doc["title"]);
+    $(".author").text(doc["author"]["name"]);
   }
 }
