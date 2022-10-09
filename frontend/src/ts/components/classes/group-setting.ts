@@ -1,3 +1,4 @@
+import { store } from "../../store";
 import { DefaultComponent } from "../../types/classes";
 
 export class GroupSettingComponent extends DefaultComponent {
@@ -21,5 +22,31 @@ export class GroupSettingComponent extends DefaultComponent {
     this.css = ["group-setting.css"];
   }
 
-  async run() {}
+  async run() {
+    $(this.element).on("click", () => {
+      if (store["groupClicked"] != undefined) {
+        store["groupClicked"].unClick();
+      }
+
+      if (store["groupClicked"] == this) {
+        store["groupClicked"] = undefined;
+        return;
+      }
+      this.click();
+      store["groupClicked"] = this;
+    });
+  }
+
+  click() {
+    $(this.element).find(".group").removeClass("group-unclicked");
+    $(this.element).find(".group").addClass("group-clicked");
+  }
+
+  unClick() {
+    $(this.element).find(".group").removeClass("group-clicked");
+    $(this.element).find(".group").addClass("group-unclicked");
+    setTimeout(() => {
+      $(this.element).find(".group").removeClass("group-uncliked");
+    }, 1000);
+  }
 }

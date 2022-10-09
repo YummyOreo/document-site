@@ -1,3 +1,4 @@
+import { store } from "../store";
 import { PageDefault } from "../types/classes";
 
 export const urls = ["/settings/*", "/settings"];
@@ -25,6 +26,15 @@ export class Page extends PageDefault {
 
     $(".panel button").on("click", (e: any) => {
       $(e.target).find("object").css("rotate", 360);
+    });
+
+    $("body").on("click", (e) => {
+      if (e.target.id == "wapper") {
+        if (store["groupClicked"]) {
+          store["groupClicked"].unClick();
+          store["groupClicked"] = undefined;
+        }
+      }
     });
   }
 }

@@ -41,7 +41,7 @@ router.get("/", isAuthed, get);
 
 /*
 	Gets all the groups
-	
+		
 	- they have to be authed and have a ceritain id (out of a list)
 */
 router.get("/getAll", isAuthed, getAll);

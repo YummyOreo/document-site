@@ -11,8 +11,22 @@
 .group:hover {
   border-width: 2px;
 
-  animation: groupOutline 0.4s;
-  border: 2px solid var(--text-accent);
+  animation: groupOutlineHover 0.4s;
+  border: 2px solid var(--text-accent-faded);
+}
+
+.group-clicked {
+  border-width: 2px;
+
+  animation: groupOutline 1s;
+  border: 2px solid var(--text-accent) !important;
+}
+
+.group-unclicked {
+  border-width: 2px;
+
+  animation: groupOutline 1s reverse !important;
+  border: 2px solid var(--background-color-2);
 }
 
 @keyframes groupOutline {
@@ -21,6 +35,15 @@
   }
   to {
     border: 2px solid var(--text-accent);
+  }
+}
+
+@keyframes groupOutlineHover {
+  from {
+    border: 2px solid var(--background-color-2);
+  }
+  to {
+    border: 2px solid var(--text-accent-faded);
   }
 }
 

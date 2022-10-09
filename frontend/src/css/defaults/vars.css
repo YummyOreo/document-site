@@ -12,6 +12,7 @@
   --text-error: #b00020;
 
   --text-accent: #0088a9;
+  --text-accent-faded: rgba(0, 136, 169, 0.2);
   --text-accent-filter: invert(36%) sepia(96%) saturate(2732%)
     hue-rotate(167deg) brightness(89%) contrast(101%);
 
