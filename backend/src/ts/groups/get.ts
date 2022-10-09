@@ -1,6 +1,7 @@
 import * as express from "express";
 import { ObjectId } from "mongodb";
 import { Group } from "../../../types/BackendTypes";
+import { checkPerms } from "../config/get";
 import { getCollection } from "../db/collections/groups";
 import { isValidObjectId } from "../utils/mongo";
 
@@ -22,6 +23,10 @@ export async function get(req: express.Request, res: express.Response) {
         users: document["users"],
         position: document["position"],
       };
+
+      if (!checkPerms("admin")) {
+        group.users = undefined;
+      }
 
       res.status(200).send(group);
     })

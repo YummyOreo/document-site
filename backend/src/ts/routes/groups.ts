@@ -32,12 +32,12 @@ router.patch("/", isAuthed, requireAdmin, update);
 /*
 	Gets a role by their id
 	
-	- they have to be authed and have a ceritain id (out of a list)
-	
+	- changes depending if the user has admin
+
 	- the id of the role (must be a valid doc id)
 
 */
-router.get("/", isAuthed, requireAdmin, get);
+router.get("/", isAuthed, get);
 
 /*
 	Gets all the groups
