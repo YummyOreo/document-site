@@ -9,8 +9,6 @@ getLocalStorage();
 
 await getUserInformation();
 
-console.log(user);
-
 await getPage();
 
 function getLocalStorage() {

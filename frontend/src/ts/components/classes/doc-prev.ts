@@ -1,5 +1,6 @@
 import { store } from "../../store";
 import { DefaultComponent } from "../../types/classes";
+import { Doc } from "../../types/FrontendTypes";
 
 export class DocumentPrevComponent extends DefaultComponent {
   name: string;
@@ -14,7 +15,7 @@ export class DocumentPrevComponent extends DefaultComponent {
   prev: string;
 
   roles: string[];
-  doc: any;
+  doc: Doc;
   constructor() {
     super();
     this.name = "doc-prev";

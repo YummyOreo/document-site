@@ -5,6 +5,8 @@ import * as Snackbar from "../../js/snackbar.min.js";
 import * as md from "../../js/md";
 import { showPopup } from "../popup/popup-controller";
 import { makeAccessDeniedPopup } from "../popup/common-popups";
+import { Doc } from "../types/FrontendTypes";
+import { user } from "../store";
 
 export const urls = ["/view"];
 
@@ -15,12 +17,17 @@ export class Page extends PageDefault {
   css: string[];
   discordAuth: boolean;
   id: string;
+  author: boolean;
+
+  doc: Doc;
   constructor() {
     super();
     this.name = "Viewing Document";
     this.url = urls;
     this.html = "view.html";
     this.css = ["view.css"];
+
+    this.author = false;
   }
 
   async run() {
@@ -38,7 +45,7 @@ export class Page extends PageDefault {
 
     this.id = urlParams.get("id");
 
-    const doc: { body: string; title: string } | any = await getDoc(this.id);
+    const doc: Doc | any = await getDoc(this.id);
 
     if (doc["error"]) {
       console.log(doc["status"]);
@@ -55,8 +62,20 @@ export class Page extends PageDefault {
       return;
     }
 
+    this.getDocInfo(doc);
+
+    console.log(this.author);
+
     $(".body").html(md.parse(doc["body"]));
-    $(".title").text(doc["title"]);
-    $(".author").text(doc["author"]["name"]);
+    $(".title").text(this.doc["title"]);
+    $(".author").text(this.doc["author"]["name"]);
+  }
+
+  getDocInfo(doc: Doc) {
+    if (user.id == doc.author.id) {
+      this.author = true;
+    }
+
+    this.doc = doc;
   }
 }
