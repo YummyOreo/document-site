@@ -48,8 +48,6 @@ export class Page extends PageDefault {
     const doc: Doc | any = await getDoc(this.id);
 
     if (doc["error"]) {
-      console.log(doc["status"]);
-
       if (doc["status"] == 401) {
         return showPopup(makeAccessDeniedPopup());
       }
@@ -63,8 +61,6 @@ export class Page extends PageDefault {
     }
 
     this.getDocInfo(doc);
-
-    console.log(this.author);
 
     $(".body").html(md.parse(doc["body"]));
     $(".title").text(this.doc["title"]);

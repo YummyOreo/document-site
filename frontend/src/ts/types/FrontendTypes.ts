@@ -11,11 +11,13 @@ export interface User {
   perms: { [name: string]: any };
 }
 
+export interface Author {
+  name: string;
+  id: string;
+}
+
 export interface Doc {
   title: string;
   body: string;
-  author: {
-    name: string;
-    id: string;
-  };
+  author: Author;
 }
