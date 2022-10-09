@@ -1,10 +1,15 @@
 import { component } from "./components/component-controller";
 import getPage from "./router/page-router";
-import { auth } from "./store";
+import { auth, user } from "./store";
+import { getUserInformation } from "./user/info";
 
 customElements.define("custom-component", component);
 
 getLocalStorage();
+
+await getUserInformation();
+
+console.log(user);
 
 await getPage();
 

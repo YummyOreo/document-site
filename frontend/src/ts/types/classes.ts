@@ -96,9 +96,3 @@ export class DefaultComponent {
 
   async run() {}
 }
-
-export interface DefaultAuth {
-  name: string;
-  token: string;
-  signedIn: boolean;
-}
