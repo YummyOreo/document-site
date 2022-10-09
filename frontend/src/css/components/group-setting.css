@@ -8,11 +8,8 @@
   display: flex;
 }
 
-.group:hover {
-  border-width: 2px;
-
-  animation: groupOutlineHover 0.4s;
-  border: 2px solid var(--text-accent-faded);
+.group-hover:hover .group-name {
+  color: #e40083;
 }
 
 .group-clicked {
@@ -22,28 +19,12 @@
   border: 2px solid var(--text-accent) !important;
 }
 
-.group-unclicked {
-  border-width: 2px;
-
-  animation: groupOutline 1s reverse !important;
-  border: 2px solid var(--background-color-2);
-}
-
 @keyframes groupOutline {
   from {
     border: 2px solid var(--background-color-2);
   }
   to {
     border: 2px solid var(--text-accent);
-  }
-}
-
-@keyframes groupOutlineHover {
-  from {
-    border: 2px solid var(--background-color-2);
-  }
-  to {
-    border: 2px solid var(--text-accent-faded);
   }
 }
 
@@ -72,6 +53,8 @@
 }
 
 .group-name {
+  transition: var(--transition);
+
   margin-left: 1rem;
 
   font-size: 1.5rem;

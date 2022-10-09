@@ -1,20 +1,14 @@
 import { store } from "../../store";
 import { DefaultComponent } from "../../types/classes";
+import { Group } from "../../types/FrontendTypes";
 
 export class GroupSettingComponent extends DefaultComponent {
   name: string;
   html: string;
   css: string[];
 
-  compId: string;
-  index: number;
-
-  title: string;
-  author: string;
-  prev: string;
-
-  roles: string[];
-  doc: any;
+  group: Group;
+  id: string;
   constructor() {
     super();
     this.name = "groupSetting";
@@ -23,6 +17,14 @@ export class GroupSettingComponent extends DefaultComponent {
   }
 
   async run() {
+    this.getId();
+
+    // detects if the group is new
+    if (this.id == undefined) {
+      this.click();
+      store["groupClicked"] = this;
+    }
+
     $(this.element).on("click", () => {
       if (store["groupClicked"] != undefined) {
         store["groupClicked"].unClick();
@@ -37,16 +39,19 @@ export class GroupSettingComponent extends DefaultComponent {
     });
   }
 
+  getId() {
+    try {
+      this.id = this.element.attributes.getNamedItem("compId").value;
+    } catch {}
+  }
+
   click() {
-    $(this.element).find(".group").removeClass("group-unclicked");
     $(this.element).find(".group").addClass("group-clicked");
+    $(this.element).find(".group").removeClass("group-hover");
   }
 
   unClick() {
     $(this.element).find(".group").removeClass("group-clicked");
-    $(this.element).find(".group").addClass("group-unclicked");
-    setTimeout(() => {
-      $(this.element).find(".group").removeClass("group-uncliked");
-    }, 1000);
+    $(this.element).find(".group").addClass("group-hover");
   }
 }

@@ -1,5 +1,6 @@
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
+import { GroupWithSettings } from "../types/FrontendTypes";
 
 export const urls = ["/settings/*", "/settings"];
 
@@ -9,12 +10,16 @@ export class Page extends PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
+
+  groups: GroupWithSettings[];
   constructor() {
     super();
     this.name = "Settings";
     this.url = urls;
     this.html = "settings.html";
     this.css = ["settings.css"];
+
+    this.groups = [];
   }
 
   async run() {
@@ -28,6 +33,22 @@ export class Page extends PageDefault {
       $(e.target).find("object").css("rotate", 360);
     });
 
+    this.groupSettings();
+  }
+
+  async groupSettings() {
+    $(".add-group").on("click", () => {
+      const elm: any = document.createElement("custom-component");
+
+      elm.setAttribute("name", "groupSetting");
+
+      $(".groups").append(elm);
+
+      setTimeout(() => {
+        $(elm).find(".group-name").trigger("focus");
+      }, 500);
+    });
+
     $("body").on("click", (e) => {
       if (e.target.id == "wapper") {
         if (store["groupClicked"]) {
@@ -37,4 +58,6 @@ export class Page extends PageDefault {
       }
     });
   }
+
+  async getGroups() {}
 }

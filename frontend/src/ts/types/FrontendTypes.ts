@@ -21,3 +21,16 @@ export interface Doc {
   body: string;
   author: Author;
 }
+
+export interface Group {
+  id?: string;
+  name: string;
+  color: string;
+  position: number;
+  users?: string[];
+}
+
+export interface GroupWithSettings {
+  group: Group;
+  element: Element;
+}

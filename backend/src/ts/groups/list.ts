@@ -19,7 +19,6 @@ function filter(groups: any[]) {
     const group = groups[i];
     const newGroup = group;
     newGroup["users"] = undefined;
-    newGroup["_id"] = undefined;
     newGroups.push(newGroup);
   }
   return newGroups;
