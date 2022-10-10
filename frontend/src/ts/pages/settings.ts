@@ -1,10 +1,13 @@
 import { getGroups } from "../api/endpoints/groups";
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
-import { Group, GroupWithSettings } from "../types/FrontendTypes";
+import { Group } from "../types/FrontendTypes";
 
 export const urls = ["/settings/*", "/settings"];
 
+import * as Snackbar from "../../js/snackbar.min.js";
+import { makeAccessDeniedPopup } from "../popup/common-popups";
+import { showPopup } from "../popup/popup-controller";
 export class Page extends PageDefault {
   name: string;
   url: string[];
@@ -55,13 +58,31 @@ export class Page extends PageDefault {
       }
     });
 
-    await this.loadGroups(await this.getGroups());
+    const groups = await this.getGroups();
+    if (groups["error"]) {
+      if (groups["status"] == 401) {
+        Snackbar.show({
+          pos: "top-right",
+          text: "You do not have access to this page.",
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
+        });
+      } else {
+        Snackbar.show({
+          pos: "top-right",
+          text: groups["error"],
+          textColor: "var(--text-white)",
+          actionTextColor: "var(--text-error)",
+        });
+      }
+    } else {
+      await this.loadGroups(groups["groups"]);
+    }
   }
 
-  async getGroups(): Promise<Group[]> {
+  async getGroups(): Promise<any> {
     const results = await getGroups();
-    console.log(results);
-    return results["groups"];
+    return results;
   }
 
   async loadGroups(groups: Group[]) {

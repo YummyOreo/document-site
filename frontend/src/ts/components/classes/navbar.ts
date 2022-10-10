@@ -25,11 +25,6 @@ export class NavbarCompenent extends DefaultComponent {
 
     this.handleSearchBar();
 
-    // role checks
-    if (auth.signedIn) {
-      $(".nav-doc-setting").css("opacity", "1");
-    }
-
     // makes it so if you scroll down far enought the navbar hides its self
     $(window).on("scroll", () => {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
@@ -90,7 +85,7 @@ export class NavbarCompenent extends DefaultComponent {
   }
 
   handleDocSignedOut() {
-    $(".nav-doc a").removeAttr("href");
+    $(".nav-doc .sign-out-remove").removeAttr("href");
 
     $(".nav-doc-make").on("click", () => {
       Snackbar.show({
