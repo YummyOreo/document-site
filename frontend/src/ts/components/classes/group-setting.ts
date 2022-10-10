@@ -23,6 +23,8 @@ export class GroupSettingComponent extends DefaultComponent {
     if (this.id == undefined) {
       this.click();
       store["groupClicked"] = this;
+    } else {
+      this.loadInfo();
     }
 
     $(this.element).on("click", () => {
@@ -43,6 +45,18 @@ export class GroupSettingComponent extends DefaultComponent {
     try {
       this.id = this.element.attributes.getNamedItem("compId").value;
     } catch {}
+  }
+
+  loadInfo() {
+    store["groups"].forEach((e: any) => {
+      if (e.group._id == this.id) {
+        this.group = e.group;
+      }
+    });
+
+    if (this.group) {
+      $(this.element).find(".group-name").val(this.group.name);
+    }
   }
 
   click() {

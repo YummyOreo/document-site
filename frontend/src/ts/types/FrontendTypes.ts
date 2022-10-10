@@ -24,6 +24,7 @@ export interface Doc {
 
 export interface Group {
   id?: string;
+  _id?: string;
   name: string;
   color: string;
   position: number;
