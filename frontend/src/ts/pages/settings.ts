@@ -1,4 +1,4 @@
-import { getGroups } from "../api/endpoints/groups";
+import { getGroups, makeGroup } from "../api/endpoints/groups";
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
 import { Group } from "../types/FrontendTypes";
@@ -22,6 +22,7 @@ export class Page extends PageDefault {
 
   async run() {
     super.run();
+
     const setting = window.location.pathname
       .replace("/settings/", "")
       .replace("/settings", "");

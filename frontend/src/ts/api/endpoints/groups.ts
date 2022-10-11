@@ -4,7 +4,7 @@ import * as apiUtils from "../utils";
 
 const BASE = "/groups";
 
-export async function getGroups() {
+export async function getGroups(): Promise<any> {
   return await apiUtils.MakeRequest(
     "GET",
     `${apiUtils.api["url"]}${BASE}/getAll`,
@@ -13,13 +13,13 @@ export async function getGroups() {
   );
 }
 
-export async function makeGroup(group: Group) {
+export async function makeGroup(group: Group): Promise<any> {
   return await apiUtils.MakeRequest(
     "POST",
     `${apiUtils.api["url"]}${BASE}/`,
-    {
-      users: group.users,
-    },
+    JSON.stringify({
+      users: group.users == undefined ? [] : group.users,
+    }),
     auth.token,
     {
       name: group.name,
