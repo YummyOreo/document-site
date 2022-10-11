@@ -10,6 +10,8 @@ export async function getUserInformation() {
       user.id = userInfo["id"];
       user.name = userInfo["name"];
       user.perms = userInfo["perms"];
+    } else {
+      auth.signedIn = false;
     }
   }
 }

@@ -6,8 +6,6 @@ import { Group } from "../types/FrontendTypes";
 export const urls = ["/settings/*", "/settings"];
 
 import * as Snackbar from "../../js/snackbar.min.js";
-import { makeAccessDeniedPopup } from "../popup/common-popups";
-import { showPopup } from "../popup/popup-controller";
 export class Page extends PageDefault {
   name: string;
   url: string[];
