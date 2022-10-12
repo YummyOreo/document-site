@@ -70,6 +70,16 @@ async function check(req: express.Request): Promise<string> {
     return "Plese provide a valid position";
   }
 
+  if (
+    (
+      await getCollection()
+        .find({ position: Number(req.query["position"]) })
+        .toArray()
+    ).length > 0
+  ) {
+    return "A group with that position already exist. Provide a different position.";
+  }
+
   if (!req.body || req.body["users"] == undefined) {
     return "Plese provide a body with a list of the users";
   }
