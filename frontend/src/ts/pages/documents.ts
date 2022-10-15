@@ -13,14 +13,14 @@ export class Page extends PageDefault {
   css: string[];
   discordAuth: boolean;
   documents: any;
-  docPrevs: HTMLElement[];
+  docPreviews: HTMLElement[];
   constructor() {
     super();
     this.name = "Documents";
     this.url = urls;
     this.html = "documents.html";
     this.css = ["docs.css"];
-    this.docPrevs = [];
+    this.docPreviews = [];
   }
 
   async run() {
@@ -47,7 +47,7 @@ export class Page extends PageDefault {
       elm.setAttribute("compId", val["_id"]);
       elm.setAttribute("index", index.toString());
 
-      this.docPrevs.push(elm);
+      this.docPreviews.push(elm);
 
       $(".documents").append(elm);
     });
@@ -73,7 +73,7 @@ export class Page extends PageDefault {
           store["documents"] = this.documents["documents"];
       }
 
-      this.docPrevs.forEach((elm: any, index: number) => {
+      this.docPreviews.forEach((elm: any, index: number) => {
         elm.setAttribute("compId", store["documents"][index]["_id"]);
         elm.setAttribute("index", index.toString());
         elm.connectedCallback();

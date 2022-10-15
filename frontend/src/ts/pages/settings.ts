@@ -49,7 +49,7 @@ export class Page extends PageDefault {
     });
 
     $("body").on("click", (e) => {
-      if (e.target.id == "wapper") {
+      if (e.target.id == "wrapper") {
         if (store["groupClicked"]) {
           store["groupClicked"].unClick();
           store["groupClicked"] = undefined;

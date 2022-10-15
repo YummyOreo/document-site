@@ -14,14 +14,14 @@ export class Page extends PageDefault {
   css: string[];
   discordAuth: boolean;
   documents: any;
-  docPrevs: any;
+  docPervs: any;
   constructor() {
     super();
     this.name = "Search";
     this.html = "search.html";
     this.css = ["search.css"];
     this.url = urls;
-    this.docPrevs = [];
+    this.docPervs = [];
   }
 
   async run(): Promise<any> {
@@ -48,7 +48,7 @@ export class Page extends PageDefault {
 
         store["documents"] = searchDocs(query).reverse();
 
-        this.docPrevs.forEach((elm: any, index: number) => {
+        this.docPervs.forEach((elm: any, index: number) => {
           elm.setAttribute("compId", store["documents"][index]["_id"]);
           elm.setAttribute("index", index.toString());
           elm.connectedCallback();
@@ -71,7 +71,7 @@ export class Page extends PageDefault {
       elm.setAttribute("compId", val["_id"]);
       elm.setAttribute("index", index.toString());
 
-      this.docPrevs.push(elm);
+      this.docPervs.push(elm);
 
       $(".documents").append(elm);
     });

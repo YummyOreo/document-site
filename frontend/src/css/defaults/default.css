@@ -114,15 +114,15 @@ p {
   color: var(--text-accent);
 }
 
-.scailOpacityUp {
-  animation: scailOpacityUp 0.3s;
+.scaleOpacityUp {
+  animation: scaleOpacityUp 0.3s;
 }
 
-.scailOpacityDown {
-  animation: scailOpacityDown 0.3s;
+.scaleOpacityDown {
+  animation: scaleOpacityDown 0.3s;
 }
 
-@keyframes scailOpacityUp {
+@keyframes scaleOpacityUp {
   from {
     opacity: 0;
   }
@@ -132,7 +132,7 @@ p {
   }
 }
 
-@keyframes scailOpacityDown {
+@keyframes scaleOpacityDown {
   from {
     opacity: 1;
   }

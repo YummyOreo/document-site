@@ -52,22 +52,22 @@ async function check(req: express.Request): Promise<string> {
   }
 
   if (!("color" in req.query)) {
-    return "Plese provide a color in the query params";
+    return "Please provide a color in the query params";
   }
 
   if (req.query["color"] == "") {
-    return "Plese provide a color";
+    return "Please provide a color";
   }
 
   if (!("position" in req.query)) {
-    return "Plese provide a position in the query params";
+    return "Please provide a position in the query params";
   }
 
   if (
     req.query["position"] == "" ||
     isNumeric(req.query["position"]) == false
   ) {
-    return "Plese provide a valid position";
+    return "Please provide a valid position";
   }
 
   if (
@@ -81,7 +81,7 @@ async function check(req: express.Request): Promise<string> {
   }
 
   if (!req.body || req.body["users"] == undefined) {
-    return "Plese provide a body with a list of the users";
+    return "Please provide a body with a list of the users";
   }
 
   if (req.query["name"].toString().length > 40) {

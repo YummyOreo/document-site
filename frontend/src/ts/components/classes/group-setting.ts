@@ -45,7 +45,7 @@ export class GroupSettingComponent extends DefaultComponent {
     $(this.element)
       .find(".group-settings")
       .on("click", () => {
-        this.showSettingsMenue();
+        this.showSettingsMenu();
       });
   }
 
@@ -77,7 +77,7 @@ export class GroupSettingComponent extends DefaultComponent {
     $(this.element).find(".group").addClass("group-hover");
   }
 
-  showSettingsMenue() {
+  showSettingsMenu() {
     const popup = new PopupDefault(
       "50%",
       "80%",

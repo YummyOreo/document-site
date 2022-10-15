@@ -8,7 +8,7 @@ export const router = express.Router();
 /*
 	 Makes a role
 	
-	 - Their id (from discord) has to be a ceritain id [out of a list]
+	 - Their id (from discord) has to be a certain id [out of a list]
 	 - If their id is from the list then they can make the role
 
 	 - name (under 40 chars)
@@ -20,7 +20,7 @@ router.post("/", isAuthed, requireAdmin, make);
 /*
 	 Updates a role
 	
-	 - Their id (from discord) has to be a ceritain id [out of a list]
+	 - Their id (from discord) has to be a certain id [out of a list]
 	 - If their id is from the list then they can make the role
 
 	 - name? (under 40 chars)
@@ -42,6 +42,6 @@ router.get("/", isAuthed, get);
 /*
 	Gets all the groups
 		
-	- they have to be authed and have a ceritain id (out of a list)
+	- they have to be authed and have a certain id (out of a list)
 */
 router.get("/getAll", isAuthed, getAll);

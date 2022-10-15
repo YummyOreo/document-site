@@ -16,7 +16,7 @@
   display: flex;
 
   padding: 0 10%;
-  /* needed beacuse of looks */
+  /* needed because of looks */
   padding-left: calc(10% + 3px);
 }
 

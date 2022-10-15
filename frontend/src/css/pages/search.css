@@ -2,12 +2,12 @@
   color: var(--text-gray-prev) !important;
 }
 
-#wapper {
+#wrapper {
   padding-bottom: 5rem;
   padding-top: 4rem;
 }
 
-.wapper {
+.wrapper {
   height: 54.5rem;
   width: 55rem;
 

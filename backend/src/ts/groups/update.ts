@@ -59,15 +59,15 @@ async function getUpdatedContent(req: express.Request): Promise<updateGroup> {
 
 async function check(req: express.Request): Promise<string> {
   if (!("id" in req.query)) {
-    return "Plese provide a id in the query params";
+    return "Please provide a id in the query params";
   }
 
   if (req.query["id"] == "") {
-    return "Plese provide a id";
+    return "Please provide a id";
   }
 
   if (!isValidObjectId(req.query["id"].toString())) {
-    return "Plese provide a valid id";
+    return "Please provide a valid id";
   }
 
   if ("name" in req.query) {

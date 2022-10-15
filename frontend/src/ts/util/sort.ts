@@ -13,7 +13,7 @@ function merge(arr1: any[], arr2: any[], getVal: Function): any {
     }
   }
 
-  // Add the rest of the remining subarray, to our new array
+  // Add the rest of the reminding subarray, to our new array
   while (i < arr1.length) {
     res.push(arr1[i]);
     i++;

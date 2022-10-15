@@ -48,11 +48,11 @@ async function check(req: express.Request): Promise<string> {
   }
 
   if (!("title" in req.query)) {
-    return "Plese provide a title in the query params";
+    return "Please provide a title in the query params";
   }
 
   if (req.query["title"] == "") {
-    return "Plese provide a title";
+    return "Please provide a title";
   }
 
   if (req.body == "") {

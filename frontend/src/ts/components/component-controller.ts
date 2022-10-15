@@ -1,17 +1,17 @@
 import { DefaultComponent } from "../types/classes";
 import {
   DocumentPrevComponent,
-  FooterCompenent,
+  FooterComponent,
   GroupSettingComponent,
-  NavbarCompenent,
+  NavbarComponent,
 } from "./classes/";
 import * as folder from "../constants/folder";
 
 export const loadedCss: string[] = [];
 
 export const allComponents: { [name: string]: typeof DefaultComponent } = {
-  footer: FooterCompenent,
-  navbar: NavbarCompenent,
+  footer: FooterComponent,
+  navbar: NavbarComponent,
   documentPrev: DocumentPrevComponent,
   groupSetting: GroupSettingComponent,
 };

@@ -5,7 +5,7 @@ import { DefaultComponent } from "../../types/classes";
 import * as Snackbar from "../../../js/snackbar.min.js";
 import { getUrl } from "../../api/endpoints/auth";
 
-export class NavbarCompenent extends DefaultComponent {
+export class NavbarComponent extends DefaultComponent {
   name: string;
   html: string;
   css: string[];
@@ -25,7 +25,7 @@ export class NavbarCompenent extends DefaultComponent {
 
     this.handleSearchBar();
 
-    // makes it so if you scroll down far enought the navbar hides its self
+    // makes it so if you scroll down far enough the navbar hides its self
     $(window).on("scroll", () => {
       $("#navbar").css("top", Math.min(0, 250 - $(this).scrollTop()));
     });

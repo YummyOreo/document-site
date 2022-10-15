@@ -13,10 +13,8 @@ export function requireAdmin(
     return next();
   }
 
-  res
-    .status(401)
-    .send({
-      status: 401,
-      error: 'You have to have "ADMIN" permmission to access this endpoint',
-    });
+  res.status(401).send({
+    status: 401,
+    error: 'You have to have "ADMIN" permission to access this endpoint',
+  });
 }

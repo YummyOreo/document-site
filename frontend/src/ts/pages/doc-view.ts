@@ -36,7 +36,7 @@ export class Page extends PageDefault {
     if (!urlParams.has("id") || urlParams.get("id") == "") {
       Snackbar.show({
         pos: "top-right",
-        text: "Plase provide a id. If you don't know how to do this, ask the developer",
+        text: "Please provide a id. If you don't know how to do this, ask the developer",
         textColor: "var(--text-white)",
         actionTextColor: "var(--text-error)",
       });

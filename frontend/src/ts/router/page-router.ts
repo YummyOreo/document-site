@@ -25,7 +25,7 @@ export let currentPage: PageDefault;
 
 export default async function getPage(): Promise<void> {
   for (const page in pages) {
-    if (compairUrl(pages[page].urls)) {
+    if (comparUrl(pages[page].urls)) {
       currentPage = new pages[page].Page();
       break;
     }
@@ -58,7 +58,7 @@ async function runPage(page: PageDefault) {
   await page.run();
 }
 
-function compairUrl(targetUrl: string[]): Boolean {
+function comparUrl(targetUrl: string[]): Boolean {
   const currentUrl = window.location.pathname;
 
   for (const i in targetUrl) {

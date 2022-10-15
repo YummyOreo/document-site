@@ -13,7 +13,7 @@ export async function isAuthed(
   ) {
     return res
       .status(401)
-      .send({ error: "Invalid Authorization methiod.", status: 401 });
+      .send({ error: "Invalid Authorization method.", status: 401 });
   }
 
   const token = req.header("Authorization").replace("Bearer ", "");
@@ -23,7 +23,7 @@ export async function isAuthed(
     .catch(() => {
       res.status(500).send({
         error:
-          "There was a interal server error, please try again. If this keeps happening, please contact the devs.",
+          "There was a internal server error, please try again. If this keeps happening, please contact the devs.",
         status: 500,
       });
     });
@@ -35,7 +35,7 @@ export async function isAuthed(
   if (!user) {
     return res
       .status(401)
-      .send({ error: "Faild to authenticate.", status: 401 });
+      .send({ error: "Failed to authenticate.", status: 401 });
   }
 
   setCurrentUser(

@@ -33,7 +33,7 @@ export class Page extends PageDefault {
   async run() {
     super.run();
 
-    $("#doc-title").text("Unamed");
+    $("#doc-title").text("Unnamed");
 
     $("#body").on("blur", (e) => {
       this.body = $(e.target).val().toString();
@@ -44,10 +44,10 @@ export class Page extends PageDefault {
     });
 
     $("#submit").on("click", async () => {
-      if (this.title == "" || this.title == "Unamed") {
+      if (this.title == "" || this.title == "Unnamed") {
         Snackbar.show({
           pos: "top-right",
-          text: "Plase provide a title",
+          text: "Please provide a title",
           textColor: "var(--text-white)",
           actionTextColor: "var(--text-error)",
         });
@@ -131,7 +131,7 @@ export class Page extends PageDefault {
     popup.hideFunc = () => {
       const elm = $("#doc-input-title");
       if (elm.val() == "") {
-        this.title = "Unamed";
+        this.title = "Unnamed";
       } else {
         this.title = elm.val().toString();
       }
