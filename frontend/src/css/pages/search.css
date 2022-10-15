@@ -46,6 +46,7 @@
 
 #search-box:focus {
   outline: 0px none !important;
+  border-color: var(--text-accent);
 }
 
 .documents {
