@@ -24,7 +24,7 @@ export class Page extends PageDefault {
     this.docPrevs = [];
   }
 
-  async run() {
+  async run(): Promise<any> {
     if (!auth.signedIn) {
       return showPopup(
         makeAccessDeniedPopup(

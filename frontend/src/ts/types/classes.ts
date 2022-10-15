@@ -7,7 +7,7 @@ export class PageDefault {
   html: string;
   css: string[];
   discordAuth: boolean;
-  constructor(name: string = "") {}
+  constructor() {}
 
   async run() {
     console.log(`Loaded page: ${this.name}`);
@@ -38,7 +38,7 @@ export class PopupDefault {
     this.css = css;
   }
 
-  makePopup() {
+  makePopup(): PopupDefault {
     $(`#popup-${this.id}.popup-inner`).load(
       `${folder.htmlPopup}popup.html .${this.className}`,
       () => {
@@ -54,6 +54,7 @@ export class PopupDefault {
         if (this.makeFunc) this.makeFunc(this);
       }
     );
+    return this;
   }
 
   showPopup() {

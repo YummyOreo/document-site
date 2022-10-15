@@ -32,41 +32,45 @@ export function makePopup(popup: PopupDefault): PopupDefault {
   return popup;
 }
 
-export function showPopup(popup: PopupDefault) {
-  if (isOpen(popup)) return;
+export function showPopup(popup: PopupDefault): PopupDefault {
+  if (isOpen(popup)) return popup;
   $("body").addClass("stop-scroll");
   popup.showPopup();
   currentOpen.push(popup);
+  return popup;
 }
 
-export function hidePopup(popup: PopupDefault) {
-  if (!isOpen(popup)) return;
+export function hidePopup(popup: PopupDefault): PopupDefault {
+  if (!isOpen(popup)) return popup;
 
   $("body").removeClass("stop-scroll");
   popup.hidePopup();
   currentOpen = currentOpen.filter((data) => data != popup);
+  return popup;
 }
 
-export function deletePopup(popup: PopupDefault) {
+export function deletePopup(popup: PopupDefault): PopupDefault {
   popups = popups.filter((data) => data != popup);
   $(`#popup-${popup.id}.popup-outer`).empty();
   $(`#popup-${popup.id}.popup-outer`).remove();
 
-  if (!isOpen(popup)) return;
+  if (!isOpen(popup)) return popup;
 
   currentOpen = currentOpen.filter((data) => data != popup);
+  return popup;
 }
 
-export function closePopup(popup: PopupDefault) {
-  if (!isOpen(popup)) return;
+export function closePopup(popup: PopupDefault): PopupDefault {
+  if (!isOpen(popup)) return popup;
 
   hidePopup(popup);
 
   setTimeout(() => {
     deletePopup(popup);
   }, 300);
+  return popup;
 }
 
-export function isOpen(popup: PopupDefault) {
+export function isOpen(popup: PopupDefault): boolean {
   return currentOpen.includes(popup);
 }

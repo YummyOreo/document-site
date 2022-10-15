@@ -30,7 +30,7 @@ export class Page extends PageDefault {
     this.author = false;
   }
 
-  async run() {
+  async run(): Promise<any> {
     super.run();
     var urlParams = new URLSearchParams(window.location.search);
     if (!urlParams.has("id") || urlParams.get("id") == "") {

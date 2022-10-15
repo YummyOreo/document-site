@@ -1,5 +1,7 @@
+import { closeOnClick } from "../../popup/common-popups";
+import { makePopup, showPopup } from "../../popup/popup-controller";
 import { store } from "../../store";
-import { DefaultComponent } from "../../types/classes";
+import { DefaultComponent, PopupDefault } from "../../types/classes";
 import { Group } from "../../types/FrontendTypes";
 
 export class GroupSettingComponent extends DefaultComponent {
@@ -39,6 +41,12 @@ export class GroupSettingComponent extends DefaultComponent {
       this.click();
       store["groupClicked"] = this;
     });
+
+    $(this.element)
+      .find(".group-settings")
+      .on("click", () => {
+        this.showSettingsMenue();
+      });
   }
 
   getId() {
@@ -67,5 +75,22 @@ export class GroupSettingComponent extends DefaultComponent {
   unClick() {
     $(this.element).find(".group").removeClass("group-clicked");
     $(this.element).find(".group").addClass("group-hover");
+  }
+
+  showSettingsMenue() {
+    const popup = new PopupDefault(
+      "50%",
+      "80%",
+      "var(--background-color-3)",
+      "group-settings",
+      "group-settings.css"
+    );
+
+    popup.makeFunc = (popup: PopupDefault) => {
+      closeOnClick(popup);
+    };
+
+    makePopup(popup);
+    showPopup(popup);
   }
 }
