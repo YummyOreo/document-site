@@ -8,11 +8,7 @@
   display: flex;
 }
 
-.group-hover:hover .group-name {
-  color: #e40083;
-}
-
-.group-clicked {
+.group:hover {
   border-width: 2px;
 
   animation: groupOutline 1s;
@@ -72,4 +68,8 @@
 
 .group-name::placeholder {
   color: var(--text-gray-prev) !important;
+}
+
+.group-clicked {
+  color: #e40083;
 }

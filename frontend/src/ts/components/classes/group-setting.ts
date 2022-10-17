@@ -68,13 +68,11 @@ export class GroupSettingComponent extends DefaultComponent {
   }
 
   click() {
-    $(this.element).find(".group").addClass("group-clicked");
-    $(this.element).find(".group").removeClass("group-hover");
+    $(this.element).find(".group-name").addClass("group-clicked");
   }
 
   unClick() {
-    $(this.element).find(".group").removeClass("group-clicked");
-    $(this.element).find(".group").addClass("group-hover");
+    $(this.element).find(".group-name").removeClass("group-clicked");
   }
 
   showSettingsMenu() {
