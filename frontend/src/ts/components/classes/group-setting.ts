@@ -23,6 +23,8 @@ export class GroupSettingComponent extends DefaultComponent {
 
     // detects if the group is new
     if (this.id == undefined) {
+      this.loadDefault();
+
       this.click();
       store["groupClicked"] = this;
     } else {
@@ -67,12 +69,20 @@ export class GroupSettingComponent extends DefaultComponent {
     }
   }
 
+  loadDefault() {
+    this.group = {
+      name: undefined,
+      color: "#b9bbbe",
+      position: undefined,
+    };
+  }
+
   click() {
-    $(this.element).find(".group-name").addClass("group-clicked");
+    $(this.element).find(".group-name").css("color", this.group.color);
   }
 
   unClick() {
-    $(this.element).find(".group-name").removeClass("group-clicked");
+    $(this.element).find(".group-name").css("color", "Unset");
   }
 
   showSettingsMenu() {
