@@ -33,7 +33,7 @@
   padding-left: 18%;
 }
 
-.group-settings object {
+.group-settings-button object {
   filter: var(--background-color-4-filter);
   transition: var(--transition);
 
@@ -42,7 +42,7 @@
   rotate: 0deg;
 }
 
-.group-settings:hover object {
+.group-settings-button:hover object {
   border-color: var(--text-accent);
 
   rotate: 180deg;

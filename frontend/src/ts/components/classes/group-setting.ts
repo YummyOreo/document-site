@@ -43,7 +43,7 @@ export class GroupSettingComponent extends DefaultComponent {
     });
 
     $(this.element)
-      .find(".group-settings")
+      .find(".group-settings-button")
       .on("click", () => {
         this.showSettingsMenu();
       });

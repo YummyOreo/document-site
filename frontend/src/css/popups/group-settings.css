@@ -1,0 +1,29 @@
+.group-settings {
+  padding-bottom: 15%;
+}
+
+#color {
+  transition: var(--transition);
+
+  padding: 10px 20px;
+
+  outline: none;
+  resize: none;
+
+  background-color: var(--text-gray-prev);
+  border-radius: 5px;
+  border: 2px solid var(--background-color-4);
+}
+
+#color:focus {
+  border-color: var(--text-accent);
+}
+
+.users {
+  height: 24.5rem;
+  width: 20rem;
+
+  background-color: var(--background-color-2);
+  border-radius: 10px;
+  border: 2px solid var(--background-color-1);
+}
