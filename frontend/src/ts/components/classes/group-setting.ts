@@ -85,6 +85,16 @@ export class GroupSettingComponent extends DefaultComponent {
     );
 
     popup.makeFunc = (popup: PopupDefault) => {
+      $(".color").css("color", this.group.color);
+      $("#color").val(this.group.color.toLowerCase());
+
+      const input = document.getElementById("color");
+      input.addEventListener("input", () => {
+        this.group.color = $("#color").val().toString();
+
+        $(".color").css("color", this.group.color);
+      });
+
       closeOnClick(popup);
     };
 
