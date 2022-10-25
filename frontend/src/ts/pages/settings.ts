@@ -1,4 +1,4 @@
-import { getGroups, makeGroup } from "../api/endpoints/groups";
+import { getGroups } from "../api/endpoints/groups";
 import { store } from "../store";
 import { PageDefault } from "../types/classes";
 import { Group } from "../types/FrontendTypes";
@@ -36,6 +36,8 @@ export class Page extends PageDefault {
   }
 
   async groupSettings() {
+    store["updatedGroups"] = {};
+    store["newGroups"] = {};
     $(".add-group").on("click", () => {
       const elm: Element = document.createElement("custom-component");
 

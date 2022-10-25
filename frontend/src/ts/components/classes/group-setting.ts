@@ -11,6 +11,7 @@ export class GroupSettingComponent extends DefaultComponent {
 
   group: Group;
   id: string;
+  shadowId: number;
   constructor() {
     super();
     this.name = "groupSetting";
@@ -49,6 +50,10 @@ export class GroupSettingComponent extends DefaultComponent {
       .on("click", () => {
         this.showSettingsMenu();
       });
+
+    $(".group-name").on("propertychange input", () => {
+      this.group.name = $(".group-name").val().toString();
+    });
   }
 
   getId() {
@@ -73,8 +78,12 @@ export class GroupSettingComponent extends DefaultComponent {
     this.group = {
       name: undefined,
       color: "#b9bbbe",
-      position: undefined,
+      position: store["groups"].length,
     };
+    this.shadowId = Object.keys(store["newGroups"]).length;
+    store["newGroups"][this.shadowId] = this.group;
+    store["groups"].push(this.group);
+    console.log(store);
   }
 
   click() {
@@ -98,11 +107,12 @@ export class GroupSettingComponent extends DefaultComponent {
       $(".color").css("color", this.group.color);
       $("#color").val(this.group.color.toLowerCase());
 
-      const input = document.getElementById("color");
-      input.addEventListener("input", () => {
-        this.group.color = $("#color").val().toString();
+      // find way around this, it only finds the first one, maybe $
+      $("#color").on("propertychange input", () => {
+        const val = $("#color").val().toString();
 
-        $(".color").css("color", this.group.color);
+        this.group.color = val;
+        $(".color").css("color", val);
       });
 
       closeOnClick(popup);
